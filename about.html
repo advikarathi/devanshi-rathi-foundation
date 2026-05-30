@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — DR Foundation</title>
+  <meta name="description" content="Learn about the Devanshi Rathi Foundation, its founder Devanshi Rathi, and the partner organisations that make our work possible." />
+  <link rel="icon" href="logo.jpeg" type="image/jpeg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --cr:#B22222;--cr-dk:#8B1A1A;--cr-pl:#FAF0F0;
+      --gd:#C4933A;--gd-dk:#A07830;--gd-pl:#FBF5E8;--gd-md:#D4A855;
+      --ink:#1a1a18;--ink-m:#4a4a47;--ink-f:#8a8a85;
+      --bg:#fdfcfa;--wh:#ffffff;
+      --b-cr:rgba(178,34,34,0.1);--b-gd:rgba(196,147,58,0.2);
+      --serif:'Cormorant Garamond',Georgia,serif;
+      --sans:'DM Sans',system-ui,sans-serif;
+      --max:1160px;--r:12px;--rl:20px
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:var(--sans);font-size:16px;line-height:1.7;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}
+    img{display:block;max-width:100%}
+    a{color:inherit;text-decoration:none}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,252,250,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--b-gd);padding:0 clamp(1.5rem,5vw,3rem)}
+    .nav-inner{max-width:var(--max);margin:0 auto;height:70px;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{display:flex;align-items:center;gap:12px}
+    .logo-img{width:44px;height:44px;object-fit:contain;border-radius:6px;border:1px solid var(--b-gd)}
+    .logo-text{font-family:var(--serif);font-size:19px;font-weight:600;color:var(--ink);line-height:1.1}
+    .logo-sub{font-size:10px;font-weight:300;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-f)}
+    .nav-links{display:flex;align-items:center;gap:.2rem;list-style:none}
+    .nav-links a{font-size:13.5px;color:var(--ink-m);padding:6px 12px;border-radius:6px;transition:color .2s,background .2s}
+    .nav-links a:hover,.nav-links a.active{color:var(--cr);background:var(--cr-pl)}
+    .nav-cta{background:var(--cr)!important;color:#fff!important;padding:8px 20px!important;border-radius:8px!important;font-weight:500!important}
+    .nav-cta:hover{background:var(--cr-dk)!important;color:#fff!important}
+
+    /* PAGE HERO */
+    .page-hero{padding:120px clamp(1.5rem,5vw,3rem) 64px;background:var(--wh);border-bottom:1px solid var(--b-gd)}
+    .page-hero-inner{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:4rem}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gd-dk);background:var(--gd-pl);padding:6px 14px;border-radius:100px;margin-bottom:1.25rem;border:1px solid var(--b-gd)}
+    .eyebrow::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gd)}
+    .page-hero h1{font-family:var(--serif);font-size:clamp(2.6rem,4.5vw,3.8rem);font-weight:600;line-height:1.1;color:var(--ink);letter-spacing:-.02em;margin-bottom:1.25rem}
+    .page-hero h1 em{font-style:italic;color:var(--cr)}
+    .page-hero-lead{font-size:17px;font-weight:300;color:var(--ink-m);line-height:1.8;max-width:480px}
+    .page-hero-nav{display:flex;flex-direction:column;gap:.75rem}
+    .ph-link{display:flex;align-items:center;gap:14px;background:var(--bg);border:1px solid var(--b-gd);border-radius:var(--r);padding:1rem 1.25rem;transition:border-color .2s,background .2s}
+    .ph-link:hover{border-color:var(--gd);background:var(--gd-pl)}
+    .ph-link-num{font-family:var(--serif);font-size:1.4rem;font-weight:600;color:var(--cr);width:36px;flex-shrink:0}
+    .ph-link-text{font-size:14px;font-weight:500;color:var(--ink)}
+    .ph-link-sub{font-size:12px;font-weight:300;color:var(--ink-f)}
+
+    /* SHARED SECTION */
+    .section{padding:5.5rem clamp(1.5rem,5vw,3rem)}
+    .si{max-width:var(--max);margin:0 auto}
+    .sec-ey{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gd-dk);margin-bottom:.85rem}
+    .sec-h{font-family:var(--serif);font-size:clamp(1.9rem,3vw,2.6rem);font-weight:600;color:var(--ink);line-height:1.15;margin-bottom:1rem;letter-spacing:-.01em}
+    .sec-lead{font-size:16px;font-weight:300;color:var(--ink-m);max-width:600px;margin-bottom:3rem;line-height:1.8}
+    .divider{height:1px;background:var(--b-gd);margin:0 clamp(1.5rem,5vw,3rem)}
+
+    /* FOUNDATION SECTION */
+    .foundation{background:var(--wh)}
+    .found-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:5rem;align-items:start}
+    .body-text{font-size:15px;font-weight:300;color:var(--ink-m);line-height:1.9;margin-bottom:1.25rem}
+    .mission-box{background:var(--cr);border-radius:var(--rl);padding:2.5rem;margin:2rem 0}
+    .mission-label{font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:.75rem}
+    .mission-text{font-family:var(--serif);font-size:1.25rem;font-style:italic;color:#fff;line-height:1.6}
+    .cred-stack{display:flex;flex-direction:column;gap:1rem}
+    .cred-card{background:var(--bg);border-radius:var(--r);padding:1.25rem 1.5rem;border:1px solid var(--b-gd)}
+    .cred-icon{font-size:1.4rem;margin-bottom:.5rem}
+    .cred-title{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:.3rem}
+    .cred-text{font-size:13px;font-weight:300;color:var(--ink-m);line-height:1.6}
+    .cred-highlight{font-size:11px;font-weight:500;color:var(--gd-dk);background:var(--gd-pl);padding:3px 10px;border-radius:100px;display:inline-block;margin-top:.5rem}
+    .sdg-row{display:flex;gap:1rem;margin-top:2rem}
+    .sdg-badge{flex:1;background:var(--gd-pl);border:1px solid var(--b-gd);border-radius:var(--r);padding:1.25rem;text-align:center}
+    .sdg-num{font-family:var(--serif);font-size:2rem;font-weight:600;color:var(--cr);line-height:1;margin-bottom:.35rem}
+    .sdg-label{font-size:12px;font-weight:400;color:var(--ink-m);line-height:1.4}
+
+    /* FOUNDER SECTION */
+    .founder{background:var(--bg)}
+    .founder-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:5rem;align-items:start}
+    .founder-card{background:var(--wh);border-radius:var(--rl);padding:2.5rem;border:1px solid var(--b-gd);position:relative;overflow:hidden}
+    .founder-card::after{content:'"';position:absolute;top:-20px;right:20px;font-family:var(--serif);font-size:200px;color:rgba(196,147,58,.06);line-height:1;pointer-events:none}
+    .founder-initial{width:72px;height:72px;border-radius:var(--rl);background:var(--cr-pl);border:2px solid var(--b-cr);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:2rem;font-weight:600;color:var(--cr);margin-bottom:1.5rem}
+    .founder-name{font-family:var(--serif);font-size:1.6rem;font-weight:600;color:var(--ink);margin-bottom:.25rem}
+    .founder-title{font-size:13px;font-weight:400;color:var(--ink-f);margin-bottom:1.5rem;letter-spacing:.04em}
+    .founder-divider{height:1px;background:var(--b-gd);margin:1.5rem 0}
+    .fact-row{display:flex;align-items:flex-start;gap:12px;margin-bottom:1rem}
+    .fact-dot{width:6px;height:6px;border-radius:50%;background:var(--gd);flex-shrink:0;margin-top:8px}
+    .fact-text{font-size:13.5px;color:var(--ink-m);line-height:1.55}
+    .fact-bold{font-weight:500;color:var(--ink)}
+    .timeline{margin-top:2rem}
+    .tl-item{display:flex;gap:1.5rem;margin-bottom:2rem;position:relative}
+    .tl-item::before{content:'';position:absolute;left:19px;top:40px;bottom:-2rem;width:1px;background:var(--b-gd)}
+    .tl-item:last-child::before{display:none}
+    .tl-dot{width:40px;height:40px;border-radius:50%;background:var(--gd-pl);border:2px solid var(--gd);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;font-weight:600;color:var(--gd-dk);z-index:1}
+    .tl-content{}
+    .tl-year{font-size:11px;font-weight:500;color:var(--gd-dk);letter-spacing:.06em;margin-bottom:.25rem}
+    .tl-title{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--ink);margin-bottom:.25rem}
+    .tl-text{font-size:13.5px;font-weight:300;color:var(--ink-m);line-height:1.6}
+
+    /* PARTNERS SECTION */
+    .partners{background:var(--wh)}
+    .partners-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem}
+    .partner-card{background:var(--bg);border-radius:var(--r);padding:1.5rem;border:1px solid var(--b-gd);transition:border-color .2s,transform .2s}
+    .partner-card:hover{border-color:var(--gd);transform:translateY(-2px)}
+    .partner-name{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--ink);margin-bottom:.4rem}
+    .partner-loc{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--gd-dk);margin-bottom:.6rem}
+    .partner-desc{font-size:13.5px;font-weight:300;color:var(--ink-m);line-height:1.65}
+    .partner-tag{display:inline-block;font-size:11px;color:var(--cr);background:var(--cr-pl);padding:3px 10px;border-radius:100px;margin-top:.75rem}
+
+    /* FOOTER */
+    footer{background:#111110;padding:4.5rem clamp(1.5rem,5vw,3rem) 2rem}
+    .fi{max-width:var(--max);margin:0 auto}
+    .ft{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:2rem}
+    .fl{display:flex;align-items:center;gap:12px}
+    .fli{width:40px;height:40px;object-fit:contain;border-radius:6px;opacity:.85}
+    .fl .logo-text{color:#fff}
+    .fl .logo-sub{color:rgba(255,255,255,.3)}
+    .ftag{font-size:13px;font-weight:300;color:rgba(255,255,255,.4);line-height:1.75;margin-top:1rem;max-width:260px}
+    .fsoc{display:flex;gap:9px;margin-top:1.5rem}
+    .sl{width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,.07);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);font-size:11px;font-weight:600;transition:background .2s,color .2s}
+    .sl:hover{background:var(--cr);color:#fff}
+    .fc h4{font-size:10.5px;font-weight:500;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:1.25rem}
+    .flinks{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+    .flinks a{font-size:13.5px;font-weight:300;color:rgba(255,255,255,.6);transition:color .2s}
+    .flinks a:hover{color:var(--gd-md)}
+    .fb{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    .flegal{font-size:12px;font-weight:300;color:rgba(255,255,255,.25)}
+    .fcin{font-size:11px;font-weight:300;color:rgba(255,255,255,.15);font-family:monospace}
+
+    /* ANIM */
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .fu{animation:fadeUp .7s ease both}
+    .fu2{animation:fadeUp .7s .1s ease both}
+    .fu3{animation:fadeUp .7s .2s ease both}
+
+    /* RESPONSIVE */
+    @media(max-width:900px){
+      .page-hero-inner{grid-template-columns:1fr}
+      .found-grid,.founder-grid{grid-template-columns:1fr;gap:3rem}
+      .partners-grid{grid-template-columns:1fr}
+      .ft{grid-template-columns:1fr 1fr;gap:2rem}
+    }
+    @media(max-width:600px){
+      .nav-links{display:none}
+      .sdg-row{flex-direction:column}
+      .ft{grid-template-columns:1fr}
+      .fb{flex-direction:column;align-items:flex-start}
+    }
+  </style>
+</head>
+<body>
+
+<nav aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="DR Foundation home">
+      <img src="logo.jpeg" alt="DR Foundation logo" class="logo-img" />
+      <div>
+        <div class="logo-text">DR Foundation</div>
+        <div class="logo-sub">Devanshi Rathi Foundation</div>
+      </div>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="programs.html">Programs</a></li>
+      <li><a href="impact.html">Impact</a></li>
+      <li><a href="press.html">Press</a></li>
+      <li><a href="get-involved.html">Get Involved</a></li>
+      <li><a href="get-involved.html#donate" class="nav-cta">Donate</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div>
+        <div class="eyebrow fu">About DR Foundation</div>
+        <h1 class="fu2">The people and <em>purpose</em> behind the work</h1>
+        <p class="page-hero-lead fu3">A Section 8 non-profit founded in New Delhi in 2018, built on the belief that education, sport, and health can transform lives &mdash; regardless of background or ability.</p>
+      </div>
+      <div class="page-hero-nav" aria-label="Page sections">
+        <a href="#foundation" class="ph-link">
+          <div class="ph-link-num">01</div>
+          <div><div class="ph-link-text">The Foundation</div><div class="ph-link-sub">Origin, mission, legal credentials</div></div>
+        </a>
+        <a href="#founder" class="ph-link">
+          <div class="ph-link-num">02</div>
+          <div><div class="ph-link-text">About the Founder</div><div class="ph-link-sub">Devanshi Rathi &mdash; chess, Berkeley, DRF</div></div>
+        </a>
+        <a href="#partners" class="ph-link">
+          <div class="ph-link-num">03</div>
+          <div><div class="ph-link-text">Our Partners</div><div class="ph-link-sub">NGOs &amp; organisations we work with</div></div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOUNDATION -->
+  <section class="section foundation" id="foundation" aria-labelledby="found-h">
+    <div class="si">
+      <div class="found-grid">
+        <div>
+          <p class="sec-ey">The Foundation</p>
+          <h2 id="found-h" class="sec-h">Who we are</h2>
+          <p class="body-text">The Devanshi Rathi Foundation &mdash; known as DR Foundation or DRF &mdash; is a Section 8 non-profit company incorporated in New Delhi on 18 June 2018. We work at the intersection of education, sport, and health, with a focus on underprivileged youth and persons with disabilities across India.</p>
+          <p class="body-text">The foundation grew out of Project Checkmate, which Devanshi launched in April 2016 while in Class 11, running on-ground chess training at the National Association of the Blind in R.K. Puram, New Delhi. When the project outgrew its informal structure, she formalised it as a registered non-profit &mdash; and DRF was born.</p>
+          <p class="body-text">Today, DRF runs scholarship programmes, chess training initiatives, and health partnerships across India, aligned to the United Nations Sustainable Development Goals 3 (Good Health &amp; Well-being) and 4 (Quality Education).</p>
+
+          <div class="mission-box">
+            <div class="mission-label">Our Mission</div>
+            <p class="mission-text">&ldquo;To empower the world through education, sport, health, and sustainability through directed projects as well as impact investing.&rdquo;</p>
+          </div>
+
+          <div class="sdg-row">
+            <div class="sdg-badge">
+              <div class="sdg-num">SDG 3</div>
+              <div class="sdg-label">Good Health &amp; Well-being</div>
+            </div>
+            <div class="sdg-badge">
+              <div class="sdg-num">SDG 4</div>
+              <div class="sdg-label">Quality Education</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cred-stack">
+          <div class="cred-card">
+            <div class="cred-icon">&#9816;</div>
+            <div class="cred-title">Legal Status</div>
+            <p class="cred-text">Section 8 Non-Profit Company under the Companies Act, 2013 &mdash; the Indian equivalent of a 501(c) charity. Profits are applied entirely to our mission; dividends are prohibited.</p>
+            <span class="cred-highlight">CIN: U92490DL2018NPL335483</span>
+          </div>
+          <div class="cred-card">
+            <div class="cred-icon">&#10003;</div>
+            <div class="cred-title">80G Certified</div>
+            <p class="cred-text">All donations to the DR Foundation are tax-exempt under Section 80G of the Income Tax Act, 1961. You can claim a deduction on your contribution.</p>
+            <span class="cred-highlight">Donate via Instamojo</span>
+          </div>
+          <div class="cred-card">
+            <div class="cred-icon">&#9679;</div>
+            <div class="cred-title">Registered Office</div>
+            <p class="cred-text">A-24/8, Mohan Co-operative Industrial Area, New Delhi &mdash; 110044.</p>
+          </div>
+          <div class="cred-card">
+            <div class="cred-icon">&#9993;</div>
+            <div class="cred-title">Contact</div>
+            <p class="cred-text">General enquiries and volunteer applications: <strong>projectcheckmate64@gmail.com</strong><br/>Founder: devanshirathi10@gmail.com</p>
+          </div>
+          <div class="cred-card">
+            <div class="cred-icon">&#127757;</div>
+            <div class="cred-title">Social Media</div>
+            <p class="cred-text">Follow us on Facebook, Instagram, LinkedIn, and Twitter/X under <strong>@d_r_foundation</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- FOUNDER -->
+  <section class="section founder" id="founder" aria-labelledby="founder-h">
+    <div class="si">
+      <div class="founder-grid">
+        <div>
+          <p class="sec-ey">About the Founder</p>
+          <h2 id="founder-h" class="sec-h">Devanshi Rathi</h2>
+          <p class="body-text">Devanshi Rathi was born in 1999 in New Delhi. She started playing chess at age eight at Modern School, Vasant Vihar, and was coached from around age nine by IM Vishal Sareen. Chess became more than a game &mdash; it became a lens through which she understood focus, strategy, and the cost of inequality in access to opportunity.</p>
+          <p class="body-text">In 2016, at 16, she won a Bronze Medal at the Commonwealth Chess Championship Under-18 Girls category in Waskaduwa, Sri Lanka &mdash; and in the same year, launched Project Checkmate, her first attempt to use chess as a social tool. She started by teaching underprivileged children at the International Society of Human Welfare and Rehabilitation, then expanded to the National Association of the Blind, R.K. Puram.</p>
+          <p class="body-text">She was selected as a Queen&rsquo;s Young Leader Highly Commended Runner-Up in 2018, attending the University of Cambridge&rsquo;s Institute of Continuing Education as part of the programme. That same year, she registered the Devanshi Rathi Foundation as a formal Section 8 non-profit.</p>
+          <p class="body-text">She went on to study at the University of California, Berkeley (2018&ndash;2022), where she designed her own Interdisciplinary Studies Field major and served as Co-President of the UC Berkeley Chess Club alongside WIM Ashritha Eswaran &mdash; the first time the club had two female co-presidents. She graduated in 2022.</p>
+          <p class="body-text">Devanshi has written for The Bridge, ChessBase India, DailyO, and the UC Berkeley SCET blog, and has been profiled by WeCapable, The Optimist Citizen, ScooNews, and the Women Economic Forum. She has spoken at the Indian Youth Forum Awards and the Women Economic Forum.</p>
+        </div>
+
+        <div>
+          <div class="founder-card">
+            <div class="founder-initial" aria-hidden="true">DR</div>
+            <div class="founder-name">Devanshi Rathi</div>
+            <div class="founder-title">Founder &amp; Managing Director, DR Foundation</div>
+            <div class="founder-divider"></div>
+            <div class="fact-row"><div class="fact-dot"></div><div class="fact-text"><span class="fact-bold">Arena International Master (AIM)</span> &mdash; FIDE ID 25041452</div></div>
+            <div class="fact-row"><div class="fact-dot"></div><div class="fact-text"><span class="fact-bold">UC Berkeley</span> graduate, Interdisciplinary Studies Field, 2022</div></div>
+            <div class="fact-row"><div class="fact-dot"></div><div class="fact-text"><span class="fact-bold">Queen&rsquo;s Young Leader</span> Highly Commended Runner-Up, 2018</div></div>
+            <div class="fact-row"><div class="fact-dot"></div><div class="fact-text"><span class="fact-bold">Modern School</span> Vasant Vihar, New Delhi &mdash; 95% Class 10, 93.25% Class 12</div></div>
+            <div class="fact-row"><div class="fact-dot"></div><div class="fact-text">Co-President, <span class="fact-bold">UC Berkeley Chess Club</span> 2020&ndash;21</div></div>
+            <div class="fact-row"><div class="fact-dot"></div><div class="fact-text">Author of <span class="fact-bold">Chess Notes</span> (also released in Braille) and <span class="fact-bold">Trainer&rsquo;s Manual</span></div></div>
+          </div>
+
+          <div class="timeline" aria-label="Devanshi's timeline">
+            <div class="tl-item">
+              <div class="tl-dot">2016</div>
+              <div class="tl-content">
+                <div class="tl-year">2016</div>
+                <div class="tl-title">Commonwealth Bronze &amp; Project Checkmate</div>
+                <p class="tl-text">Bronze medal, Commonwealth Chess Championship U-18 Girls, Sri Lanka. Launched Project Checkmate at ISHWAR, New Delhi.</p>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot">2017</div>
+              <div class="tl-content">
+                <div class="tl-year">2017</div>
+                <div class="tl-title">Indian Youth Forum Award</div>
+                <p class="tl-text">Project Checkmate received the Indian Youth Forum Award for Excellence in Youth Development. Organised the North Zone Chess Championship for the Blind at NAB, New Delhi.</p>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot">2018</div>
+              <div class="tl-content">
+                <div class="tl-year">2018</div>
+                <div class="tl-title">Queen&rsquo;s Young Leader &amp; DRF Founded</div>
+                <p class="tl-text">Highly Commended Runner-Up, Queen&rsquo;s Young Leaders Programme. Registered the Devanshi Rathi Foundation as a Section 8 non-profit. Began undergraduate studies at UC Berkeley.</p>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot">2020</div>
+              <div class="tl-content">
+                <div class="tl-year">2020&ndash;21</div>
+                <div class="tl-title">DRF Scholarships &amp; Project Checkmate 2.0</div>
+                <p class="tl-text">Launched virtual scholarship programmes including Devajyoti (with Paralympic medalist Dr. Deepa Malik) and Shaktinaari. Expanded Project Checkmate to online formats for blind and women chess players across India.</p>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot">2022</div>
+              <div class="tl-content">
+                <div class="tl-year">2022</div>
+                <div class="tl-title">UC Berkeley, Graduated</div>
+                <p class="tl-text">Completed her Interdisciplinary Studies Field degree at UC Berkeley. Returned to New Delhi to continue building the foundation full-time.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PARTNERS -->
+  <section class="section partners" id="partners" aria-labelledby="part-h">
+    <div class="si">
+      <p class="sec-ey">Our Partners</p>
+      <h2 id="part-h" class="sec-h">The organisations behind our work</h2>
+      <p class="sec-lead">Every programme we run is built on a partnership. These are the NGOs, clinics, and organisations who have worked alongside us to make change possible.</p>
+
+      <div class="partners-grid">
+        <div class="partner-card">
+          <div class="partner-name">National Association of the Blind (NAB)</div>
+          <div class="partner-loc">R.K. Puram, New Delhi</div>
+          <p class="partner-desc">Our primary and longest-standing partner. Project Checkmate&rsquo;s on-ground chess training, scholarship ceremonies, dental camps, and infrastructure support (including a new refrigerator for home-science students) have all been delivered here.</p>
+          <span class="partner-tag">Primary Partner</span>
+        </div>
+        <div class="partner-card">
+          <div class="partner-name">Wheeling Happiness Foundation</div>
+          <div class="partner-loc">New Delhi</div>
+          <p class="partner-desc">Co-organised the Devajyoti Scholarships 2021 with DRF. Founded by Paralympic gold medalist Dr. Deepa Malik (Padma Shri, Rajiv Gandhi Khel Ratna) and her daughter Devika Malik, a fellow Queen&rsquo;s Young Leader awardee.</p>
+          <span class="partner-tag">Scholarship Partner</span>
+        </div>
+        <div class="partner-card">
+          <div class="partner-name">International Society of Human Welfare &amp; Rehabilitation (ISHWAR)</div>
+          <div class="partner-loc">New Delhi</div>
+          <p class="partner-desc">The first NGO partner for Project Checkmate, working with approximately 20 underprivileged children in Phase 1 of the programme.</p>
+          <span class="partner-tag">Education Partner</span>
+        </div>
+        <div class="partner-card">
+          <div class="partner-name">ACTit Network</div>
+          <div class="partner-loc">Fiji</div>
+          <p class="partner-desc">Delivered &ldquo;Thoughts Aloud&rdquo; mental health sessions for DRF students &mdash; an international collaboration supporting emotional wellbeing alongside academic progress.</p>
+          <span class="partner-tag">Health Partner</span>
+        </div>
+        <div class="partner-card">
+          <div class="partner-name">Red is the New Green</div>
+          <div class="partner-loc">Mumbai</div>
+          <p class="partner-desc">Conducted telephonic menstrual hygiene education sessions for girls as part of DRF&rsquo;s health initiatives &mdash; reaching students who may not otherwise have access to this information.</p>
+          <span class="partner-tag">Health Partner</span>
+        </div>
+        <div class="partner-card">
+          <div class="partner-name">Kamal Dental Clinic</div>
+          <div class="partner-loc">New Delhi</div>
+          <p class="partner-desc">Dr. Ashu Gupta and Mr. Sarthak Gupta delivered in-person dental hygiene sessions at NAB, R.K. Puram. Mr. Sarthak Gupta also accompanied 10 students to the Annual Inter-NGO Sports Meet at Modern School Vasant Vihar.</p>
+          <span class="partner-tag">Health Partner</span>
+        </div>
+        <div class="partner-card">
+          <div class="partner-name">Baala</div>
+          <div class="partner-loc">New Delhi</div>
+          <p class="partner-desc">Partnered with DRF to distribute reusable sanitary kits and educational booklets to women at Kushalta Vikas Kender, New Delhi &mdash; addressing menstrual health and hygiene at a grassroots level.</p>
+          <span class="partner-tag">Health Partner</span>
+        </div>
+        <div class="partner-card">
+          <div class="partner-name">Ek Kadam Aur Foundation</div>
+          <div class="partner-loc">India</div>
+          <p class="partner-desc">Hosted an online lecture by Devanshi on the benefits of chess for their student community in March 2021, expanding awareness of Project Checkmate&rsquo;s model across India.</p>
+          <span class="partner-tag">Education Partner</span>
+        </div>
+      </div>
+
+      <div style="margin-top:3rem;background:var(--cr);border-radius:var(--rl);padding:2.5rem;text-align:center">
+        <p style="font-family:var(--serif);font-size:1.3rem;font-weight:600;color:#fff;margin-bottom:.75rem">Interested in partnering with us?</p>
+        <p style="font-size:14px;font-weight:300;color:rgba(255,255,255,.8);margin-bottom:1.5rem;max-width:480px;margin-left:auto;margin-right:auto">We welcome corporates for CSR initiatives, NGOs with aligned vision, and organisations who want to host Devanshi as a speaker.</p>
+        <a href="get-involved.html#partner" style="background:#fff;color:var(--cr);padding:12px 28px;border-radius:var(--r);font-size:14px;font-weight:500;display:inline-flex;align-items:center;gap:8px">
+          Partner with DRF
+          <svg style="width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="fi">
+    <div class="ft">
+      <div>
+        <div class="fl">
+          <img src="logo.jpeg" alt="" class="fli" />
+          <div>
+            <div class="logo-text">DR Foundation</div>
+            <div class="logo-sub">Devanshi Rathi Foundation</div>
+          </div>
+        </div>
+        <p class="ftag">Empowering through Education, Sport, and Health. Section 8 Non-Profit &middot; New Delhi.</p>
+        <div class="fsoc" aria-label="Social media">
+          <a href="https://www.facebook.com/devanshirathifoundation/" target="_blank" rel="noopener noreferrer" class="sl" aria-label="Facebook">Fb</a>
+          <a href="https://www.instagram.com/d_r_foundation/" target="_blank" rel="noopener noreferrer" class="sl" aria-label="Instagram">In</a>
+          <a href="https://in.linkedin.com/company/d-r-foundation" target="_blank" rel="noopener noreferrer" class="sl" aria-label="LinkedIn">Li</a>
+          <a href="https://twitter.com/d_r_foundation" target="_blank" rel="noopener noreferrer" class="sl" aria-label="Twitter">X</a>
+        </div>
+      </div>
+      <div class="fc">
+        <h4>About</h4>
+        <ul class="flinks">
+          <li><a href="about.html#foundation">The Foundation</a></li>
+          <li><a href="about.html#founder">About Devanshi</a></li>
+          <li><a href="about.html#partners">Our Partners</a></li>
+        </ul>
+      </div>
+      <div class="fc">
+        <h4>Programmes</h4>
+        <ul class="flinks">
+          <li><a href="programs.html#checkmate">Project Checkmate</a></li>
+          <li><a href="programs.html#scholarships">DRF Scholarships</a></li>
+          <li><a href="programs.html#health">Health Initiatives</a></li>
+        </ul>
+      </div>
+      <div class="fc">
+        <h4>Get Involved</h4>
+        <ul class="flinks">
+          <li><a href="get-involved.html#donate">Donate</a></li>
+          <li><a href="get-involved.html#volunteer">Volunteer &amp; Intern</a></li>
+          <li><a href="get-involved.html#partner">Partner with Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fb">
+      <p class="flegal">&copy; 2024 Devanshi Rathi Foundation. All rights reserved.</p>
+      <p class="fcin">CIN: U92490DL2018NPL335483</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
