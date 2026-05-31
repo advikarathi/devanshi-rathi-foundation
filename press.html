@@ -187,7 +187,33 @@
         
         .page-hero {
             position: relative;
+            overflow: hidden;
             background: linear-gradient(135deg, rgba(196, 147, 58, .08) 0%, rgba(178, 34, 34, .04) 100%)
+        }
+        
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: -90px;
+            right: -70px;
+            width: 280px;
+            height: 280px;
+            background: radial-gradient(circle at center, rgba(178, 34, 34, .16), transparent 60%);
+            filter: blur(20px);
+            pointer-events: none;
+        }
+        
+        .page-hero::after {
+            content: '';
+            position: absolute;
+            left: -80px;
+            bottom: -80px;
+            width: 220px;
+            height: 220px;
+            border: 1px solid rgba(196, 147, 58, .16);
+            border-radius: 30px;
+            transform: rotate(28deg);
+            pointer-events: none;
         }
         
         .page-hero h1 {
@@ -198,7 +224,7 @@
             color: var(--ink);
             letter-spacing: -.02em;
             margin-bottom: 1.25rem;
-            max-width: 700px
+            max-width: 700px;
         }
         
         .page-hero h1 em {
@@ -338,7 +364,8 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
-            margin-bottom: 1.5rem
+            margin-bottom: 1.5rem;
+            perspective: 1200px;
         }
         
         .featured-card {
@@ -348,12 +375,25 @@
             border: 1px solid var(--b-gd);
             display: flex;
             flex-direction: column;
-            transition: transform .25s, box-shadow .25s
+            transition: transform .25s, box-shadow .25s, border-color .25s;
+            transform-style: preserve-3d;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .featured-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, .14), transparent 38%);
+            pointer-events: none;
+            transform: translateZ(0);
         }
         
         .featured-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(178, 34, 34, .07)
+            transform: translateY(-10px) rotateX(2deg) rotateZ(-.4deg);
+            box-shadow: 0 26px 60px rgba(178, 34, 34, .12);
+            border-color: rgba(178, 34, 34, .16);
         }
         
         .fc-outlet {
@@ -566,11 +606,11 @@
         /* MEDIA ENQUIRY */
         
         .media-cta {
-            background: var(--ink);
+            background: linear-gradient(135deg, #1f1a17, #3b2f25);
             padding: 5rem clamp(1.5rem, 5vw, 3rem);
             text-align: center;
             position: relative;
-            overflow: hidden
+            overflow: hidden;
         }
         
         .media-cta::before {
@@ -581,12 +621,25 @@
             font-size: 300px;
             color: rgba(255, 255, 255, .025);
             line-height: 1;
-            pointer-events: none
+            pointer-events: none;
+        }
+        
+        .media-cta::after {
+            content: '';
+            position: absolute;
+            right: -70px;
+            bottom: -70px;
+            width: 200px;
+            height: 200px;
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: 28px;
+            transform: rotate(26deg);
+            pointer-events: none;
         }
         
         .media-cta .si {
             position: relative;
-            z-index: 1
+            z-index: 1;
         }
         
         .cta-tag {
