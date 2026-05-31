@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact — DR Foundation</title>
+    <meta name="description" content="Get in touch with the DR Foundation. Contact us for donations, volunteering, partnerships, media enquiries, or general questions." />
+    <link rel="icon" href="logo.jpeg" type="image/jpeg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+        
+         :root {
+            --cr: #B22222;
+            --cr-dk: #8B1A1A;
+            --cr-pl: #FAF0F0;
+            --gd: #C4933A;
+            --gd-dk: #A07830;
+            --gd-pl: #FBF5E8;
+            --gd-md: #D4A855;
+            --ink: #1a1a18;
+            --ink-m: #4a4a47;
+            --ink-f: #8a8a85;
+            --bg: #fdfcfa;
+            --wh: #ffffff;
+            --b-cr: rgba(178, 34, 34, 0.1);
+            --b-gd: rgba(196, 147, 58, 0.2);
+            --serif: 'Cormorant Garamond', Georgia, serif;
+            --sans: 'DM Sans', system-ui, sans-serif;
+            --max: 1160px;
+            --r: 12px;
+            --rl: 20px
+        }
+        
+        html {
+            scroll-behavior: smooth
+        }
+        
+        body {
+            font-family: var(--sans);
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--ink);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased
+        }
+        
+        img {
+            display: block;
+            max-width: 100%
+        }
+        
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(253, 252, 250, .94);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--b-gd);
+            padding: 0 clamp(1.5rem, 5vw, 3rem)
+        }
+        
+        .nav-inner {
+            max-width: var(--max);
+            margin: 0 auto;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+        
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+        
+        .logo-img {
+            width: 44px;
+            height: 44px;
+            object-fit: contain;
+            border-radius: 6px;
+            border: 1px solid var(--b-gd)
+        }
+        
+        .logo-text {
+            font-family: var(--serif);
+            font-size: 19px;
+            font-weight: 600;
+            color: var(--ink);
+            line-height: 1.1
+        }
+        
+        .logo-sub {
+            font-size: 10px;
+            font-weight: 300;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--ink-f)
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: .2rem;
+            list-style: none
+        }
+        
+        .nav-links a {
+            font-size: 13.5px;
+            color: var(--ink-m);
+            padding: 6px 12px;
+            border-radius: 6px;
+            transition: color .2s, background .2s
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--cr);
+            background: var(--cr-pl)
+        }
+        
+        .nav-cta {
+            background: var(--cr)!important;
+            color: #fff!important;
+            padding: 8px 20px!important;
+            border-radius: 8px!important;
+            font-weight: 500!important
+        }
+        
+        .nav-cta:hover {
+            background: var(--cr-dk)!important;
+            color: #fff!important
+        }
+        /* PAGE HERO */
+        
+        .page-hero {
+            padding: 120px clamp(1.5rem, 5vw, 3rem) 72px;
+            background: var(--wh);
+            border-bottom: 1px solid var(--b-gd)
+        }
+        
+        .page-hero-inner {
+            max-width: var(--max);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 4rem
+        }
+        
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--gd-dk);
+            background: var(--gd-pl);
+            padding: 6px 14px;
+            border-radius: 100px;
+            margin-bottom: 1.25rem;
+            border: 1px solid var(--b-gd)
+        }
+        
+        .eyebrow::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--gd)
+        }
+        
+        .page-hero h1 {
+            font-family: var(--serif);
+            font-size: clamp(2.6rem, 4.5vw, 3.8rem);
+            font-weight: 600;
+            line-height: 1.1;
+            color: var(--ink);
+            letter-spacing: -.02em;
+            margin-bottom: 1.25rem
+        }
+        
+        .page-hero h1 em {
+            font-style: italic;
+            color: var(--cr)
+        }
+        
+        .page-hero-lead {
+            font-size: 17px;
+            font-weight: 300;
+            color: var(--ink-m);
+            line-height: 1.8
+        }
+        
+        .quick-contacts {
+            display: flex;
+            flex-direction: column;
+            gap: .85rem
+        }
+        
+        .qc-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: var(--bg);
+            border: 1px solid var(--b-gd);
+            border-radius: var(--r);
+            padding: 1rem 1.25rem;
+            transition: border-color .2s, background .2s
+        }
+        
+        .qc-item:hover {
+            border-color: var(--gd);
+            background: var(--gd-pl)
+        }
+        
+        .qc-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 8px;
+            background: var(--cr-pl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 17px;
+            flex-shrink: 0
+        }
+        
+        .qc-label {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--ink-f);
+            margin-bottom: .15rem
+        }
+        
+        .qc-value {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--ink)
+        }
+        /* MAIN CONTENT */
+        
+        .main-content {
+            padding: 5.5rem clamp(1.5rem, 5vw, 3rem)
+        }
+        
+        .main-inner {
+            max-width: var(--max);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: start
+        }
+        /* CONTACT FORM */
+        
+        .form-section {}
+        
+        .sec-ey {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--gd-dk);
+            margin-bottom: .85rem
+        }
+        
+        .sec-h {
+            font-family: var(--serif);
+            font-size: clamp(1.9rem, 3vw, 2.6rem);
+            font-weight: 600;
+            color: var(--ink);
+            line-height: 1.15;
+            margin-bottom: 1rem;
+            letter-spacing: -.01em
+        }
+        
+        .sec-lead {
+            font-size: 15px;
+            font-weight: 300;
+            color: var(--ink-m);
+            margin-bottom: 2rem;
+            line-height: 1.8
+        }
+        
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem
+        }
+        
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: .45rem
+        }
+        
+        .field label {
+            font-size: 12.5px;
+            font-weight: 500;
+            color: var(--ink);
+            letter-spacing: .02em
+        }
+        
+        .field label span {
+            color: var(--cr)
+        }
+        
+        .field input,
+        .field select,
+        .field textarea {
+            font-family: var(--sans);
+            font-size: 14px;
+            font-weight: 300;
+            color: var(--ink);
+            background: var(--wh);
+            border: 1.5px solid var(--b-gd);
+            border-radius: var(--r);
+            padding: 11px 14px;
+            outline: none;
+            transition: border-color .2s, box-shadow .2s;
+            width: 100%
+        }
+        
+        .field input:focus,
+        .field select:focus,
+        .field textarea:focus {
+            border-color: var(--gd);
+            box-shadow: 0 0 0 3px rgba(196, 147, 58, .12)
+        }
+        
+        .field input::placeholder,
+        .field textarea::placeholder {
+            color: var(--ink-f)
+        }
+        
+        .field textarea {
+            resize: vertical;
+            min-height: 130px;
+            line-height: 1.65
+        }
+        
+        .field select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238a8a85' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 36px
+        }
+        
+        .submit-btn {
+            background: var(--cr);
+            color: #fff;
+            padding: 14px 32px;
+            border-radius: var(--r);
+            font-family: var(--sans);
+            font-size: 14px;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background .2s, transform .2s;
+            align-self: flex-start
+        }
+        
+        .submit-btn:hover {
+            background: var(--cr-dk);
+            transform: translateY(-1px)
+        }
+        
+        .form-note {
+            font-size: 12px;
+            font-weight: 300;
+            color: var(--ink-f);
+            margin-top: .25rem
+        }
+        /* CONTACT INFO PANEL */
+        
+        .info-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem
+        }
+        
+        .info-card {
+            background: var(--wh);
+            border-radius: var(--rl);
+            padding: 2rem;
+            border: 1px solid var(--b-gd)
+        }
+        
+        .info-card-title {
+            font-family: var(--serif);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 1.25rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--b-gd)
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 1rem
+        }
+        
+        .info-item:last-child {
+            margin-bottom: 0
+        }
+        
+        .info-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--gd);
+            flex-shrink: 0;
+            margin-top: 7px
+        }
+        
+        .info-label {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--ink-f);
+            margin-bottom: .2rem
+        }
+        
+        .info-value {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--ink);
+            word-break: break-word
+        }
+        
+        .info-value a {
+            color: var(--cr);
+            transition: opacity .2s
+        }
+        
+        .info-value a:hover {
+            opacity: .75
+        }
+        
+        .social-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: .75rem;
+            margin-top: .5rem
+        }
+        
+        .soc-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--bg);
+            border: 1px solid var(--b-gd);
+            border-radius: var(--r);
+            padding: .75rem 1rem;
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--ink-m);
+            transition: border-color .2s, color .2s, background .2s
+        }
+        
+        .soc-link:hover {
+            border-color: var(--cr);
+            color: var(--cr);
+            background: var(--cr-pl)
+        }
+        
+        .soc-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            background: var(--cr-pl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--cr);
+            flex-shrink: 0
+        }
+        
+        .legal-box {
+            background: var(--gd-pl);
+            border-radius: var(--r);
+            padding: 1.25rem 1.5rem;
+            border: 1px solid var(--b-gd)
+        }
+        
+        .legal-title {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--gd-dk);
+            margin-bottom: .75rem
+        }
+        
+        .legal-item {
+            font-size: 12.5px;
+            font-weight: 300;
+            color: var(--ink-m);
+            margin-bottom: .35rem;
+            font-family: monospace
+        }
+        /* SUCCESS STATE */
+        
+        .form-success {
+            display: none;
+            background: var(--gd-pl);
+            border: 1px solid var(--b-gd);
+            border-radius: var(--rl);
+            padding: 2.5rem;
+            text-align: center
+        }
+        
+        .form-success.visible {
+            display: block
+        }
+        
+        .success-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem
+        }
+        
+        .success-title {
+            font-family: var(--serif);
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: .5rem
+        }
+        
+        .success-text {
+            font-size: 14px;
+            font-weight: 300;
+            color: var(--ink-m);
+            line-height: 1.7
+        }
+        
+        footer {
+            background: #111110;
+            padding: 4.5rem clamp(1.5rem, 5vw, 3rem) 2rem
+        }
+        
+        .fi {
+            max-width: var(--max);
+            margin: 0 auto
+        }
+        
+        .ft {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr 1fr 1fr;
+            gap: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(255, 255, 255, .07);
+            margin-bottom: 2rem
+        }
+        
+        .fl {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+        
+        .fli {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            border-radius: 6px;
+            opacity: .85
+        }
+        
+        .fl .logo-text {
+            color: #fff
+        }
+        
+        .fl .logo-sub {
+            color: rgba(255, 255, 255, .3)
+        }
+        
+        .ftag {
+            font-size: 13px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, .4);
+            line-height: 1.75;
+            margin-top: 1rem;
+            max-width: 260px
+        }
+        
+        .fsoc {
+            display: flex;
+            gap: 9px;
+            margin-top: 1.5rem
+        }
+        
+        .sl {
+            width: 34px;
+            height: 34px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, .07);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, .5);
+            font-size: 11px;
+            font-weight: 600;
+            transition: background .2s, color .2s
+        }
+        
+        .sl:hover {
+            background: var(--cr);
+            color: #fff
+        }
+        
+        .fc h4 {
+            font-size: 10.5px;
+            font-weight: 500;
+            letter-spacing: .13em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .3);
+            margin-bottom: 1.25rem
+        }
+        
+        .flinks {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: .6rem
+        }
+        
+        .flinks a {
+            font-size: 13.5px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, .6);
+            transition: color .2s
+        }
+        
+        .flinks a:hover {
+            color: var(--gd-md)
+        }
+        
+        .fb {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem
+        }
+        
+        .flegal {
+            font-size: 12px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, .25)
+        }
+        
+        .fcin {
+            font-size: 11px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, .15);
+            font-family: monospace
+        }
+        
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px)
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+        
+        .fu {
+            animation: fadeUp .7s ease both
+        }
+        
+        .fu2 {
+            animation: fadeUp .7s .1s ease both
+        }
+        
+        .fu3 {
+            animation: fadeUp .7s .2s ease both
+        }
+        
+        @media(max-width:900px) {
+            .page-hero-inner {
+                grid-template-columns: 1fr
+            }
+            .main-inner {
+                grid-template-columns: 1fr;
+                gap: 3rem
+            }
+            .form-row {
+                grid-template-columns: 1fr
+            }
+            .ft {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem
+            }
+        }
+        
+        @media(max-width:600px) {
+            .nav-links {
+                display: none
+            }
+            .social-grid {
+                grid-template-columns: 1fr
+            }
+            .ft {
+                grid-template-columns: 1fr
+            }
+            .fb {
+                flex-direction: column;
+                align-items: flex-start
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo" aria-label="DR Foundation home">
+                <img src="logo.jpeg" alt="DR Foundation logo" class="logo-img" />
+                <div>
+                    <div class="logo-text">DR Foundation</div>
+                    <div class="logo-sub">Devanshi Rathi Foundation</div>
+                </div>
+            </a>
+            <ul class="nav-links" role="list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="programs.html">Programs</a></li>
+                <li><a href="impact.html">Impact</a></li>
+                <li><a href="press.html">Press</a></li>
+                <li><a href="get-involved.html">Get Involved</a></li>
+                <li><a href="get-involved.html#donate" class="nav-cta">Donate</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+
+        <!-- PAGE HERO -->
+        <div class="page-hero">
+            <div class="page-hero-inner">
+                <div>
+                    <div class="eyebrow fu">Contact</div>
+                    <h1 class="fu2">We&rsquo;d love to<br/><em>hear from you.</em></h1>
+                    <p class="page-hero-lead fu3">Whether you want to donate, volunteer, partner, or just learn more about our work &mdash; reach out and we&rsquo;ll get back to you.</p>
+                </div>
+                <div class="quick-contacts" aria-label="Quick contact options">
+                    <a href="mailto:projectcheckmate64@gmail.com" class="qc-item">
+                        <div class="qc-icon" aria-hidden="true">&#9993;</div>
+                        <div>
+                            <div class="qc-label">General &amp; Volunteer Enquiries</div>
+                            <div class="qc-value">projectcheckmate64@gmail.com</div>
+                        </div>
+                    </a>
+                    <a href="mailto:devanshirathi10@gmail.com" class="qc-item">
+                        <div class="qc-icon" aria-hidden="true">&#9734;</div>
+                        <div>
+                            <div class="qc-label">Founder &mdash; Devanshi Rathi</div>
+                            <div class="qc-value">devanshirathi10@gmail.com</div>
+                        </div>
+                    </a>
+                    <a href="https://www.instamojo.com/@drfoundation" target="_blank" rel="noopener noreferrer" class="qc-item">
+                        <div class="qc-icon" aria-hidden="true">&#9829;</div>
+                        <div>
+                            <div class="qc-label">Donate &mdash; 80G Tax Exempt</div>
+                            <div class="qc-value">instamojo.com/@drfoundation</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <div class="main-inner">
+
+                <!-- FORM -->
+                <div class="form-section">
+                    <p class="sec-ey">Send a Message</p>
+                    <h2 class="sec-h">Get in touch</h2>
+                    <p class="sec-lead">Fill in the form below and we&rsquo;ll get back to you as soon as possible. For urgent matters, email us directly at projectcheckmate64@gmail.com.</p>
+
+                    <form class="contact-form" id="contactForm" novalidate action="mailto:projectcheckmate64@gmail.com" method="GET" enctype="text/plain">
+                        <div class="form-row">
+                            <div class="field">
+                                <label for="fname">First name <span aria-hidden="true">*</span></label>
+                                <input type="text" id="fname" name="First Name" placeholder="Priya" required autocomplete="given-name" />
+                            </div>
+                            <div class="field">
+                                <label for="lname">Last name <span aria-hidden="true">*</span></label>
+                                <input type="text" id="lname" name="Last Name" placeholder="Sharma" required autocomplete="family-name" />
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="email">Email address <span aria-hidden="true">*</span></label>
+                            <input type="email" id="email" name="Email" placeholder="priya@example.com" required autocomplete="email" />
+                        </div>
+
+                        <div class="field">
+                            <label for="reason">What are you reaching out about? <span aria-hidden="true">*</span></label>
+                            <select id="reason" name="Reason" required>
+              <option value="" disabled selected>Select a reason&hellip;</option>
+              <option value="donate">Donation enquiry</option>
+              <option value="volunteer">Volunteering or internship</option>
+              <option value="partner-csr">Corporate / CSR partnership</option>
+              <option value="partner-ngo">NGO / organisation collaboration</option>
+              <option value="speaker">Speaker invitation</option>
+              <option value="media">Media or press enquiry</option>
+              <option value="ambassador">Campus Ambassador Program</option>
+              <option value="general">General question</option>
+            </select>
+                        </div>
+
+                        <div class="field">
+                            <label for="message">Message <span aria-hidden="true">*</span></label>
+                            <textarea id="message" name="Message" placeholder="Tell us a little about what you have in mind&hellip;" required></textarea>
+                        </div>
+
+                        <div>
+                            <button type="submit" class="submit-btn">
+              Send message
+              <svg style="width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+                            <p class="form-note">We typically respond within 2&ndash;3 business days.</p>
+                        </div>
+                    </form>
+
+                    <div class="form-success" id="formSuccess" role="alert" aria-live="polite">
+                        <div class="success-icon" aria-hidden="true">&#10003;</div>
+                        <div class="success-title">Message sent!</div>
+                        <p class="success-text">Thank you for reaching out to the DR Foundation. We&rsquo;ll get back to you within 2&ndash;3 business days.</p>
+                    </div>
+                </div>
+
+                <!-- INFO PANEL -->
+                <div class="info-panel">
+
+                    <div class="info-card">
+                        <div class="info-card-title">Contact details</div>
+                        <div class="info-item">
+                            <div class="info-dot"></div>
+                            <div>
+                                <div class="info-label">General &amp; Volunteer Enquiries</div>
+                                <div class="info-value"><a href="mailto:projectcheckmate64@gmail.com">projectcheckmate64@gmail.com</a></div>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-dot"></div>
+                            <div>
+                                <div class="info-label">Founder</div>
+                                <div class="info-value"><a href="mailto:devanshirathi10@gmail.com">devanshirathi10@gmail.com</a></div>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-dot"></div>
+                            <div>
+                                <div class="info-label">Registered Office</div>
+                                <div class="info-value">A-24/8, Mohan Co-operative Industrial Area,<br/>New Delhi &mdash; 110044</div>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-dot"></div>
+                            <div>
+                                <div class="info-label">Donate</div>
+                                <div class="info-value"><a href="https://www.instamojo.com/@drfoundation" target="_blank" rel="noopener noreferrer">instamojo.com/@drfoundation</a></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-card-title">Follow us</div>
+                        <div class="social-grid">
+                            <a href="https://www.facebook.com/devanshirathifoundation/" target="_blank" rel="noopener noreferrer" class="soc-link">
+                                <div class="soc-icon" aria-hidden="true">Fb</div>
+                                Facebook
+                            </a>
+                            <a href="https://www.instagram.com/d_r_foundation/" target="_blank" rel="noopener noreferrer" class="soc-link">
+                                <div class="soc-icon" aria-hidden="true">In</div>
+                                Instagram
+                            </a>
+                            <a href="https://in.linkedin.com/company/d-r-foundation" target="_blank" rel="noopener noreferrer" class="soc-link">
+                                <div class="soc-icon" aria-hidden="true">Li</div>
+                                LinkedIn
+                            </a>
+                            <a href="https://twitter.com/d_r_foundation" target="_blank" rel="noopener noreferrer" class="soc-link">
+                                <div class="soc-icon" aria-hidden="true">X</div>
+                                Twitter / X
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="legal-box">
+                        <div class="legal-title">Legal &amp; Registration</div>
+                        <div class="legal-item">CIN: U92490DL2018NPL335483</div>
+                        <div class="legal-item">Section 8 Non-Profit &middot; Companies Act, 2013</div>
+                        <div class="legal-item">80G Certified &middot; Income Tax Act, 1961</div>
+                        <div class="legal-item">Incorporated: 18 June 2018, New Delhi</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="fi">
+            <div class="ft">
+                <div>
+                    <div class="fl">
+                        <img src="logo.jpeg" alt="" class="fli" />
+                        <div>
+                            <div class="logo-text">DR Foundation</div>
+                            <div class="logo-sub">Devanshi Rathi Foundation</div>
+                        </div>
+                    </div>
+                    <p class="ftag">Empowering through Education, Sport, and Health. Section 8 Non-Profit &middot; New Delhi.</p>
+                    <div class="fsoc" aria-label="Social media">
+                        <a href="https://www.facebook.com/devanshirathifoundation/" target="_blank" rel="noopener noreferrer" class="sl" aria-label="Facebook">Fb</a>
+                        <a href="https://www.instagram.com/d_r_foundation/" target="_blank" rel="noopener noreferrer" class="sl" aria-label="Instagram">In</a>
+                        <a href="https://in.linkedin.com/company/d-r-foundation" target="_blank" rel="noopener noreferrer" class="sl" aria-label="LinkedIn">Li</a>
+                        <a href="https://twitter.com/d_r_foundation" target="_blank" rel="noopener noreferrer" class="sl" aria-label="Twitter">X</a>
+                    </div>
+                </div>
+                <div class="fc">
+                    <h4>About</h4>
+                    <ul class="flinks">
+                        <li><a href="about.html#foundation">The Foundation</a></li>
+                        <li><a href="about.html#founder">About Devanshi</a></li>
+                        <li><a href="about.html#partners">Our Partners</a></li>
+                    </ul>
+                </div>
+                <div class="fc">
+                    <h4>Programmes</h4>
+                    <ul class="flinks">
+                        <li><a href="programs.html#checkmate">Project Checkmate</a></li>
+                        <li><a href="programs.html#scholarships">DRF Scholarships</a></li>
+                        <li><a href="programs.html#health">Health Initiatives</a></li>
+                    </ul>
+                </div>
+                <div class="fc">
+                    <h4>Get Involved</h4>
+                    <ul class="flinks">
+                        <li><a href="get-involved.html#donate">Donate</a></li>
+                        <li><a href="get-involved.html#volunteer">Volunteer &amp; Intern</a></li>
+                        <li><a href="get-involved.html#partner">Partner with Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="fb">
+                <p class="flegal">&copy; 2024 Devanshi Rathi Foundation. All rights reserved.</p>
+                <p class="fcin">CIN: U92490DL2018NPL335483</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
