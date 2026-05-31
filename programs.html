@@ -1,530 +1,1435 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Programs — DR Foundation</title>
-  <meta name="description" content="Explore DR Foundation's three programmes: Project Checkmate, DRF Scholarships, and Health Initiatives." />
-  <link rel="icon" href="logo.jpeg" type="image/jpeg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{
-      --cr:#B22222;--cr-dk:#8B1A1A;--cr-pl:#FAF0F0;
-      --gd:#C4933A;--gd-dk:#A07830;--gd-pl:#FBF5E8;--gd-md:#D4A855;
-      --ink:#1a1a18;--ink-m:#4a4a47;--ink-f:#8a8a85;
-      --bg:#fdfcfa;--wh:#ffffff;
-      --b-cr:rgba(178,34,34,0.1);--b-gd:rgba(196,147,58,0.2);
-      --serif:'Cormorant Garamond',Georgia,serif;
-      --sans:'DM Sans',system-ui,sans-serif;
-      --max:1160px;--r:12px;--rl:20px
-    }
-    html{scroll-behavior:smooth}
-    body{font-family:var(--sans);font-size:16px;line-height:1.7;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}
-    img{display:block;max-width:100%}
-    a{color:inherit;text-decoration:none}
-
-    /* NAV */
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,252,250,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--b-gd);padding:0 clamp(1.5rem,5vw,3rem)}
-    .nav-inner{max-width:var(--max);margin:0 auto;height:70px;display:flex;align-items:center;justify-content:space-between}
-    .nav-logo{display:flex;align-items:center;gap:12px}
-    .logo-img{width:44px;height:44px;object-fit:contain;border-radius:6px;border:1px solid var(--b-gd)}
-    .logo-text{font-family:var(--serif);font-size:19px;font-weight:600;color:var(--ink);line-height:1.1}
-    .logo-sub{font-size:10px;font-weight:300;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-f)}
-    .nav-links{display:flex;align-items:center;gap:.2rem;list-style:none}
-    .nav-links a{font-size:13.5px;color:var(--ink-m);padding:6px 12px;border-radius:6px;transition:color .2s,background .2s}
-    .nav-links a:hover,.nav-links a.active{color:var(--cr);background:var(--cr-pl)}
-    .nav-cta{background:var(--cr)!important;color:#fff!important;padding:8px 20px!important;border-radius:8px!important;font-weight:500!important}
-    .nav-cta:hover{background:var(--cr-dk)!important;color:#fff!important}
-
-    /* PAGE HERO */
-    .page-hero{padding:120px clamp(1.5rem,5vw,3rem) 64px;background:var(--wh);border-bottom:1px solid var(--b-gd)}
-    .page-hero-inner{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:4rem}
-    .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gd-dk);background:var(--gd-pl);padding:6px 14px;border-radius:100px;margin-bottom:1.25rem;border:1px solid var(--b-gd)}
-    .eyebrow::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gd)}
-    .page-hero h1{font-family:var(--serif);font-size:clamp(2.6rem,4.5vw,3.8rem);font-weight:600;line-height:1.1;color:var(--ink);letter-spacing:-.02em;margin-bottom:1.25rem}
-    .page-hero h1 em{font-style:italic;color:var(--cr)}
-    .page-hero-lead{font-size:17px;font-weight:300;color:var(--ink-m);line-height:1.8;max-width:480px}
-    .ph-nav{display:flex;flex-direction:column;gap:.75rem}
-    .ph-link{display:flex;align-items:center;gap:14px;background:var(--bg);border:1px solid var(--b-gd);border-radius:var(--r);padding:1rem 1.25rem;transition:border-color .2s,background .2s}
-    .ph-link:hover{border-color:var(--gd);background:var(--gd-pl)}
-    .ph-num{font-family:var(--serif);font-size:1.4rem;font-weight:600;color:var(--cr);width:36px;flex-shrink:0}
-    .ph-text{font-size:14px;font-weight:500;color:var(--ink)}
-    .ph-sub{font-size:12px;font-weight:300;color:var(--ink-f)}
-
-    /* SHARED */
-    .section{padding:5.5rem clamp(1.5rem,5vw,3rem)}
-    .si{max-width:var(--max);margin:0 auto}
-    .sec-ey{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gd-dk);margin-bottom:.85rem}
-    .sec-h{font-family:var(--serif);font-size:clamp(1.9rem,3vw,2.6rem);font-weight:600;color:var(--ink);line-height:1.15;margin-bottom:1rem;letter-spacing:-.01em}
-    .sec-lead{font-size:16px;font-weight:300;color:var(--ink-m);max-width:620px;margin-bottom:3rem;line-height:1.8}
-    .body-text{font-size:15px;font-weight:300;color:var(--ink-m);line-height:1.9;margin-bottom:1.25rem}
-    .divider{height:1px;background:var(--b-gd);margin:0 clamp(1.5rem,5vw,3rem)}
-    .arr{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-
-    /* ── PROJECT CHECKMATE ── */
-    .checkmate{background:var(--wh)}
-    .cm-hero{background:var(--cr);border-radius:var(--rl);padding:3rem;margin-bottom:3rem;position:relative;overflow:hidden}
-    .cm-hero::after{content:'\265F';position:absolute;right:-20px;top:-40px;font-size:260px;color:rgba(255,255,255,.06);line-height:1;pointer-events:none}
-    .cm-hero-label{font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:.75rem}
-    .cm-hero-title{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.4rem);font-weight:600;color:#fff;margin-bottom:.75rem;line-height:1.2}
-    .cm-hero-text{font-size:15px;font-weight:300;color:rgba(255,255,255,.8);line-height:1.8;max-width:600px}
-    .cm-stats{display:flex;gap:2rem;margin-top:2rem;flex-wrap:wrap}
-    .cm-stat{text-align:left}
-    .cm-stat-n{font-family:var(--serif);font-size:2rem;font-weight:600;color:#fff;line-height:1}
-    .cm-stat-l{font-size:11px;font-weight:300;color:rgba(255,255,255,.65);margin-top:.2rem}
-
-    .phases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-bottom:3rem}
-    .phase-card{background:var(--bg);border-radius:var(--r);padding:1.5rem;border:1px solid var(--b-gd);transition:border-color .2s,transform .2s}
-    .phase-card:hover{border-color:var(--gd);transform:translateY(-3px)}
-    .phase-badge{display:inline-block;font-size:10.5px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--cr);background:var(--cr-pl);padding:4px 10px;border-radius:100px;margin-bottom:.85rem}
-    .phase-title{font-family:var(--serif);font-size:1.1rem;font-weight:600;color:var(--ink);margin-bottom:.5rem}
-    .phase-date{font-size:11px;font-weight:500;color:var(--gd-dk);margin-bottom:.65rem}
-    .phase-text{font-size:13.5px;font-weight:300;color:var(--ink-m);line-height:1.7}
-
-    .highlights-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
-    .hl-item{display:flex;align-items:flex-start;gap:14px;background:var(--gd-pl);border-radius:var(--r);padding:1.25rem;border:1px solid var(--b-gd)}
-    .hl-icon{width:36px;height:36px;border-radius:8px;background:var(--gd);display:flex;align-items:center;justify-content:center;font-size:16px;color:#fff;flex-shrink:0}
-    .hl-title{font-size:13.5px;font-weight:500;color:var(--ink);margin-bottom:.2rem}
-    .hl-text{font-size:13px;font-weight:300;color:var(--ink-m);line-height:1.55}
-
-    /* ── SCHOLARSHIPS ── */
-    .scholarships{background:var(--bg)}
-    .schol-intro{display:grid;grid-template-columns:1.1fr 1fr;gap:4rem;align-items:start;margin-bottom:3.5rem}
-    .schol-card{background:var(--wh);border-radius:var(--rl);padding:2rem;border:1px solid var(--b-gd)}
-    .schol-card-title{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:1.25rem;padding-bottom:1rem;border-bottom:1px solid var(--b-gd)}
-    .criteria-list{list-style:none;display:flex;flex-direction:column;gap:.75rem}
-    .criteria-item{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--ink-m);line-height:1.5}
-    .criteria-dot{width:6px;height:6px;border-radius:50%;background:var(--cr);flex-shrink:0;margin-top:7px}
-
-    .editions-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
-    .edition-card{background:var(--wh);border-radius:var(--r);padding:1.75rem;border:1px solid var(--b-gd);transition:border-color .2s,transform .2s;display:flex;flex-direction:column}
-    .edition-card:hover{border-color:var(--gd);transform:translateY(-3px)}
-    .ed-tag{display:inline-block;font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--gd-dk);background:var(--gd-pl);padding:4px 10px;border-radius:100px;margin-bottom:.85rem;border:1px solid var(--b-gd)}
-    .ed-title{font-family:var(--serif);font-size:1.15rem;font-weight:600;color:var(--ink);margin-bottom:.35rem}
-    .ed-date{font-size:11.5px;font-weight:500;color:var(--gd-dk);margin-bottom:.75rem}
-    .ed-text{font-size:13.5px;font-weight:300;color:var(--ink-m);line-height:1.7;flex:1}
-    .ed-winners{margin-top:1rem;padding-top:1rem;border-top:1px solid var(--b-gd)}
-    .ed-winners-label{font-size:10.5px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-f);margin-bottom:.5rem}
-    .ed-winner-name{font-size:13px;font-weight:400;color:var(--ink);line-height:1.5}
-    .ed-winner-note{font-size:12px;font-weight:300;color:var(--ink-f)}
-
-    /* ── HEALTH ── */
-    .health{background:var(--wh)}
-    .health-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
-    .health-card{background:var(--bg);border-radius:var(--r);padding:1.5rem;border:1px solid var(--b-gd);transition:border-color .2s,transform .2s}
-    .health-card:hover{border-color:var(--gd);transform:translateY(-2px)}
-    .health-partner{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--gd-dk);margin-bottom:.5rem}
-    .health-title{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--ink);margin-bottom:.5rem}
-    .health-text{font-size:13.5px;font-weight:300;color:var(--ink-m);line-height:1.7}
-    .health-tag{display:inline-block;font-size:11px;color:var(--cr);background:var(--cr-pl);padding:3px 10px;border-radius:100px;margin-top:.75rem}
-
-    .philosophy-box{background:var(--gd-pl);border-radius:var(--rl);padding:2.5rem;border:1px solid var(--b-gd);margin-bottom:3rem;display:flex;gap:2rem;align-items:center}
-    .phil-icon{font-size:3rem;flex-shrink:0}
-    .phil-label{font-size:10.5px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--gd-dk);margin-bottom:.5rem}
-    .phil-text{font-family:var(--serif);font-size:1.2rem;font-style:italic;color:var(--ink);line-height:1.6}
-
-    /* CTA BAND */
-    .cta-band{background:var(--ink);padding:5rem clamp(1.5rem,5vw,3rem);text-align:center;position:relative;overflow:hidden}
-    .cta-band::before{content:'\265F';position:absolute;top:-50px;left:4%;font-size:300px;color:rgba(255,255,255,.025);line-height:1;pointer-events:none}
-    .cta-band::after{content:'\2655';position:absolute;bottom:-60px;right:4%;font-size:280px;color:rgba(196,147,58,.06);line-height:1;pointer-events:none}
-    .cta-band .si{position:relative;z-index:1}
-    .cta-tag{display:inline-block;background:rgba(196,147,58,.15);color:var(--gd-md);font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;padding:6px 16px;border-radius:100px;margin-bottom:1.5rem}
-    .cta-band h2{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.5rem);font-weight:600;color:#fff;line-height:1.2;margin-bottom:1rem}
-    .cta-band p{font-size:15px;font-weight:300;color:rgba(255,255,255,.65);max-width:460px;margin:0 auto 2rem;line-height:1.8}
-    .cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-    .btn-gd{background:var(--gd);color:#fff;padding:13px 28px;border-radius:var(--r);font-size:14px;font-weight:500;display:inline-flex;align-items:center;gap:8px;transition:background .2s,transform .2s}
-    .btn-gd:hover{background:var(--gd-dk);transform:translateY(-2px)}
-    .btn-out{background:transparent;color:rgba(255,255,255,.8);padding:12px 28px;border-radius:var(--r);font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,.2);display:inline-flex;align-items:center;gap:8px;transition:background .2s}
-    .btn-out:hover{background:rgba(255,255,255,.07)}
-
-    /* FOOTER */
-    footer{background:#111110;padding:4.5rem clamp(1.5rem,5vw,3rem) 2rem}
-    .fi{max-width:var(--max);margin:0 auto}
-    .ft{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:2rem}
-    .fl{display:flex;align-items:center;gap:12px}
-    .fli{width:40px;height:40px;object-fit:contain;border-radius:6px;opacity:.85}
-    .fl .logo-text{color:#fff}
-    .fl .logo-sub{color:rgba(255,255,255,.3)}
-    .ftag{font-size:13px;font-weight:300;color:rgba(255,255,255,.4);line-height:1.75;margin-top:1rem;max-width:260px}
-    .fsoc{display:flex;gap:9px;margin-top:1.5rem}
-    .sl{width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,.07);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);font-size:11px;font-weight:600;transition:background .2s,color .2s}
-    .sl:hover{background:var(--cr);color:#fff}
-    .fc h4{font-size:10.5px;font-weight:500;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:1.25rem}
-    .flinks{list-style:none;display:flex;flex-direction:column;gap:.6rem}
-    .flinks a{font-size:13.5px;font-weight:300;color:rgba(255,255,255,.6);transition:color .2s}
-    .flinks a:hover{color:var(--gd-md)}
-    .fb{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
-    .flegal{font-size:12px;font-weight:300;color:rgba(255,255,255,.25)}
-    .fcin{font-size:11px;font-weight:300;color:rgba(255,255,255,.15);font-family:monospace}
-
-    @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-    .fu{animation:fadeUp .7s ease both}
-    .fu2{animation:fadeUp .7s .1s ease both}
-    .fu3{animation:fadeUp .7s .2s ease both}
-
-    @media(max-width:900px){
-      .page-hero-inner{grid-template-columns:1fr}
-      .phases-grid{grid-template-columns:1fr 1fr}
-      .highlights-grid{grid-template-columns:1fr}
-      .schol-intro{grid-template-columns:1fr;gap:2rem}
-      .editions-grid{grid-template-columns:1fr 1fr}
-      .health-grid{grid-template-columns:1fr}
-      .ft{grid-template-columns:1fr 1fr;gap:2rem}
-    }
-    @media(max-width:600px){
-      .nav-links{display:none}
-      .phases-grid{grid-template-columns:1fr}
-      .editions-grid{grid-template-columns:1fr}
-      .philosophy-box{flex-direction:column;gap:1rem}
-      .ft{grid-template-columns:1fr}
-      .fb{flex-direction:column;align-items:flex-start}
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Programs — DR Foundation</title>
+    <meta name="description" content="Explore DR Foundation's three programmes: Project Checkmate, DRF Scholarships, and Health Initiatives." />
+    <link rel="icon" href="logo.jpeg" type="image/jpeg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+        
+         :root {
+            --cr: #B22222;
+            --cr-dk: #8B1A1A;
+            --cr-pl: #FAF0F0;
+            --gd: #C4933A;
+            --gd-dk: #A07830;
+            --gd-pl: #FBF5E8;
+            --gd-md: #D4A855;
+            --ink: #1a1a18;
+            --ink-m: #4a4a47;
+            --ink-f: #8a8a85;
+            --bg: #fdfcfa;
+            --wh: #ffffff;
+            --b-cr: rgba(178, 34, 34, 0.1);
+            --b-gd: rgba(196, 147, 58, 0.2);
+            --serif: 'Cormorant Garamond', Georgia, serif;
+            --sans: 'DM Sans', system-ui, sans-serif;
+            --max: 1160px;
+            --r: 12px;
+            --rl: 20px
+        }
+        
+        html {
+            scroll-behavior: smooth
+        }
+        
+        body {
+            font-family: var(--sans);
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--ink);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased
+        }
+        
+        img {
+            display: block;
+            max-width: 100%
+        }
+        
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+        /* NAV */
+        
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(253, 252, 250, .94);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--b-gd);
+            padding: 0 clamp(1.5rem, 5vw, 3rem)
+        }
+        
+        .nav-inner {
+            max-width: var(--max);
+            margin: 0 auto;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+        
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+        
+        .logo-img {
+            width: 44px;
+            height: 44px;
+            object-fit: contain;
+            border-radius: 6px;
+            border: 1px solid var(--b-gd)
+        }
+        
+        .logo-text {
+            font-family: var(--serif);
+            font-size: 19px;
+            font-weight: 600;
+            color: var(--ink);
+            line-height: 1.1
+        }
+        
+        .logo-sub {
+            font-size: 10px;
+            font-weight: 300;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--ink-f)
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: .2rem;
+            list-style: none
+        }
+        
+        .nav-links a {
+            font-size: 13.5px;
+            color: var(--ink-m);
+            padding: 6px 12px;
+            border-radius: 6px;
+            transition: color .2s, background .2s
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--cr);
+            background: var(--cr-pl)
+        }
+        
+        .nav-cta {
+            background: var(--cr)!important;
+            color: #fff!important;
+            padding: 8px 20px!important;
+            border-radius: 8px!important;
+            font-weight: 500!important
+        }
+        
+        .nav-cta:hover {
+            background: var(--cr-dk)!important;
+            color: #fff!important
+        }
+        /* PAGE HERO */
+        
+        .page-hero {
+            padding: 120px clamp(1.5rem, 5vw, 3rem) 64px;
+            background: var(--wh);
+            border-bottom: 1px solid var(--b-gd)
+        }
+        
+        .page-hero-inner {
+            max-width: var(--max);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 4rem
+        }
+        
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--gd-dk);
+            background: var(--gd-pl);
+            padding: 6px 14px;
+            border-radius: 100px;
+            margin-bottom: 1.25rem;
+            border: 1px solid var(--b-gd)
+        }
+        
+        .eyebrow::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--gd)
+        }
+        
+        .page-hero h1 {
+            font-family: var(--serif);
+            font-size: clamp(2.6rem, 4.5vw, 3.8rem);
+            font-weight: 600;
+            line-height: 1.1;
+            color: var(--ink);
+            letter-spacing: -.02em;
+            margin-bottom: 1.25rem
+        }
+        
+        .page-hero h1 em {
+            font-style: italic;
+            color: var(--cr)
+        }
+        
+        .page-hero-lead {
+            font-size: 17px;
+            font-weight: 300;
+            color: var(--ink-m);
+            line-height: 1.8;
+            max-width: 480px
+        }
+        
+        .ph-nav {
+            display: flex;
+            flex-direction: column;
+            gap: .75rem
+        }
+        
+        .ph-link {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: var(--bg);
+            border: 1px solid var(--b-gd);
+            border-radius: var(--r);
+            padding: 1rem 1.25rem;
+            transition: border-color .2s, background .2s
+        }
+        
+        .ph-link:hover {
+            border-color: var(--gd);
+            background: var(--gd-pl)
+        }
+        
+        .ph-num {
+            font-family: var(--serif);
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--cr);
+            width: 36px;
+            flex-shrink: 0
+        }
+        
+        .ph-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--ink)
+        }
+        
+        .ph-sub {
+            font-size: 12px;
+            font-weight: 300;
+            color: var(--ink-f)
+        }
+        /* SHARED */
+        
+        .section {
+            padding: 5.5rem clamp(1.5rem, 5vw, 3rem)
+        }
+        
+        .si {
+            max-width: var(--max);
+            margin: 0 auto
+        }
+        
+        .sec-ey {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--gd-dk);
+            margin-bottom: .85rem
+        }
+        
+        .sec-h {
+            font-family: var(--serif);
+            font-size: clamp(1.9rem, 3vw, 2.6rem);
+            font-weight: 600;
+            color: var(--ink);
+            line-height: 1.15;
+            margin-bottom: 1rem;
+            letter-spacing: -.01em
+        }
+        
+        .sec-lead {
+            font-size: 16px;
+            font-weight: 300;
+            color: var(--ink-m);
+            max-width: 620px;
+            margin-bottom: 3rem;
+            line-height: 1.8
+        }
+        
+        .body-text {
+            font-size: 15px;
+            font-weight: 300;
+            color: var(--ink-m);
+            line-height: 1.9;
+            margin-bottom: 1.25rem
+        }
+        
+        .divider {
+            height: 1px;
+            background: var(--b-gd);
+            margin: 0 clamp(1.5rem, 5vw, 3rem)
+        }
+        
+        .arr {
+            width: 14px;
+            height: 14px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round
+        }
+        /* ── PROJECT CHECKMATE ── */
+        
+        .checkmate {
+            background: var(--wh)
+        }
+        
+        .cm-hero {
+            background: var(--cr);
+            border-radius: var(--rl);
+            padding: 3rem;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden
+        }
+        
+        .cm-hero::after {
+            content: '\265F';
+            position: absolute;
+            right: -20px;
+            top: -40px;
+            font-size: 260px;
+            color: rgba(255, 255, 255, .06);
+            line-height: 1;
+            pointer-events: none
+        }
+        
+        .cm-hero-label {
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .55);
+            margin-bottom: .75rem
+        }
+        
+        .cm-hero-title {
+            font-family: var(--serif);
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: .75rem;
+            line-height: 1.2
+        }
+        
+        .cm-hero-text {
+            font-size: 15px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, .8);
+            line-height: 1.8;
+            max-width: 600px
+        }
+        
+        .cm-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap
+        }
+        
+        .cm-stat {
+            text-align: left
+        }
+        
+        .cm-stat-n {
+            font-family: var(--serif);
+            font-size: 2rem;
+            font-weight: 600;
+            color: #fff;
+            line-height: 1
+        }
+        
+        .cm-stat-l {
+            font-size: 11px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, .65);
+            margin-top: .2rem
+        }
+        
+        .phases-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin-bottom: 3rem
+        }
+        
+        .phase-card {
+            background: var(--bg);
+            border-radius: var(--r);
+            padding: 1.5rem;
+            border: 1px solid var(--b-gd);
+            transition: border-color .2s, transform .2s
+        }
+        
+        .phase-card:hover {
+            border-color: var(--gd);
+            transform: translateY(-3px)
+        }
+        
+        .phase-badge {
+            display: inline-block;
+            font-size: 10.5px;
+            font-weight: 500;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--cr);
+            background: var(--cr-pl);
+            padding: 4px 10px;
+            border-radius: 100px;
+            margin-bottom: .85rem
+        }
+        
+        .phase-title {
+            font-family: var(--serif);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: .5rem
+        }
+        
+        .phase-date {
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--gd-dk);
+            margin-bottom: .65rem
+        }
+        
+        .phase-text {
+            font-size: 13.5px;
+            font-weight: 300;
+            color: var(--ink-m);
+            line-height: 1.7
+        }
+        
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem
+        }
+        
+        .hl-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            background: var(--gd-pl);
+            border-radius: var(--r);
+            padding: 1.25rem;
+            border: 1px solid var(--b-gd)
+        }
+        
+        .hl-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: var(--gd);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #fff;
+            flex-shrink: 0
+        }
+        
+        .hl-title {
+            font-size: 13.5px;
+            font-weight: 500;
+            color: var(--ink);
+            margin-bottom: .2rem
+        }
+        
+        .hl-text {
+            font-size: 13px;
+            font-weight: 300;
+            color: var(--ink-m);
+            line-height: 1.55
+        }
+        /* ── SCHOLARSHIPS ── */
+        
+        .scholarships {
+            background: var(--bg)
+        }
+        
+        .schol-intro {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+            margin-bottom: 3.5rem
+        }
+        
+        .schol-card {
+            background: var(--wh);
+            border-radius: var(--rl);
+            padding: 2rem;
+            border: 1px solid var(--b-gd)
+        }
+        
+        .schol-card-title {
+            font-family: var(--serif);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 1.25rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--b-gd)
+        }
+        
+        .criteria-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: .75rem
+        }
+        
+        .criteria-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 13.5px;
+            color: var(--ink-m);
+            line-height: 1.5
+        }
+        
+        .criteria-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--cr);
+            flex-shrink: 0;
+            margin-top: 7px
+        }
+        
+        .editions-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem
+        }
+        
+        .edition-card {
+            background: var(--wh);
+            border-radius: var(--r);
+            padding: 1.75rem;
+            border: 1px solid var(--b-gd);
+            transition: border-color .2s, transform .2s;
+            display: flex;
+            flex-direction: column
+        }
+        
+        .edition-card:hover {
+            border-color: var(--gd);
+            transform: translateY(-3px)
+        }
+        
+        .ed-tag {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--gd-dk);
+            background: var(--gd-pl);
+            padding: 4px 10px;
+            border-radius: 100px;
+            margin-bottom: .85rem;
+            border: 1px solid var(--b-gd)
+        }
+        
+        .ed-title {
+            font-family: var(--serif);
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: .35rem
+        }
+        
+        .ed-date {
+            font-size: 11.5px;
+            font-weight: 500;
+            color: var(--gd-dk);
+            margin-bottom: .75rem
+        }
+        
+        .ed-text {
+            font-size: 13.5px;
+            font-weight: 300;
+            color: var(--ink-m);
+            line-height: 1.7;
+            flex: 1
+        }
+        
+        .ed-winners {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--b-gd)
+        }
+        
+        .ed-winners-label {
+            font-size: 10.5px;
+            font-weight: 500;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--ink-f);
+            margin-bottom: .5rem
+        }
+        
+        .ed-winner-name {
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--ink);
+            line-height: 1.5
+        }
+        
+        .ed-winner-note {
+            font-size: 12px;
+            font-weight: 300;
+            color: var(--ink-f)
+        }
+        /* ── HEALTH ── */
+        
+        .health {
+            background: var(--wh)
+        }
+        
+        .health-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem
+        }
+        
+        .health-card {
+            background: var(--bg);
+            border-radius: var(--r);
+            padding: 1.5rem;
+            border: 1px solid var(--b-gd);
+            transition: border-color .2s, transform .2s
+        }
+        
+        .health-card:hover {
+            border-color: var(--gd);
+            transform: translateY(-2px)
+        }
+        
+        .health-partner {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--gd-dk);
+            margin-bottom: .5rem
+        }
+        
+        .health-title {
+            font-family: var(--serif);
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: .5rem
+        }
+        
+        .health-text {
+            font-size: 13.5px;
+            font-weight: 300;
+            color: var(--ink-m);
+            line-height: 1.7
+        }
+        
+        .health-tag {
+            display: inline-block;
+            font-size: 11px;
+            color: var(--cr);
+            background: var(--cr-pl);
+            padding: 3px 10px;
+            border-radius: 100px;
+            margin-top: .75rem
+        }
+        
+        .philosophy-box {
+            background: var(--gd-pl);
+            border-radius: var(--rl);
+            padding: 2.5rem;
+            border: 1px solid var(--b-gd);
+            margin-bottom: 3rem;
+            display: flex;
+            gap: 2rem;
+            align-items: center
+        }
+        
+        .phil-icon {
+            font-size: 3rem;
+            flex-shrink: 0
+        }
+        
+        .phil-label {
+            font-size: 10.5px;
+            font-weight: 500;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--gd-dk);
+            margin-bottom: .5rem
+        }
+        
+        .phil-text {
+            font-family: var(--serif);
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--ink);
+            line-height: 1.6
+        }
+        /* CTA BAND */
+        
+        .cta-band {
+            background: var(--ink);
+            padding: 5rem clamp(1.5rem, 5vw, 3rem);
+            text-align: center;
+            position: relative;
+            overflow: hidden
+        }
+        
+        .cta-band::before {
+            content: '\265F';
+            position: absolute;
+            top: -50px;
+            left: 4%;
+            font-size: 300px;
+            color: rgba(255, 255, 255, .025);
+            line-height: 1;
+            pointer-events: none
+        }
+        
+        .cta-band::after {
+            content: '\2655';
+            position: absolute;
+            bottom: -60px;
+            right: 4%;
+            font-size: 280px;
+            color: rgba(196, 147, 58, .06);
+            line-height: 1;
+            pointer-events: none
+        }
+        
+        .cta-band .si {
+            position: relative;
+            z-index: 1
+        }
+        
+        .cta-tag {
+            display: inline-block;
+            background: rgba(196, 147, 58, .15);
+            color: var(--gd-md);
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 100px;
+            margin-bottom: 1.5rem
+        }
+        
+        .cta-band h2 {
+            font-family: var(--serif);
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 600;
+            color: #fff;
+            line-height: 1.2;
+            margin-bottom: 1rem
+        }
+        
+        .cta-band p {
+            font-size: 15px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, .65);
+            max-width: 460px;
+            margin: 0 auto 2rem;
+            line-height: 1.8
+        }
+        
+        .cta-btns {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap
+        }
+        
+        .btn-gd {
+            background: var(--gd);
+            color: #fff;
+            padding: 13px 28px;
+            border-radius: var(--r);
+            font-size: 14px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background .2s, transform .2s
+        }
+        
+        .btn-gd:hover {
+            background: var(--gd-dk);
+            transform: translateY(-2px)
+        }
+        
+        .btn-out {
+            background: transparent;
+            color: rgba(255, 255, 255, .8);
+            padding: 12px 28px;
+            border-radius: var(--r);
+            font-size: 14px;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, .2);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background .2s
+        }
+        
+        .btn-out:hover {
+            background: rgba(255, 255, 255, .07)
+        }
+        /* FOOTER */
+        
+        footer {
+            background: #111110;
+            padding: 4.5rem clamp(1.5rem, 5vw, 3rem) 2rem
+        }
+        
+        .fi {
+            max-width: var(--max);
+            margin: 0 auto
+        }
+        
+        .ft {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr 1fr 1fr;
+            gap: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(255, 255, 255, .07);
+            margin-bottom: 2rem
+        }
+        
+        .fl {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+        
+        .fli {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            border-radius: 6px;
+            opacity: .85
+        }
+        
+        .fl .logo-text {
+            color: #fff
+        }
+        
+        .fl .logo-sub {
+            color: rgba(255, 255, 255, .3)
+        }
+        
+        .ftag {
+            font-size: 13px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, .4);
+            line-height: 1.75;
+            margin-top: 1rem;
+            max-width: 260px
+        }
+        
+        .fsoc {
+            display: flex;
+            gap: 9px;
+            margin-top: 1.5rem
+        }
+        
+        .sl {
+            width: 34px;
+            height: 34px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, .07);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, .5);
+            font-size: 11px;
+            font-weight: 600;
+            transition: background .2s, color .2s
+        }
+        
+        .sl:hover {
+            background: var(--cr);
+            color: #fff
+        }
+        
+        .fc h4 {
+            font-size: 10.5px;
+            font-weight: 500;
+            letter-spacing: .13em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .3);
+            margin-bottom: 1.25rem
+        }
+        
+        .flinks {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: .6rem
+        }
+        
+        .flinks a {
+            font-size: 13.5px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, .6);
+            transition: color .2s
+        }
+        
+        .flinks a:hover {
+            color: var(--gd-md)
+        }
+        
+        .fb {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem
+        }
+        
+        .flegal {
+            font-size: 12px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, .25)
+        }
+        
+        .fcin {
+            font-size: 11px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, .15);
+            font-family: monospace
+        }
+        
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px)
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+        
+        .fu {
+            animation: fadeUp .7s ease both
+        }
+        
+        .fu2 {
+            animation: fadeUp .7s .1s ease both
+        }
+        
+        .fu3 {
+            animation: fadeUp .7s .2s ease both
+        }
+        
+        @media(max-width:900px) {
+            .page-hero-inner {
+                grid-template-columns: 1fr
+            }
+            .phases-grid {
+                grid-template-columns: 1fr 1fr
+            }
+            .highlights-grid {
+                grid-template-columns: 1fr
+            }
+            .schol-intro {
+                grid-template-columns: 1fr;
+                gap: 2rem
+            }
+            .editions-grid {
+                grid-template-columns: 1fr 1fr
+            }
+            .health-grid {
+                grid-template-columns: 1fr
+            }
+            .ft {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem
+            }
+        }
+        
+        @media(max-width:600px) {
+            .nav-links {
+                display: none
+            }
+            .phases-grid {
+                grid-template-columns: 1fr
+            }
+            .editions-grid {
+                grid-template-columns: 1fr
+            }
+            .philosophy-box {
+                flex-direction: column;
+                gap: 1rem
+            }
+            .ft {
+                grid-template-columns: 1fr
+            }
+            .fb {
+                flex-direction: column;
+                align-items: flex-start
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<nav aria-label="Main navigation">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo" aria-label="DR Foundation home">
-      <img src="logo.jpeg" alt="DR Foundation logo" class="logo-img" />
-      <div>
-        <div class="logo-text">DR Foundation</div>
-        <div class="logo-sub">Devanshi Rathi Foundation</div>
-      </div>
-    </a>
-    <ul class="nav-links" role="list">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="programs.html" class="active">Programs</a></li>
-      <li><a href="impact.html">Impact</a></li>
-      <li><a href="press.html">Press</a></li>
-      <li><a href="get-involved.html">Get Involved</a></li>
-      <li><a href="get-involved.html#donate" class="nav-cta">Donate</a></li>
-    </ul>
-  </div>
-</nav>
+    <nav aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo" aria-label="DR Foundation home">
+                <img src="logo.jpeg" alt="DR Foundation logo" class="logo-img" />
+                <div>
+                    <div class="logo-text">DR Foundation</div>
+                    <div class="logo-sub">Devanshi Rathi Foundation</div>
+                </div>
+            </a>
+            <ul class="nav-links" role="list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="programs.html" class="active">Programs</a></li>
+                <li><a href="impact.html">Impact</a></li>
+                <li><a href="press.html">Press</a></li>
+                <li><a href="get-involved.html">Get Involved</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="get-involved.html#donate" class="nav-cta">Donate</a></li>
+            </ul>
+            </ul>
+        </div>
+    </nav>
 
-<main>
+    <main>
 
-  <!-- PAGE HERO -->
-  <div class="page-hero">
-    <div class="page-hero-inner">
-      <div>
-        <div class="eyebrow fu">Our Programmes</div>
-        <h1 class="fu2">Three pillars.<br/><em>One mission.</em></h1>
-        <p class="page-hero-lead fu3">Every programme DRF runs is rooted in the same belief &mdash; that access to education, sport, and health should not depend on your background, ability, or income.</p>
-      </div>
-      <div class="ph-nav">
-        <a href="#checkmate" class="ph-link">
-          <div class="ph-num">01</div>
-          <div><div class="ph-text">Project Checkmate</div><div class="ph-sub">Chess for education &amp; empowerment</div></div>
-        </a>
-        <a href="#scholarships" class="ph-link">
-          <div class="ph-num">02</div>
-          <div><div class="ph-text">DRF Scholarships</div><div class="ph-sub">Cash prizes &amp; year-long mentorship</div></div>
-        </a>
-        <a href="#health" class="ph-link">
-          <div class="ph-num">03</div>
-          <div><div class="ph-text">Health Initiatives</div><div class="ph-sub">Mental, dental &amp; physical wellbeing</div></div>
-        </a>
-      </div>
-    </div>
-  </div>
+        <!-- PAGE HERO -->
+        <div class="page-hero">
+            <div class="page-hero-inner">
+                <div>
+                    <div class="eyebrow fu">Our Programmes</div>
+                    <h1 class="fu2">Three pillars.<br/><em>One mission.</em></h1>
+                    <p class="page-hero-lead fu3">Every programme DRF runs is rooted in the same belief &mdash; that access to education, sport, and health should not depend on your background, ability, or income.</p>
+                </div>
+                <div class="ph-nav">
+                    <a href="#checkmate" class="ph-link">
+                        <div class="ph-num">01</div>
+                        <div>
+                            <div class="ph-text">Project Checkmate</div>
+                            <div class="ph-sub">Chess for education &amp; empowerment</div>
+                        </div>
+                    </a>
+                    <a href="#scholarships" class="ph-link">
+                        <div class="ph-num">02</div>
+                        <div>
+                            <div class="ph-text">DRF Scholarships</div>
+                            <div class="ph-sub">Cash prizes &amp; year-long mentorship</div>
+                        </div>
+                    </a>
+                    <a href="#health" class="ph-link">
+                        <div class="ph-num">03</div>
+                        <div>
+                            <div class="ph-text">Health Initiatives</div>
+                            <div class="ph-sub">Mental, dental &amp; physical wellbeing</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
 
-  <!-- PROJECT CHECKMATE -->
-  <section class="section checkmate" id="checkmate" aria-labelledby="cm-h">
-    <div class="si">
-      <p class="sec-ey">Programme 01</p>
-      <h2 id="cm-h" class="sec-h">Project Checkmate</h2>
+        <!-- PROJECT CHECKMATE -->
+        <section class="section checkmate" id="checkmate" aria-labelledby="cm-h">
+            <div class="si">
+                <p class="sec-ey">Programme 01</p>
+                <h2 id="cm-h" class="sec-h">Project Checkmate</h2>
 
-      <div class="cm-hero">
-        <div class="cm-hero-label">Started April 2016 &middot; Pan-India</div>
-        <div class="cm-hero-title">Using chess to unlock education,<br/>opportunity, and wellbeing</div>
-        <p class="cm-hero-text">Project Checkmate is DRF&rsquo;s flagship programme &mdash; using chess as a pedagogical tool to promote cognitive development, focus, and self-confidence in underprivileged and visually impaired youth. What began as a small training session at an NGO in New Delhi has grown into a pan-India programme producing internationally rated players.</p>
-        <div class="cm-stats">
-          <div class="cm-stat"><div class="cm-stat-n">40+</div><div class="cm-stat-l">Students mentored</div></div>
-          <div class="cm-stat"><div class="cm-stat-n">2</div><div class="cm-stat-l">FIDE-rated players produced</div></div>
-          <div class="cm-stat"><div class="cm-stat-n">2016</div><div class="cm-stat-l">Year founded</div></div>
-        </div>
-      </div>
+                <div class="cm-hero">
+                    <div class="cm-hero-label">Started April 2016 &middot; Pan-India</div>
+                    <div class="cm-hero-title">Using chess to unlock education,<br/>opportunity, and wellbeing</div>
+                    <p class="cm-hero-text">Project Checkmate is DRF&rsquo;s flagship programme &mdash; using chess as a pedagogical tool to promote cognitive development, focus, and self-confidence in underprivileged and visually impaired youth. What began as a small training
+                        session at an NGO in New Delhi has grown into a pan-India programme producing internationally rated players.</p>
+                    <div class="cm-stats">
+                        <div class="cm-stat">
+                            <div class="cm-stat-n">40+</div>
+                            <div class="cm-stat-l">Students mentored</div>
+                        </div>
+                        <div class="cm-stat">
+                            <div class="cm-stat-n">2</div>
+                            <div class="cm-stat-l">FIDE-rated players produced</div>
+                        </div>
+                        <div class="cm-stat">
+                            <div class="cm-stat-n">2016</div>
+                            <div class="cm-stat-l">Year founded</div>
+                        </div>
+                    </div>
+                </div>
 
-      <h3 style="font-family:var(--serif);font-size:1.4rem;font-weight:600;color:var(--ink);margin-bottom:1.5rem">Phases of the programme</h3>
-      <div class="phases-grid">
-        <div class="phase-card">
-          <span class="phase-badge">Phase 1</span>
-          <div class="phase-title">On-Ground Training at NAB</div>
-          <div class="phase-date">April 2016 onwards</div>
-          <p class="phase-text">Launched at the International Society of Human Welfare &amp; Rehabilitation (ISHWAR), then expanded to the National Association of the Blind (NAB), R.K. Puram. Students competed at state and national blind chess championships. Produced the first FIDE-rated blind chess player from the programme &mdash; Ayush Prakash Jaiswal.</p>
-        </div>
-        <div class="phase-card">
-          <span class="phase-badge">Phase 2.0</span>
-          <div class="phase-title">Project Checkmate 2.0</div>
-          <div class="phase-date">June &ndash; August 2020</div>
-          <p class="phase-text">Specialised online programme for the top 15 visually impaired chess players in India. Featured guest speakers from sports psychology, nutrition, entrepreneurship, and physiotherapy, plus simultaneous chess exhibitions and lectures by renowned Indian Grandmasters.</p>
-        </div>
-        <div class="phase-card">
-          <span class="phase-badge">Phase 3.0</span>
-          <div class="phase-title">Project Checkmate 3.0</div>
-          <div class="phase-date">October &ndash; November 2020</div>
-          <p class="phase-text">Online boot camp focused on chess for women and girls, coached by a National Blind and Para Asian Chess medalist. Aimed at expanding access to competitive chess for women in India.</p>
-        </div>
-        <div class="phase-card">
-          <span class="phase-badge">Special Programme</span>
-          <div class="phase-title">Queen&rsquo;s Gambit Girls Chess Club</div>
-          <div class="phase-date">January &ndash; March 2021</div>
-          <p class="phase-text">Virtual club for girls to learn chess and attend personal development workshops. Three students were selected for ongoing mentoring of their chess careers following the programme.</p>
-        </div>
-        <div class="phase-card">
-          <span class="phase-badge">Tournament</span>
-          <div class="phase-title">DRF Chess Tour for the Disabled</div>
-          <div class="phase-date">January &ndash; February 2021</div>
-          <p class="phase-text">Online tournament series for players with disabilities. Winners of each event received special Grandmaster sessions; overall winners received monetary prizes.</p>
-        </div>
-        <div class="phase-card">
-          <span class="phase-badge">Landmark Event</span>
-          <div class="phase-title">North Zone Chess Championship for the Blind</div>
-          <div class="phase-date">October 2017 &middot; NAB, New Delhi</div>
-          <p class="phase-text">Organised by DRF at NAB, R.K. Puram &mdash; the biggest blind chess championship of its kind held to that date in North India. A milestone moment for inclusive competitive chess.</p>
-        </div>
-      </div>
+                <h3 style="font-family:var(--serif);font-size:1.4rem;font-weight:600;color:var(--ink);margin-bottom:1.5rem">Phases of the programme</h3>
+                <div class="phases-grid">
+                    <div class="phase-card">
+                        <span class="phase-badge">Phase 1</span>
+                        <div class="phase-title">On-Ground Training at NAB</div>
+                        <div class="phase-date">April 2016 onwards</div>
+                        <p class="phase-text">Launched at the International Society of Human Welfare &amp; Rehabilitation (ISHWAR), then expanded to the National Association of the Blind (NAB), R.K. Puram. Students competed at state and national blind chess championships.
+                            Produced the first FIDE-rated blind chess player from the programme &mdash; Ayush Prakash Jaiswal.</p>
+                    </div>
+                    <div class="phase-card">
+                        <span class="phase-badge">Phase 2.0</span>
+                        <div class="phase-title">Project Checkmate 2.0</div>
+                        <div class="phase-date">June &ndash; August 2020</div>
+                        <p class="phase-text">Specialised online programme for the top 15 visually impaired chess players in India. Featured guest speakers from sports psychology, nutrition, entrepreneurship, and physiotherapy, plus simultaneous chess exhibitions and lectures
+                            by renowned Indian Grandmasters.</p>
+                    </div>
+                    <div class="phase-card">
+                        <span class="phase-badge">Phase 3.0</span>
+                        <div class="phase-title">Project Checkmate 3.0</div>
+                        <div class="phase-date">October &ndash; November 2020</div>
+                        <p class="phase-text">Online boot camp focused on chess for women and girls, coached by a National Blind and Para Asian Chess medalist. Aimed at expanding access to competitive chess for women in India.</p>
+                    </div>
+                    <div class="phase-card">
+                        <span class="phase-badge">Special Programme</span>
+                        <div class="phase-title">Queen&rsquo;s Gambit Girls Chess Club</div>
+                        <div class="phase-date">January &ndash; March 2021</div>
+                        <p class="phase-text">Virtual club for girls to learn chess and attend personal development workshops. Three students were selected for ongoing mentoring of their chess careers following the programme.</p>
+                    </div>
+                    <div class="phase-card">
+                        <span class="phase-badge">Tournament</span>
+                        <div class="phase-title">DRF Chess Tour for the Disabled</div>
+                        <div class="phase-date">January &ndash; February 2021</div>
+                        <p class="phase-text">Online tournament series for players with disabilities. Winners of each event received special Grandmaster sessions; overall winners received monetary prizes.</p>
+                    </div>
+                    <div class="phase-card">
+                        <span class="phase-badge">Landmark Event</span>
+                        <div class="phase-title">North Zone Chess Championship for the Blind</div>
+                        <div class="phase-date">October 2017 &middot; NAB, New Delhi</div>
+                        <p class="phase-text">Organised by DRF at NAB, R.K. Puram &mdash; the biggest blind chess championship of its kind held to that date in North India. A milestone moment for inclusive competitive chess.</p>
+                    </div>
+                </div>
 
-      <h3 style="font-family:var(--serif);font-size:1.4rem;font-weight:600;color:var(--ink);margin-bottom:1.5rem">Programme highlights</h3>
-      <div class="highlights-grid">
-        <div class="hl-item">
-          <div class="hl-icon" aria-hidden="true">&#9823;</div>
-          <div>
-            <div class="hl-title">First FIDE-Rated Blind Player</div>
-            <p class="hl-text">Ayush Prakash Jaiswal earned his FIDE Rapid Rating after the Chessmine Rapid Tournament (September 2017 FIDE list) &mdash; the first student from the programme to achieve an international rating.</p>
-          </div>
-        </div>
-        <div class="hl-item">
-          <div class="hl-icon" aria-hidden="true">&#9819;</div>
-          <div>
-            <div class="hl-title">Grandmaster Interactions</div>
-            <p class="hl-text">Students have had simultaneous exhibition sessions with former World Champion Garry Kasparov and with WGM &amp; IM Tania Sachdev.</p>
-          </div>
-        </div>
-        <div class="hl-item">
-          <div class="hl-icon" aria-hidden="true">&#127942;</div>
-          <div>
-            <div class="hl-title">National Championship Qualifiers</div>
-            <p class="hl-text">Two students qualified for the National &ldquo;B&rdquo; Chess Championship for the Blind 2017; students also won at the 1st National Schools Chess Championship for the Blind, Shirdi.</p>
-          </div>
-        </div>
-        <div class="hl-item">
-          <div class="hl-icon" aria-hidden="true">&#127891;</div>
-          <div>
-            <div class="hl-title">Ashoka University Scholarship</div>
-            <p class="hl-text">Ayush Jaiswal, a Project Checkmate scholar, went on to win a full merit scholarship to Ashoka University &mdash; a landmark outcome for the programme.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+                <h3 style="font-family:var(--serif);font-size:1.4rem;font-weight:600;color:var(--ink);margin-bottom:1.5rem">Programme highlights</h3>
+                <div class="highlights-grid">
+                    <div class="hl-item">
+                        <div class="hl-icon" aria-hidden="true">&#9823;</div>
+                        <div>
+                            <div class="hl-title">First FIDE-Rated Blind Player</div>
+                            <p class="hl-text">Ayush Prakash Jaiswal earned his FIDE Rapid Rating after the Chessmine Rapid Tournament (September 2017 FIDE list) &mdash; the first student from the programme to achieve an international rating.</p>
+                        </div>
+                    </div>
+                    <div class="hl-item">
+                        <div class="hl-icon" aria-hidden="true">&#9819;</div>
+                        <div>
+                            <div class="hl-title">Grandmaster Interactions</div>
+                            <p class="hl-text">Students have had simultaneous exhibition sessions with former World Champion Garry Kasparov and with WGM &amp; IM Tania Sachdev.</p>
+                        </div>
+                    </div>
+                    <div class="hl-item">
+                        <div class="hl-icon" aria-hidden="true">&#127942;</div>
+                        <div>
+                            <div class="hl-title">National Championship Qualifiers</div>
+                            <p class="hl-text">Two students qualified for the National &ldquo;B&rdquo; Chess Championship for the Blind 2017; students also won at the 1st National Schools Chess Championship for the Blind, Shirdi.</p>
+                        </div>
+                    </div>
+                    <div class="hl-item">
+                        <div class="hl-icon" aria-hidden="true">&#127891;</div>
+                        <div>
+                            <div class="hl-title">Ashoka University Scholarship</div>
+                            <p class="hl-text">Ayush Jaiswal, a Project Checkmate scholar, went on to win a full merit scholarship to Ashoka University &mdash; a landmark outcome for the programme.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <div class="divider"></div>
+        <div class="divider"></div>
 
-  <!-- SCHOLARSHIPS -->
-  <section class="section scholarships" id="scholarships" aria-labelledby="schol-h">
-    <div class="si">
-      <p class="sec-ey">Programme 02</p>
-      <h2 id="schol-h" class="sec-h">DRF Scholarships</h2>
-      <div class="schol-intro">
-        <div>
-          <p class="body-text">Since 2018, DRF has run five editions of its scholarship programme &mdash; awarding cash prizes and year-long mentorship to meritorious students, primarily from marginalised or disability backgrounds. Scholars range from 15 to 30 years old and come from across India.</p>
-          <p class="body-text">Mentorship includes guidance on academics, sports, and extracurriculars; access to partner programmes; and speaker events and webinars. Each edition has a distinct theme, reflecting DRF&rsquo;s evolving focus on inclusion, disability, and women&rsquo;s empowerment.</p>
-        </div>
-        <div class="schol-card">
-          <div class="schol-card-title">Scholarship criteria &amp; format</div>
-          <ul class="criteria-list">
-            <li class="criteria-item"><div class="criteria-dot"></div><span>Age range: 15&ndash;30 years</span></li>
-            <li class="criteria-item"><div class="criteria-dot"></div><span>Selection via essay or application on life, future goals, and chosen activity</span></li>
-            <li class="criteria-item"><div class="criteria-dot"></div><span>Cash prize for winners</span></li>
-            <li class="criteria-item"><div class="criteria-dot"></div><span>Year-long mentorship programme</span></li>
-            <li class="criteria-item"><div class="criteria-dot"></div><span>Access to partner programmes, webinars, and speaker events</span></li>
-            <li class="criteria-item"><div class="criteria-dot"></div><span>Focus on persons with disabilities and marginalised communities</span></li>
-          </ul>
-        </div>
-      </div>
+        <!-- SCHOLARSHIPS -->
+        <section class="section scholarships" id="scholarships" aria-labelledby="schol-h">
+            <div class="si">
+                <p class="sec-ey">Programme 02</p>
+                <h2 id="schol-h" class="sec-h">DRF Scholarships</h2>
+                <div class="schol-intro">
+                    <div>
+                        <p class="body-text">Since 2018, DRF has run five editions of its scholarship programme &mdash; awarding cash prizes and year-long mentorship to meritorious students, primarily from marginalised or disability backgrounds. Scholars range from 15 to
+                            30 years old and come from across India.</p>
+                        <p class="body-text">Mentorship includes guidance on academics, sports, and extracurriculars; access to partner programmes; and speaker events and webinars. Each edition has a distinct theme, reflecting DRF&rsquo;s evolving focus on inclusion, disability,
+                            and women&rsquo;s empowerment.</p>
+                    </div>
+                    <div class="schol-card">
+                        <div class="schol-card-title">Scholarship criteria &amp; format</div>
+                        <ul class="criteria-list">
+                            <li class="criteria-item">
+                                <div class="criteria-dot"></div><span>Age range: 15&ndash;30 years</span></li>
+                            <li class="criteria-item">
+                                <div class="criteria-dot"></div><span>Selection via essay or application on life, future goals, and chosen activity</span></li>
+                            <li class="criteria-item">
+                                <div class="criteria-dot"></div><span>Cash prize for winners</span></li>
+                            <li class="criteria-item">
+                                <div class="criteria-dot"></div><span>Year-long mentorship programme</span></li>
+                            <li class="criteria-item">
+                                <div class="criteria-dot"></div><span>Access to partner programmes, webinars, and speaker events</span></li>
+                            <li class="criteria-item">
+                                <div class="criteria-dot"></div><span>Focus on persons with disabilities and marginalised communities</span></li>
+                        </ul>
+                    </div>
+                </div>
 
-      <div class="editions-grid">
-        <div class="edition-card">
-          <span class="ed-tag">Edition 1</span>
-          <div class="ed-title">Inaugural DRF Scholarships</div>
-          <div class="ed-date">July 2018 &middot; NAB, New Delhi</div>
-          <p class="ed-text">The first edition of DRF&rsquo;s scholarship programme, held at the National Association of the Blind, R.K. Puram. Students submitted essays on their lives and future goals.</p>
-          <div class="ed-winners">
-            <div class="ed-winners-label">Notable winner</div>
-            <div class="ed-winner-name">Ayush Jaiswal</div>
-            <div class="ed-winner-note">Later won a full scholarship to Ashoka University under DRF mentorship</div>
-          </div>
-        </div>
-        <div class="edition-card">
-          <span class="ed-tag">Edition 2</span>
-          <div class="ed-title">Second DRF Scholarships</div>
-          <div class="ed-date">August 2019</div>
-          <p class="ed-text">Two winners received cash prizes and mentorship. Focus on students balancing academic achievement with sports and extracurricular activities.</p>
-          <div class="ed-winners">
-            <div class="ed-winners-label">Notable winners</div>
-            <div class="ed-winner-name">Neeraj Sharma</div>
-            <div class="ed-winner-note">Grade 9, Rajasthan; chess &amp; cricket player; working toward FIDE rating</div>
-          </div>
-        </div>
-        <div class="edition-card">
-          <span class="ed-tag">Edition 3</span>
-          <div class="ed-title">Third DRF Scholarships</div>
-          <div class="ed-date">July 2020 &middot; Virtual</div>
-          <p class="ed-text">First virtual edition, held during COVID-19. Open to persons with disabilities from all over India. Four prize winners plus participation rewards for all participants.</p>
-          <div class="ed-winners">
-            <div class="ed-winners-label">Notable winner</div>
-            <div class="ed-winner-name">Muskan Patwari</div>
-            <div class="ed-winner-note">Found the mentoring programme and weekly webinars &ldquo;weekly delights&rdquo;</div>
-          </div>
-        </div>
-        <div class="edition-card">
-          <span class="ed-tag">Edition 4</span>
-          <div class="ed-title">Devajyoti Scholarships</div>
-          <div class="ed-date">May 2021 &middot; Virtual</div>
-          <p class="ed-text">Co-organised with Wheeling Happiness Foundation (Dr. Deepa Malik). &ldquo;Devajyoti&rdquo; means Divine Light. Targeted persons with disabilities aged 15&ndash;30 across 6 categories: sports, arts, academics, science, entrepreneurship, and competitive exams.</p>
-          <div class="ed-winners">
-            <div class="ed-winners-label">Keynote</div>
-            <div class="ed-winner-name">Dr. Deepa Malik</div>
-            <div class="ed-winner-note">Paralympic Gold Medalist, Padma Shri, Rajiv Gandhi Khel Ratna</div>
-          </div>
-        </div>
-        <div class="edition-card">
-          <span class="ed-tag">Edition 5</span>
-          <div class="ed-title">Shaktinaari Scholarships</div>
-          <div class="ed-date">2021 &middot; Virtual</div>
-          <p class="ed-text">&ldquo;Shaktinaari&rdquo; means Women Power. Focused on women aged 18&ndash;30 with disabilities or working in disability and women&rsquo;s empowerment fields. Three winners received cash prizes and mentorship.</p>
-          <div class="ed-winners">
-            <div class="ed-winners-label">Winners</div>
-            <div class="ed-winner-name">Sapna Nidhi &middot; Shalini Shaw &middot; Ribalin Lyngdoh</div>
-            <div class="ed-winner-note">Aspiring professor, English Literature PhD candidate, MSW student</div>
-          </div>
-        </div>
-        <div class="edition-card" style="background:var(--cr-pl);border-color:var(--b-cr)">
-          <span class="ed-tag" style="color:var(--cr);background:var(--cr-pl)">Mentorship</span>
-          <div class="ed-title">DRF Virtual Scholars Group</div>
-          <div class="ed-date">August 2020 &ndash; March 2021</div>
-          <p class="ed-text">A year-long mentorship group for 2018&ndash;2020 scholarship winners, featuring partner programmes, regular speaker events, and ongoing guidance on academics, sports, and extracurriculars.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+                <div class="editions-grid">
+                    <div class="edition-card">
+                        <span class="ed-tag">Edition 1</span>
+                        <div class="ed-title">Inaugural DRF Scholarships</div>
+                        <div class="ed-date">July 2018 &middot; NAB, New Delhi</div>
+                        <p class="ed-text">The first edition of DRF&rsquo;s scholarship programme, held at the National Association of the Blind, R.K. Puram. Students submitted essays on their lives and future goals.</p>
+                        <div class="ed-winners">
+                            <div class="ed-winners-label">Notable winner</div>
+                            <div class="ed-winner-name">Ayush Jaiswal</div>
+                            <div class="ed-winner-note">Later won a full scholarship to Ashoka University under DRF mentorship</div>
+                        </div>
+                    </div>
+                    <div class="edition-card">
+                        <span class="ed-tag">Edition 2</span>
+                        <div class="ed-title">Second DRF Scholarships</div>
+                        <div class="ed-date">August 2019</div>
+                        <p class="ed-text">Two winners received cash prizes and mentorship. Focus on students balancing academic achievement with sports and extracurricular activities.</p>
+                        <div class="ed-winners">
+                            <div class="ed-winners-label">Notable winners</div>
+                            <div class="ed-winner-name">Neeraj Sharma</div>
+                            <div class="ed-winner-note">Grade 9, Rajasthan; chess &amp; cricket player; working toward FIDE rating</div>
+                        </div>
+                    </div>
+                    <div class="edition-card">
+                        <span class="ed-tag">Edition 3</span>
+                        <div class="ed-title">Third DRF Scholarships</div>
+                        <div class="ed-date">July 2020 &middot; Virtual</div>
+                        <p class="ed-text">First virtual edition, held during COVID-19. Open to persons with disabilities from all over India. Four prize winners plus participation rewards for all participants.</p>
+                        <div class="ed-winners">
+                            <div class="ed-winners-label">Notable winner</div>
+                            <div class="ed-winner-name">Muskan Patwari</div>
+                            <div class="ed-winner-note">Found the mentoring programme and weekly webinars &ldquo;weekly delights&rdquo;</div>
+                        </div>
+                    </div>
+                    <div class="edition-card">
+                        <span class="ed-tag">Edition 4</span>
+                        <div class="ed-title">Devajyoti Scholarships</div>
+                        <div class="ed-date">May 2021 &middot; Virtual</div>
+                        <p class="ed-text">Co-organised with Wheeling Happiness Foundation (Dr. Deepa Malik). &ldquo;Devajyoti&rdquo; means Divine Light. Targeted persons with disabilities aged 15&ndash;30 across 6 categories: sports, arts, academics, science, entrepreneurship,
+                            and competitive exams.</p>
+                        <div class="ed-winners">
+                            <div class="ed-winners-label">Keynote</div>
+                            <div class="ed-winner-name">Dr. Deepa Malik</div>
+                            <div class="ed-winner-note">Paralympic Gold Medalist, Padma Shri, Rajiv Gandhi Khel Ratna</div>
+                        </div>
+                    </div>
+                    <div class="edition-card">
+                        <span class="ed-tag">Edition 5</span>
+                        <div class="ed-title">Shaktinaari Scholarships</div>
+                        <div class="ed-date">2021 &middot; Virtual</div>
+                        <p class="ed-text">&ldquo;Shaktinaari&rdquo; means Women Power. Focused on women aged 18&ndash;30 with disabilities or working in disability and women&rsquo;s empowerment fields. Three winners received cash prizes and mentorship.</p>
+                        <div class="ed-winners">
+                            <div class="ed-winners-label">Winners</div>
+                            <div class="ed-winner-name">Sapna Nidhi &middot; Shalini Shaw &middot; Ribalin Lyngdoh</div>
+                            <div class="ed-winner-note">Aspiring professor, English Literature PhD candidate, MSW student</div>
+                        </div>
+                    </div>
+                    <div class="edition-card" style="background:var(--cr-pl);border-color:var(--b-cr)">
+                        <span class="ed-tag" style="color:var(--cr);background:var(--cr-pl)">Mentorship</span>
+                        <div class="ed-title">DRF Virtual Scholars Group</div>
+                        <div class="ed-date">August 2020 &ndash; March 2021</div>
+                        <p class="ed-text">A year-long mentorship group for 2018&ndash;2020 scholarship winners, featuring partner programmes, regular speaker events, and ongoing guidance on academics, sports, and extracurriculars.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <div class="divider"></div>
+        <div class="divider"></div>
 
-  <!-- HEALTH -->
-  <section class="section health" id="health" aria-labelledby="health-h">
-    <div class="si">
-      <p class="sec-ey">Programme 03</p>
-      <h2 id="health-h" class="sec-h">Health Initiatives</h2>
+        <!-- HEALTH -->
+        <section class="section health" id="health" aria-labelledby="health-h">
+            <div class="si">
+                <p class="sec-ey">Programme 03</p>
+                <h2 id="health-h" class="sec-h">Health Initiatives</h2>
 
-      <div class="philosophy-box">
-        <div class="phil-icon" aria-hidden="true">&#9675;</div>
-        <div>
-          <div class="phil-label">Our Philosophy</div>
-          <p class="phil-text">&ldquo;A healthy body rests in a healthy mind.&rdquo; DRF views health as integral to its empowerment mission &mdash; not an add-on, but a foundation.</p>
-        </div>
-      </div>
+                <div class="philosophy-box">
+                    <div class="phil-icon" aria-hidden="true">&#9675;</div>
+                    <div>
+                        <div class="phil-label">Our Philosophy</div>
+                        <p class="phil-text">&ldquo;A healthy body rests in a healthy mind.&rdquo; DRF views health as integral to its empowerment mission &mdash; not an add-on, but a foundation.</p>
+                    </div>
+                </div>
 
-      <p class="body-text" style="max-width:700px;margin-bottom:3rem">DRF&rsquo;s health initiatives span mental health, menstrual hygiene, dental care, physical activity, and nutritional support &mdash; delivered through partnerships with NGOs and healthcare professionals across India and internationally. Every initiative is designed to reach communities that are typically underserved by mainstream health systems.</p>
+                <p class="body-text" style="max-width:700px;margin-bottom:3rem">DRF&rsquo;s health initiatives span mental health, menstrual hygiene, dental care, physical activity, and nutritional support &mdash; delivered through partnerships with NGOs and healthcare professionals across India and internationally.
+                    Every initiative is designed to reach communities that are typically underserved by mainstream health systems.</p>
 
-      <div class="health-grid">
-        <div class="health-card">
-          <div class="health-partner">ACTit Network &middot; Fiji</div>
-          <div class="health-title">Mental Health &mdash; &ldquo;Thoughts Aloud&rdquo;</div>
-          <p class="health-text">Online mental health sessions for DRF students, delivered in partnership with the ACTit Network from Fiji &mdash; an international collaboration bringing global expertise to Indian youth.</p>
-          <span class="health-tag">Mental Health</span>
-        </div>
-        <div class="health-card">
-          <div class="health-partner">Red is the New Green &middot; Mumbai</div>
-          <div class="health-title">Menstrual Hygiene Education</div>
-          <p class="health-text">Telephonic education sessions for girls on menstrual health and hygiene, reaching students who may not have access to this information through formal channels.</p>
-          <span class="health-tag">Women&rsquo;s Health</span>
-        </div>
-        <div class="health-card">
-          <div class="health-partner">Kamal Dental Clinic &middot; New Delhi</div>
-          <div class="health-title">Dental Hygiene Camp at NAB</div>
-          <p class="health-text">In-person dental hygiene sessions at NAB, R.K. Puram, delivered by Dr. Ashu Gupta and Mr. Sarthak Gupta. Mr. Sarthak Gupta also accompanied 10 students to the Annual Inter-NGO Sports Meet at Modern School Vasant Vihar.</p>
-          <span class="health-tag">Dental &amp; Physical</span>
-        </div>
-        <div class="health-card">
-          <div class="health-partner">Baala &middot; New Delhi</div>
-          <div class="health-title">Sanitary Kit Distribution</div>
-          <p class="health-text">Distribution of reusable sanitary kits and educational booklets to women at Kushalta Vikas Kender, New Delhi &mdash; addressing menstrual health at a grassroots community level.</p>
-          <span class="health-tag">Women&rsquo;s Health</span>
-        </div>
-        <div class="health-card">
-          <div class="health-partner">Ms. Jyoti Mishra &middot; Yoga &amp; Wellness</div>
-          <div class="health-title">DRF Purposeful Living Series</div>
-          <p class="health-text">Online coaching series empowering people with disabilities to lead more effectively. Episode 1 featured Ms. Jyoti Mishra (yoga and wellness coach) covering mindfulness and purposeful daily living.</p>
-          <span class="health-tag">Mental Wellness</span>
-        </div>
-        <div class="health-card">
-          <div class="health-partner">Infrastructure &middot; NAB Delhi</div>
-          <div class="health-title">Nutritional &amp; Infrastructure Support</div>
-          <p class="health-text">DRF distributed nutritional meals to students and installed a new refrigerator at NAB Delhi premises, enabling students with multiple disabilities to prepare for home-science education exams.</p>
-          <span class="health-tag">Nutrition &amp; Support</span>
-        </div>
-      </div>
-    </div>
-  </section>
+                <div class="health-grid">
+                    <div class="health-card">
+                        <div class="health-partner">ACTit Network &middot; Fiji</div>
+                        <div class="health-title">Mental Health &mdash; &ldquo;Thoughts Aloud&rdquo;</div>
+                        <p class="health-text">Online mental health sessions for DRF students, delivered in partnership with the ACTit Network from Fiji &mdash; an international collaboration bringing global expertise to Indian youth.</p>
+                        <span class="health-tag">Mental Health</span>
+                    </div>
+                    <div class="health-card">
+                        <div class="health-partner">Red is the New Green &middot; Mumbai</div>
+                        <div class="health-title">Menstrual Hygiene Education</div>
+                        <p class="health-text">Telephonic education sessions for girls on menstrual health and hygiene, reaching students who may not have access to this information through formal channels.</p>
+                        <span class="health-tag">Women&rsquo;s Health</span>
+                    </div>
+                    <div class="health-card">
+                        <div class="health-partner">Kamal Dental Clinic &middot; New Delhi</div>
+                        <div class="health-title">Dental Hygiene Camp at NAB</div>
+                        <p class="health-text">In-person dental hygiene sessions at NAB, R.K. Puram, delivered by Dr. Ashu Gupta and Mr. Sarthak Gupta. Mr. Sarthak Gupta also accompanied 10 students to the Annual Inter-NGO Sports Meet at Modern School Vasant Vihar.</p>
+                        <span class="health-tag">Dental &amp; Physical</span>
+                    </div>
+                    <div class="health-card">
+                        <div class="health-partner">Baala &middot; New Delhi</div>
+                        <div class="health-title">Sanitary Kit Distribution</div>
+                        <p class="health-text">Distribution of reusable sanitary kits and educational booklets to women at Kushalta Vikas Kender, New Delhi &mdash; addressing menstrual health at a grassroots community level.</p>
+                        <span class="health-tag">Women&rsquo;s Health</span>
+                    </div>
+                    <div class="health-card">
+                        <div class="health-partner">Ms. Jyoti Mishra &middot; Yoga &amp; Wellness</div>
+                        <div class="health-title">DRF Purposeful Living Series</div>
+                        <p class="health-text">Online coaching series empowering people with disabilities to lead more effectively. Episode 1 featured Ms. Jyoti Mishra (yoga and wellness coach) covering mindfulness and purposeful daily living.</p>
+                        <span class="health-tag">Mental Wellness</span>
+                    </div>
+                    <div class="health-card">
+                        <div class="health-partner">Infrastructure &middot; NAB Delhi</div>
+                        <div class="health-title">Nutritional &amp; Infrastructure Support</div>
+                        <p class="health-text">DRF distributed nutritional meals to students and installed a new refrigerator at NAB Delhi premises, enabling students with multiple disabilities to prepare for home-science education exams.</p>
+                        <span class="health-tag">Nutrition &amp; Support</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <!-- CTA -->
-  <div class="cta-band" role="region" aria-labelledby="cta-h">
-    <div class="si">
-      <span class="cta-tag">Make It Happen</span>
-      <h2 id="cta-h">Support the programmes.<br/>Change a life.</h2>
-      <p>Every donation, volunteer hour, and partnership goes directly into making these programmes possible for young people across India.</p>
-      <div class="cta-btns">
-        <a href="https://www.instamojo.com/@drfoundation" target="_blank" rel="noopener noreferrer" class="btn-gd">
+        <!-- CTA -->
+        <div class="cta-band" role="region" aria-labelledby="cta-h">
+            <div class="si">
+                <span class="cta-tag">Make It Happen</span>
+                <h2 id="cta-h">Support the programmes.<br/>Change a life.</h2>
+                <p>Every donation, volunteer hour, and partnership goes directly into making these programmes possible for young people across India.</p>
+                <div class="cta-btns">
+                    <a href="https://www.instamojo.com/@drfoundation" target="_blank" rel="noopener noreferrer" class="btn-gd">
           Donate &mdash; 80G Tax Exempt
           <svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="get-involved.html" class="btn-out">
+                    <a href="get-involved.html" class="btn-out">
           Volunteer or Partner
           <svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-      </div>
-    </div>
-  </div>
-
-</main>
-
-<footer>
-  <div class="fi">
-    <div class="ft">
-      <div>
-        <div class="fl">
-          <img src="logo.jpeg" alt="" class="fli" />
-          <div>
-            <div class="logo-text">DR Foundation</div>
-            <div class="logo-sub">Devanshi Rathi Foundation</div>
-          </div>
+                </div>
+            </div>
         </div>
-        <p class="ftag">Empowering through Education, Sport, and Health. Section 8 Non-Profit &middot; New Delhi.</p>
-        <div class="fsoc" aria-label="Social media">
-          <a href="https://www.facebook.com/devanshirathifoundation/" target="_blank" rel="noopener noreferrer" class="sl" aria-label="Facebook">Fb</a>
-          <a href="https://www.instagram.com/d_r_foundation/" target="_blank" rel="noopener noreferrer" class="sl" aria-label="Instagram">In</a>
-          <a href="https://in.linkedin.com/company/d-r-foundation" target="_blank" rel="noopener noreferrer" class="sl" aria-label="LinkedIn">Li</a>
-          <a href="https://twitter.com/d_r_foundation" target="_blank" rel="noopener noreferrer" class="sl" aria-label="Twitter">X</a>
+
+    </main>
+
+    <footer>
+        <div class="fi">
+            <div class="ft">
+                <div>
+                    <div class="fl">
+                        <img src="logo.jpeg" alt="" class="fli" />
+                        <div>
+                            <div class="logo-text">DR Foundation</div>
+                            <div class="logo-sub">Devanshi Rathi Foundation</div>
+                        </div>
+                    </div>
+                    <p class="ftag">Empowering through Education, Sport, and Health. Section 8 Non-Profit &middot; New Delhi.</p>
+                    <div class="fsoc" aria-label="Social media">
+                        <a href="https://www.facebook.com/devanshirathifoundation/" target="_blank" rel="noopener noreferrer" class="sl" aria-label="Facebook">Fb</a>
+                        <a href="https://www.instagram.com/d_r_foundation/" target="_blank" rel="noopener noreferrer" class="sl" aria-label="Instagram">In</a>
+                        <a href="https://in.linkedin.com/company/d-r-foundation" target="_blank" rel="noopener noreferrer" class="sl" aria-label="LinkedIn">Li</a>
+                        <a href="https://twitter.com/d_r_foundation" target="_blank" rel="noopener noreferrer" class="sl" aria-label="Twitter">X</a>
+                    </div>
+                </div>
+                <div class="fc">
+                    <h4>About</h4>
+                    <ul class="flinks">
+                        <li><a href="about.html#foundation">The Foundation</a></li>
+                        <li><a href="about.html#founder">About Devanshi</a></li>
+                        <li><a href="about.html#partners">Our Partners</a></li>
+                    </ul>
+                </div>
+                <div class="fc">
+                    <h4>Programmes</h4>
+                    <ul class="flinks">
+                        <li><a href="programs.html#checkmate">Project Checkmate</a></li>
+                        <li><a href="programs.html#scholarships">DRF Scholarships</a></li>
+                        <li><a href="programs.html#health">Health Initiatives</a></li>
+                    </ul>
+                </div>
+                <div class="fc">
+                    <h4>Get Involved</h4>
+                    <ul class="flinks">
+                        <li><a href="get-involved.html#donate">Donate</a></li>
+                        <li><a href="get-involved.html#volunteer">Volunteer &amp; Intern</a></li>
+                        <li><a href="get-involved.html#partner">Partner with Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="fb">
+                <p class="flegal">&copy; 2024 Devanshi Rathi Foundation. All rights reserved.</p>
+                <p class="fcin">CIN: U92490DL2018NPL335483</p>
+            </div>
         </div>
-      </div>
-      <div class="fc"><h4>About</h4><ul class="flinks"><li><a href="about.html#foundation">The Foundation</a></li><li><a href="about.html#founder">About Devanshi</a></li><li><a href="about.html#partners">Our Partners</a></li></ul></div>
-      <div class="fc"><h4>Programmes</h4><ul class="flinks"><li><a href="programs.html#checkmate">Project Checkmate</a></li><li><a href="programs.html#scholarships">DRF Scholarships</a></li><li><a href="programs.html#health">Health Initiatives</a></li></ul></div>
-      <div class="fc"><h4>Get Involved</h4><ul class="flinks"><li><a href="get-involved.html#donate">Donate</a></li><li><a href="get-involved.html#volunteer">Volunteer &amp; Intern</a></li><li><a href="get-involved.html#partner">Partner with Us</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-    </div>
-    <div class="fb">
-      <p class="flegal">&copy; 2024 Devanshi Rathi Foundation. All rights reserved.</p>
-      <p class="fcin">CIN: U92490DL2018NPL335483</p>
-    </div>
-  </div>
-</footer>
+    </footer>
 
 </body>
+
 </html>
