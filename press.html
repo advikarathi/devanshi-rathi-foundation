@@ -396,6 +396,54 @@
             border-color: rgba(178, 34, 34, .16);
         }
         
+        .insta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .insta-card {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border-radius: var(--rl);
+            border: 1px solid var(--b-gd);
+            background: var(--bg);
+            transition: transform .25s, box-shadow .25s;
+            text-align: center;
+        }
+        
+        .insta-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, .08);
+        }
+        
+        .insta-card img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .insta-tag {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--ink);
+            padding: 0.9rem 1rem;
+            border-top: 1px solid var(--b-gd);
+            background: rgba(255, 255, 255, 0.92);
+        }
+        
+        .insta-note {
+            font-size: 14px;
+            font-weight: 300;
+            color: var(--ink-m);
+            margin-top: 1rem;
+            max-width: 680px;
+            opacity: .8;
+        }
+        
         .fc-outlet {
             font-size: 11px;
             font-weight: 500;
@@ -854,6 +902,9 @@
             .speaker-grid {
                 grid-template-columns: 1fr
             }
+            .insta-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
             .ft {
                 grid-template-columns: 1fr 1fr;
                 gap: 2rem
@@ -869,6 +920,9 @@
             }
             .writing-grid {
                 grid-template-columns: 1fr
+            }
+            .insta-grid {
+                grid-template-columns: 1fr;
             }
             .ft {
                 grid-template-columns: 1fr
@@ -979,6 +1033,42 @@
                         <span class="fc-tag">Awards &amp; Recognition</span>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- INSTAGRAM GALLERY -->
+        <section class="section instagram" id="instagram" aria-labelledby="insta-h">
+            <div class="si">
+                <p class="sec-ey">Instagram</p>
+                <h2 id="insta-h" class="sec-h">Recent moments from @d_r_foundation</h2>
+                <p class="sec-lead">A visual snapshot of our activities, events, and partner collaborations from our Instagram feed.</p>
+                <div class="insta-grid">
+                    <a href="https://www.instagram.com/d_r_foundation/p/CYLb_dVrTLx/" target="_blank" rel="noopener noreferrer" class="insta-card">
+                        <img src="instagram-1.jpg" alt="Flashback from 2021. #happynewyear" />
+                        <div class="insta-tag">Open post</div>
+                    </a>
+                    <a href="https://www.instagram.com/d_r_foundation/p/CX5yhDsF2Ib/" target="_blank" rel="noopener noreferrer" class="insta-card">
+                        <img src="instagram-2.jpg" alt="Shaktinaari celebrates Christmas with Samarthanam Trust" />
+                        <div class="insta-tag">Open post</div>
+                    </a>
+                    <a href="https://www.instagram.com/d_r_foundation/p/CWlJr1gPMHD/" target="_blank" rel="noopener noreferrer" class="insta-card">
+                        <img src="instagram-3.jpg" alt="Shaktinaari entrepreneurship and women’s empowerment workshop" />
+                        <div class="insta-tag">Open post</div>
+                    </a>
+                    <a href="https://www.instagram.com/d_r_foundation/p/CVxxE82hUzO/" target="_blank" rel="noopener noreferrer" class="insta-card">
+                        <img src="instagram-4.jpg" alt="Shaktinaari Diwali celebration with Samarthanam Trust" />
+                        <div class="insta-tag">Open post</div>
+                    </a>
+                    <a href="https://devanshirathifoundation.wordpress.com/" target="_blank" rel="noopener noreferrer" class="insta-card">
+                        <img src="wp-home-1.jpg" alt="Community photo from DR Foundation WordPress highlights" />
+                        <div class="insta-tag">Open WordPress</div>
+                    </a>
+                    <a href="https://devanshirathifoundation.wordpress.com/" target="_blank" rel="noopener noreferrer" class="insta-card">
+                        <img src="wp-home-2.jpg" alt="DR Foundation visual highlight from the WordPress site" />
+                        <div class="insta-tag">Open WordPress</div>
+                    </a>
+                </div>
+                <p class="insta-note">A mix of DR Foundation visuals from Instagram and WordPress highlights.</p>
             </div>
         </section>
 
