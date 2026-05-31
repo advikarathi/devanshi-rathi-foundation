@@ -1,1274 +1,407 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Get Involved — DR Foundation</title>
-    <meta name="description" content="Donate, volunteer, intern, or partner with the DR Foundation. All donations are 80G tax-exempt." />
-    <link rel="icon" href="logo.jpeg" type="image/jpeg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-    <style>
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0
-        }
-        
-         :root {
-            --cr: #B22222;
-            --cr-dk: #8B1A1A;
-            --cr-pl: #FAF0F0;
-            --gd: #C4933A;
-            --gd-dk: #A07830;
-            --gd-pl: #FBF5E8;
-            --gd-md: #D4A855;
-            --ink: #1a1a18;
-            --ink-m: #4a4a47;
-            --ink-f: #8a8a85;
-            --bg: #fdfcfa;
-            --wh: #ffffff;
-            --b-cr: rgba(178, 34, 34, 0.1);
-            --b-gd: rgba(196, 147, 58, 0.2);
-            --serif: 'Cormorant Garamond', Georgia, serif;
-            --sans: 'DM Sans', system-ui, sans-serif;
-            --max: 1160px;
-            --r: 12px;
-            --rl: 20px
-        }
-        
-        html {
-            scroll-behavior: smooth
-        }
-        
-        body {
-            font-family: var(--sans);
-            font-size: 16px;
-            line-height: 1.7;
-            color: var(--ink);
-            background: var(--bg);
-            -webkit-font-smoothing: antialiased
-        }
-        
-        img {
-            display: block;
-            max-width: 100%
-        }
-        
-        a {
-            color: inherit;
-            text-decoration: none
-        }
-        
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            background: rgba(253, 252, 250, .94);
-            backdrop-filter: blur(14px);
-            border-bottom: 1px solid var(--b-gd);
-            padding: 0 clamp(1.5rem, 5vw, 3rem)
-        }
-        
-        .nav-inner {
-            max-width: var(--max);
-            margin: 0 auto;
-            height: 70px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between
-        }
-        
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px
-        }
-        
-        .logo-img {
-            width: 44px;
-            height: 44px;
-            object-fit: contain;
-            border-radius: 6px;
-            border: 1px solid var(--b-gd)
-        }
-        
-        .logo-text {
-            font-family: var(--serif);
-            font-size: 19px;
-            font-weight: 600;
-            color: var(--ink);
-            line-height: 1.1
-        }
-        
-        .logo-sub {
-            font-size: 10px;
-            font-weight: 300;
-            letter-spacing: .12em;
-            text-transform: uppercase;
-            color: var(--ink-f)
-        }
-        
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: .2rem;
-            list-style: none
-        }
-        
-        .nav-links a {
-            font-size: 13.5px;
-            color: var(--ink-m);
-            padding: 6px 12px;
-            border-radius: 6px;
-            transition: color .2s, background .2s
-        }
-        
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--cr);
-            background: var(--cr-pl)
-        }
-        
-        .nav-cta {
-            background: var(--cr)!important;
-            color: #fff!important;
-            padding: 8px 20px!important;
-            border-radius: 8px!important;
-            font-weight: 500!important
-        }
-        
-        .nav-cta:hover {
-            background: var(--cr-dk)!important;
-            color: #fff!important
-        }
-        /* PAGE HERO */
-        
-        .page-hero {
-            padding: 120px clamp(1.5rem, 5vw, 3rem) 72px;
-            background: var(--ink);
-            position: relative;
-            overflow: hidden
-        }
-        
-        .page-hero::before {
-            content: '\265F';
-            position: absolute;
-            top: -60px;
-            right: 5%;
-            font-size: 380px;
-            color: rgba(255, 255, 255, .03);
-            line-height: 1;
-            pointer-events: none
-        }
-        
-        .page-hero::after {
-            content: '\2655';
-            position: absolute;
-            bottom: -80px;
-            left: 5%;
-            font-size: 300px;
-            color: rgba(196, 147, 58, .05);
-            line-height: 1;
-            pointer-events: none
-        }
-        
-        .page-hero-inner {
-            max-width: var(--max);
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            gap: 4rem;
-            position: relative;
-            z-index: 1
-        }
-        
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 11px;
-            font-weight: 500;
-            letter-spacing: .14em;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, .6);
-            background: rgba(255, 255, 255, .08);
-            padding: 6px 14px;
-            border-radius: 100px;
-            margin-bottom: 1.25rem
-        }
-        
-        .eyebrow::before {
-            content: '';
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--gd)
-        }
-        
-        .page-hero h1 {
-            font-family: var(--serif);
-            font-size: clamp(2.6rem, 4.5vw, 3.8rem);
-            font-weight: 600;
-            line-height: 1.1;
-            color: #fff;
-            letter-spacing: -.02em;
-            margin-bottom: 1.25rem
-        }
-        
-        .page-hero h1 em {
-            font-style: italic;
-            color: var(--gd-md)
-        }
-        
-        .page-hero-lead {
-            font-size: 17px;
-            font-weight: 300;
-            color: rgba(255, 255, 255, .7);
-            line-height: 1.8
-        }
-        
-        .hero-ways {
-            display: flex;
-            flex-direction: column;
-            gap: .75rem
-        }
-        
-        .hero-way {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            background: rgba(255, 255, 255, .06);
-            border: 1px solid rgba(255, 255, 255, .1);
-            border-radius: var(--r);
-            padding: 1rem 1.25rem;
-            transition: background .2s, border-color .2s
-        }
-        
-        .hero-way:hover {
-            background: rgba(196, 147, 58, .1);
-            border-color: rgba(196, 147, 58, .3)
-        }
-        
-        .hw-num {
-            font-family: var(--serif);
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: var(--gd-md);
-            width: 36px;
-            flex-shrink: 0
-        }
-        
-        .hw-text {
-            font-size: 14px;
-            font-weight: 500;
-            color: #fff
-        }
-        
-        .hw-sub {
-            font-size: 12px;
-            font-weight: 300;
-            color: rgba(255, 255, 255, .5)
-        }
-        /* SHARED */
-        
-        .section {
-            padding: 5.5rem clamp(1.5rem, 5vw, 3rem)
-        }
-        
-        .si {
-            max-width: var(--max);
-            margin: 0 auto
-        }
-        
-        .sec-ey {
-            font-size: 11px;
-            font-weight: 500;
-            letter-spacing: .14em;
-            text-transform: uppercase;
-            color: var(--gd-dk);
-            margin-bottom: .85rem
-        }
-        
-        .sec-h {
-            font-family: var(--serif);
-            font-size: clamp(1.9rem, 3vw, 2.6rem);
-            font-weight: 600;
-            color: var(--ink);
-            line-height: 1.15;
-            margin-bottom: 1rem;
-            letter-spacing: -.01em
-        }
-        
-        .sec-lead {
-            font-size: 16px;
-            font-weight: 300;
-            color: var(--ink-m);
-            max-width: 620px;
-            margin-bottom: 3rem;
-            line-height: 1.8
-        }
-        
-        .body-text {
-            font-size: 15px;
-            font-weight: 300;
-            color: var(--ink-m);
-            line-height: 1.9;
-            margin-bottom: 1.25rem
-        }
-        
-        .divider {
-            height: 1px;
-            background: var(--b-gd);
-            margin: 0 clamp(1.5rem, 5vw, 3rem)
-        }
-        
-        .arr {
-            width: 14px;
-            height: 14px;
-            fill: none;
-            stroke: currentColor;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round
-        }
-        
-        .btn-p {
-            background: var(--cr);
-            color: #fff;
-            padding: 13px 28px;
-            border-radius: var(--r);
-            font-size: 14px;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: background .2s, transform .2s
-        }
-        
-        .btn-p:hover {
-            background: var(--cr-dk);
-            transform: translateY(-1px)
-        }
-        
-        .btn-gd {
-            background: var(--gd);
-            color: #fff;
-            padding: 13px 28px;
-            border-radius: var(--r);
-            font-size: 14px;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: background .2s, transform .2s
-        }
-        
-        .btn-gd:hover {
-            background: var(--gd-dk);
-            transform: translateY(-1px)
-        }
-        
-        .btn-s {
-            background: transparent;
-            color: var(--cr);
-            padding: 12px 28px;
-            border-radius: var(--r);
-            font-size: 14px;
-            font-weight: 500;
-            border: 1.5px solid var(--cr);
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: background .2s
-        }
-        
-        .btn-s:hover {
-            background: var(--cr-pl)
-        }
-        /* DONATE */
-        
-        .donate {
-            background: var(--cr);
-            padding: 5.5rem clamp(1.5rem, 5vw, 3rem);
-            position: relative;
-            overflow: hidden
-        }
-        
-        .donate::before {
-            content: '\265F';
-            position: absolute;
-            top: -50px;
-            right: 5%;
-            font-size: 320px;
-            color: rgba(255, 255, 255, .04);
-            line-height: 1;
-            pointer-events: none
-        }
-        
-        .donate-inner {
-            max-width: var(--max);
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: center;
-            position: relative;
-            z-index: 1
-        }
-        
-        .donate-label {
-            font-size: 10.5px;
-            font-weight: 500;
-            letter-spacing: .16em;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, .55);
-            margin-bottom: .85rem
-        }
-        
-        .donate h2 {
-            font-family: var(--serif);
-            font-size: clamp(2rem, 3.5vw, 2.8rem);
-            font-weight: 600;
-            color: #fff;
-            line-height: 1.15;
-            margin-bottom: 1rem;
-            letter-spacing: -.01em
-        }
-        
-        .donate-lead {
-            font-size: 16px;
-            font-weight: 300;
-            color: rgba(255, 255, 255, .8);
-            line-height: 1.8;
-            margin-bottom: 2rem
-        }
-        
-        .donate-cert {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255, 255, 255, .12);
-            color: rgba(255, 255, 255, .9);
-            font-size: 12.5px;
-            font-weight: 400;
-            padding: 8px 16px;
-            border-radius: 100px;
-            margin-bottom: 1.5rem
-        }
-        
-        .donate-cert::before {
-            content: '\2713';
-            font-weight: 700
-        }
-        
-        .btn-white {
-            background: #fff;
-            color: var(--cr);
-            padding: 15px 32px;
-            border-radius: var(--r);
-            font-size: 14px;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: transform .2s, box-shadow .2s
-        }
-        
-        .btn-white:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, .15)
-        }
-        
-        .donate-note {
-            font-size: 12px;
-            color: rgba(255, 255, 255, .45);
-            margin-top: 1rem
-        }
-        
-        .impact-boxes {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem
-        }
-        
-        .impact-box {
-            background: rgba(255, 255, 255, .1);
-            border-radius: var(--r);
-            padding: 1.25rem 1.5rem;
-            border: 1px solid rgba(255, 255, 255, .15)
-        }
-        
-        .ib-amount {
-            font-family: var(--serif);
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #fff;
-            margin-bottom: .25rem
-        }
-        
-        .ib-text {
-            font-size: 13.5px;
-            font-weight: 300;
-            color: rgba(255, 255, 255, .75);
-            line-height: 1.5
-        }
-        /* VOLUNTEER */
-        
-        .volunteer {
-            background: var(--wh)
-        }
-        
-        .vol-grid {
-            display: grid;
-            grid-template-columns: 1.1fr 1fr;
-            gap: 5rem;
-            align-items: start
-        }
-        
-        .positions-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-bottom: 2rem
-        }
-        
-        .pos-card {
-            background: var(--bg);
-            border-radius: var(--r);
-            padding: 1.25rem;
-            border: 1px solid var(--b-gd);
-            transition: border-color .2s, transform .2s
-        }
-        
-        .pos-card:hover {
-            border-color: var(--gd);
-            transform: translateY(-2px)
-        }
-        
-        .pos-num {
-            font-size: 11px;
-            font-weight: 500;
-            color: var(--gd-dk);
-            margin-bottom: .4rem;
-            letter-spacing: .06em
-        }
-        
-        .pos-title {
-            font-size: 13.5px;
-            font-weight: 500;
-            color: var(--ink);
-            line-height: 1.4
-        }
-        
-        .how-box {
-            background: var(--gd-pl);
-            border-radius: var(--rl);
-            padding: 2rem;
-            border: 1px solid var(--b-gd)
-        }
-        
-        .how-title {
-            font-family: var(--serif);
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--ink);
-            margin-bottom: 1.25rem
-        }
-        
-        .how-steps {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem
-        }
-        
-        .how-step {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px
-        }
-        
-        .how-step-num {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background: var(--gd);
-            color: #fff;
-            font-size: 12px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0
-        }
-        
-        .how-step-text {
-            font-size: 13.5px;
-            color: var(--ink-m);
-            line-height: 1.55;
-            padding-top: 4px
-        }
-        
-        .how-step-text strong {
-            color: var(--ink);
-            font-weight: 500
-        }
-        
-        .eligibility {
-            margin-top: 1.5rem;
-            background: var(--wh);
-            border-radius: var(--r);
-            padding: 1.25rem;
-            border: 1px solid var(--b-gd)
-        }
-        
-        .elig-title {
-            font-size: 12px;
-            font-weight: 500;
-            letter-spacing: .1em;
-            text-transform: uppercase;
-            color: var(--ink-f);
-            margin-bottom: .75rem
-        }
-        
-        .elig-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
-            font-size: 13px;
-            color: var(--ink-m);
-            margin-bottom: .5rem;
-            line-height: 1.5
-        }
-        
-        .elig-dot {
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            background: var(--cr);
-            flex-shrink: 0;
-            margin-top: 8px
-        }
-        /* PARTNER */
-        
-        .partner {
-            background: var(--bg)
-        }
-        
-        .partner-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.25rem;
-            margin-bottom: 3rem
-        }
-        
-        .partner-type {
-            background: var(--wh);
-            border-radius: var(--rl);
-            padding: 2rem;
-            border: 1px solid var(--b-gd);
-            transition: border-color .2s, transform .2s
-        }
-        
-        .partner-type:hover {
-            border-color: var(--gd);
-            transform: translateY(-3px)
-        }
-        
-        .pt-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: var(--r);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
-            margin-bottom: 1.25rem
-        }
-        
-        .pt-icon.corp {
-            background: var(--cr-pl)
-        }
-        
-        .pt-icon.ngo {
-            background: var(--gd-pl)
-        }
-        
-        .pt-icon.speak {
-            background: #F0F5FF
-        }
-        
-        .pt-title {
-            font-family: var(--serif);
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: var(--ink);
-            margin-bottom: .5rem
-        }
-        
-        .pt-text {
-            font-size: 14px;
-            font-weight: 300;
-            color: var(--ink-m);
-            line-height: 1.75;
-            margin-bottom: 1.25rem
-        }
-        
-        .pt-benefit {
-            font-size: 12.5px;
-            font-weight: 400;
-            color: var(--gd-dk);
-            display: flex;
-            align-items: flex-start;
-            gap: 7px;
-            margin-bottom: .4rem;
-            line-height: 1.4
-        }
-        
-        .pt-benefit::before {
-            content: '\2713';
-            color: var(--gd);
-            font-weight: 700;
-            flex-shrink: 0
-        }
-        /* AMBASSADOR */
-        
-        .ambassador-box {
-            background: var(--cr);
-            border-radius: var(--rl);
-            padding: 2.5rem;
-            color: #fff;
-            display: grid;
-            grid-template-columns: 1fr auto;
-            align-items: center;
-            gap: 2rem
-        }
-        
-        .amb-title {
-            font-family: var(--serif);
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: #fff;
-            margin-bottom: .5rem
-        }
-        
-        .amb-text {
-            font-size: 14px;
-            font-weight: 300;
-            color: rgba(255, 255, 255, .8);
-            line-height: 1.7
-        }
-        /* FOOTER */
-        
-        footer {
-            background: #111110;
-            padding: 4.5rem clamp(1.5rem, 5vw, 3rem) 2rem
-        }
-        
-        .fi {
-            max-width: var(--max);
-            margin: 0 auto
-        }
-        
-        .ft {
-            display: grid;
-            grid-template-columns: 1.6fr 1fr 1fr 1fr;
-            gap: 3rem;
-            padding-bottom: 3rem;
-            border-bottom: 1px solid rgba(255, 255, 255, .07);
-            margin-bottom: 2rem
-        }
-        
-        .fl {
-            display: flex;
-            align-items: center;
-            gap: 12px
-        }
-        
-        .fli {
-            width: 40px;
-            height: 40px;
-            object-fit: contain;
-            border-radius: 6px;
-            opacity: .85
-        }
-        
-        .fl .logo-text {
-            color: #fff
-        }
-        
-        .fl .logo-sub {
-            color: rgba(255, 255, 255, .3)
-        }
-        
-        .ftag {
-            font-size: 13px;
-            font-weight: 300;
-            color: rgba(255, 255, 255, .4);
-            line-height: 1.75;
-            margin-top: 1rem;
-            max-width: 260px
-        }
-        
-        .fsoc {
-            display: flex;
-            gap: 9px;
-            margin-top: 1.5rem
-        }
-        
-        .sl {
-            width: 34px;
-            height: 34px;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, .07);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: rgba(255, 255, 255, .5);
-            font-size: 11px;
-            font-weight: 600;
-            transition: background .2s, color .2s
-        }
-        
-        .sl:hover {
-            background: var(--cr);
-            color: #fff
-        }
-        
-        .fc h4 {
-            font-size: 10.5px;
-            font-weight: 500;
-            letter-spacing: .13em;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, .3);
-            margin-bottom: 1.25rem
-        }
-        
-        .flinks {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: .6rem
-        }
-        
-        .flinks a {
-            font-size: 13.5px;
-            font-weight: 300;
-            color: rgba(255, 255, 255, .6);
-            transition: color .2s
-        }
-        
-        .flinks a:hover {
-            color: var(--gd-md)
-        }
-        
-        .fb {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 1rem
-        }
-        
-        .flegal {
-            font-size: 12px;
-            font-weight: 300;
-            color: rgba(255, 255, 255, .25)
-        }
-        
-        .fcin {
-            font-size: 11px;
-            font-weight: 300;
-            color: rgba(255, 255, 255, .15);
-            font-family: monospace
-        }
-        
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px)
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0)
-            }
-        }
-        
-        .fu {
-            animation: fadeUp .7s ease both
-        }
-        
-        .fu2 {
-            animation: fadeUp .7s .1s ease both
-        }
-        
-        .fu3 {
-            animation: fadeUp .7s .2s ease both
-        }
-        
-        @media(max-width:900px) {
-            .page-hero-inner {
-                grid-template-columns: 1fr
-            }
-            .donate-inner {
-                grid-template-columns: 1fr;
-                gap: 3rem
-            }
-            .vol-grid {
-                grid-template-columns: 1fr;
-                gap: 3rem
-            }
-            .positions-grid {
-                grid-template-columns: 1fr 1fr
-            }
-            .partner-grid {
-                grid-template-columns: 1fr
-            }
-            .ambassador-box {
-                grid-template-columns: 1fr
-            }
-            .ft {
-                grid-template-columns: 1fr 1fr;
-                gap: 2rem
-            }
-        }
-        
-        @media(max-width:600px) {
-            .nav-links {
-                display: none
-            }
-            .positions-grid {
-                grid-template-columns: 1fr
-            }
-            .ft {
-                grid-template-columns: 1fr
-            }
-            .fb {
-                flex-direction: column;
-                align-items: flex-start
-            }
-        }
-    </style>
-</head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get Involved — DR Foundation</title>
+  <meta name="description" content="Donate, volunteer, intern, or partner with the DR Foundation. All donations are 80G tax-exempt." />
+  <link rel="icon" href="logo.jpeg" type="image/jpeg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --cr:#B22222;--cr-dk:#8B1A1A;--cr-pl:#FAF0F0;
+      --gd:#C4933A;--gd-dk:#A07830;--gd-pl:#FBF5E8;--gd-md:#D4A855;
+      --ink:#1a1a18;--ink-m:#4a4a47;--ink-f:#8a8a85;
+      --bg:#fdfcfa;--wh:#ffffff;
+      --b-cr:rgba(178,34,34,0.1);--b-gd:rgba(196,147,58,0.2);
+      --serif:'Cormorant Garamond',Georgia,serif;
+      --sans:'DM Sans',system-ui,sans-serif;
+      --max:1160px;--r:12px;--rl:20px
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:var(--sans);font-size:16px;line-height:1.7;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}
+    img{display:block;max-width:100%}
+    a{color:inherit;text-decoration:none}
 
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,252,250,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--b-gd);padding:0 clamp(1.5rem,5vw,3rem)}
+    .nav-inner{max-width:var(--max);margin:0 auto;height:70px;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{display:flex;align-items:center;gap:12px}
+    .logo-img{width:44px;height:44px;object-fit:contain;border-radius:6px;border:1px solid var(--b-gd)}
+    .logo-text{font-family:var(--serif);font-size:19px;font-weight:600;color:var(--ink);line-height:1.1}
+    .logo-sub{font-size:10px;font-weight:300;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-f)}
+    .nav-links{display:flex;align-items:center;gap:.2rem;list-style:none}
+    .nav-links a{font-size:13.5px;color:var(--ink-m);padding:6px 12px;border-radius:6px;transition:color .2s,background .2s}
+    .nav-links a:hover,.nav-links a.active{color:var(--cr);background:var(--cr-pl)}
+    .nav-cta{background:var(--cr)!important;color:#fff!important;padding:8px 20px!important;border-radius:8px!important;font-weight:500!important}
+    .nav-cta:hover{background:var(--cr-dk)!important;color:#fff!important}
+
+    /* PAGE HERO */
+    .page-hero{padding:120px clamp(1.5rem,5vw,3rem) 72px;background:var(--ink);position:relative;overflow:hidden}
+    .page-hero::before{content:'\265F';position:absolute;top:-60px;right:5%;font-size:380px;color:rgba(255,255,255,.03);line-height:1;pointer-events:none}
+    .page-hero::after{content:'\2655';position:absolute;bottom:-80px;left:5%;font-size:300px;color:rgba(196,147,58,.05);line-height:1;pointer-events:none}
+    .page-hero-inner{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:4rem;position:relative;z-index:1}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6);background:rgba(255,255,255,.08);padding:6px 14px;border-radius:100px;margin-bottom:1.25rem}
+    .eyebrow::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gd)}
+    .page-hero h1{font-family:var(--serif);font-size:clamp(2.6rem,4.5vw,3.8rem);font-weight:600;line-height:1.1;color:#fff;letter-spacing:-.02em;margin-bottom:1.25rem}
+    .page-hero h1 em{font-style:italic;color:var(--gd-md)}
+    .page-hero-lead{font-size:17px;font-weight:300;color:rgba(255,255,255,.7);line-height:1.8}
+    .hero-ways{display:flex;flex-direction:column;gap:.75rem}
+    .hero-way{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:1rem 1.25rem;transition:background .2s,border-color .2s}
+    .hero-way:hover{background:rgba(196,147,58,.1);border-color:rgba(196,147,58,.3)}
+    .hw-num{font-family:var(--serif);font-size:1.4rem;font-weight:600;color:var(--gd-md);width:36px;flex-shrink:0}
+    .hw-text{font-size:14px;font-weight:500;color:#fff}
+    .hw-sub{font-size:12px;font-weight:300;color:rgba(255,255,255,.5)}
+
+    /* SHARED */
+    .section{padding:5.5rem clamp(1.5rem,5vw,3rem)}
+    .si{max-width:var(--max);margin:0 auto}
+    .sec-ey{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gd-dk);margin-bottom:.85rem}
+    .sec-h{font-family:var(--serif);font-size:clamp(1.9rem,3vw,2.6rem);font-weight:600;color:var(--ink);line-height:1.15;margin-bottom:1rem;letter-spacing:-.01em}
+    .sec-lead{font-size:16px;font-weight:300;color:var(--ink-m);max-width:620px;margin-bottom:3rem;line-height:1.8}
+    .body-text{font-size:15px;font-weight:300;color:var(--ink-m);line-height:1.9;margin-bottom:1.25rem}
+    .divider{height:1px;background:var(--b-gd);margin:0 clamp(1.5rem,5vw,3rem)}
+    .arr{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    .btn-p{background:var(--cr);color:#fff;padding:13px 28px;border-radius:var(--r);font-size:14px;font-weight:500;display:inline-flex;align-items:center;gap:8px;transition:background .2s,transform .2s}
+    .btn-p:hover{background:var(--cr-dk);transform:translateY(-1px)}
+    .btn-gd{background:var(--gd);color:#fff;padding:13px 28px;border-radius:var(--r);font-size:14px;font-weight:500;display:inline-flex;align-items:center;gap:8px;transition:background .2s,transform .2s}
+    .btn-gd:hover{background:var(--gd-dk);transform:translateY(-1px)}
+    .btn-s{background:transparent;color:var(--cr);padding:12px 28px;border-radius:var(--r);font-size:14px;font-weight:500;border:1.5px solid var(--cr);display:inline-flex;align-items:center;gap:8px;transition:background .2s}
+    .btn-s:hover{background:var(--cr-pl)}
+
+    /* DONATE */
+    .donate{background:var(--cr);padding:5.5rem clamp(1.5rem,5vw,3rem);position:relative;overflow:hidden}
+    .donate::before{content:'\265F';position:absolute;top:-50px;right:5%;font-size:320px;color:rgba(255,255,255,.04);line-height:1;pointer-events:none}
+    .donate-inner{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;position:relative;z-index:1}
+    .donate-label{font-size:10.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:.85rem}
+    .donate h2{font-family:var(--serif);font-size:clamp(2rem,3.5vw,2.8rem);font-weight:600;color:#fff;line-height:1.15;margin-bottom:1rem;letter-spacing:-.01em}
+    .donate-lead{font-size:16px;font-weight:300;color:rgba(255,255,255,.8);line-height:1.8;margin-bottom:2rem}
+    .donate-cert{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);color:rgba(255,255,255,.9);font-size:12.5px;font-weight:400;padding:8px 16px;border-radius:100px;margin-bottom:1.5rem}
+    .donate-cert::before{content:'\2713';font-weight:700}
+    .btn-white{background:#fff;color:var(--cr);padding:15px 32px;border-radius:var(--r);font-size:14px;font-weight:500;display:inline-flex;align-items:center;gap:8px;transition:transform .2s,box-shadow .2s}
+    .btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.15)}
+    .donate-note{font-size:12px;color:rgba(255,255,255,.45);margin-top:1rem}
+    .impact-boxes{display:flex;flex-direction:column;gap:1rem}
+    .impact-box{background:rgba(255,255,255,.1);border-radius:var(--r);padding:1.25rem 1.5rem;border:1px solid rgba(255,255,255,.15)}
+    .ib-amount{font-family:var(--serif);font-size:1.5rem;font-weight:600;color:#fff;margin-bottom:.25rem}
+    .ib-text{font-size:13.5px;font-weight:300;color:rgba(255,255,255,.75);line-height:1.5}
+
+    /* VOLUNTEER */
+    .volunteer{background:var(--wh)}
+    .vol-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:5rem;align-items:start}
+    .positions-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem}
+    .pos-card{background:var(--bg);border-radius:var(--r);padding:1.25rem;border:1px solid var(--b-gd);transition:border-color .2s,transform .2s}
+    .pos-card:hover{border-color:var(--gd);transform:translateY(-2px)}
+    .pos-num{font-size:11px;font-weight:500;color:var(--gd-dk);margin-bottom:.4rem;letter-spacing:.06em}
+    .pos-title{font-size:13.5px;font-weight:500;color:var(--ink);line-height:1.4}
+    .how-box{background:var(--gd-pl);border-radius:var(--rl);padding:2rem;border:1px solid var(--b-gd)}
+    .how-title{font-family:var(--serif);font-size:1.1rem;font-weight:600;color:var(--ink);margin-bottom:1.25rem}
+    .how-steps{display:flex;flex-direction:column;gap:1rem}
+    .how-step{display:flex;align-items:flex-start;gap:12px}
+    .how-step-num{width:28px;height:28px;border-radius:50%;background:var(--gd);color:#fff;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .how-step-text{font-size:13.5px;color:var(--ink-m);line-height:1.55;padding-top:4px}
+    .how-step-text strong{color:var(--ink);font-weight:500}
+    .eligibility{margin-top:1.5rem;background:var(--wh);border-radius:var(--r);padding:1.25rem;border:1px solid var(--b-gd)}
+    .elig-title{font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-f);margin-bottom:.75rem}
+    .elig-item{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:var(--ink-m);margin-bottom:.5rem;line-height:1.5}
+    .elig-dot{width:5px;height:5px;border-radius:50%;background:var(--cr);flex-shrink:0;margin-top:8px}
+
+    /* PARTNER */
+    .partner{background:var(--bg)}
+    .partner-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-bottom:3rem}
+    .partner-type{background:var(--wh);border-radius:var(--rl);padding:2rem;border:1px solid var(--b-gd);transition:border-color .2s,transform .2s}
+    .partner-type:hover{border-color:var(--gd);transform:translateY(-3px)}
+    .pt-icon{width:48px;height:48px;border-radius:var(--r);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:1.25rem}
+    .pt-icon.corp{background:var(--cr-pl)}
+    .pt-icon.ngo{background:var(--gd-pl)}
+    .pt-icon.speak{background:#F0F5FF}
+    .pt-title{font-family:var(--serif);font-size:1.15rem;font-weight:600;color:var(--ink);margin-bottom:.5rem}
+    .pt-text{font-size:14px;font-weight:300;color:var(--ink-m);line-height:1.75;margin-bottom:1.25rem}
+    .pt-benefit{font-size:12.5px;font-weight:400;color:var(--gd-dk);display:flex;align-items:flex-start;gap:7px;margin-bottom:.4rem;line-height:1.4}
+    .pt-benefit::before{content:'\2713';color:var(--gd);font-weight:700;flex-shrink:0}
+
+    /* AMBASSADOR */
+    .ambassador-box{background:var(--cr);border-radius:var(--rl);padding:2.5rem;color:#fff;display:grid;grid-template-columns:1fr auto;align-items:center;gap:2rem}
+    .amb-title{font-family:var(--serif);font-size:1.4rem;font-weight:600;color:#fff;margin-bottom:.5rem}
+    .amb-text{font-size:14px;font-weight:300;color:rgba(255,255,255,.8);line-height:1.7}
+
+    /* FOOTER */
+    footer{background:#111110;padding:4.5rem clamp(1.5rem,5vw,3rem) 2rem}
+    .fi{max-width:var(--max);margin:0 auto}
+    .ft{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:2rem}
+    .fl{display:flex;align-items:center;gap:12px}
+    .fli{width:40px;height:40px;object-fit:contain;border-radius:6px;opacity:.85}
+    .fl .logo-text{color:#fff}.fl .logo-sub{color:rgba(255,255,255,.3)}
+    .ftag{font-size:13px;font-weight:300;color:rgba(255,255,255,.4);line-height:1.75;margin-top:1rem;max-width:260px}
+    .fsoc{display:flex;gap:9px;margin-top:1.5rem}
+    .sl{width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,.07);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);font-size:11px;font-weight:600;transition:background .2s,color .2s}
+    .sl:hover{background:var(--cr);color:#fff}
+    .fc h4{font-size:10.5px;font-weight:500;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:1.25rem}
+    .flinks{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+    .flinks a{font-size:13.5px;font-weight:300;color:rgba(255,255,255,.6);transition:color .2s}
+    .flinks a:hover{color:var(--gd-md)}
+    .fb{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    .flegal{font-size:12px;font-weight:300;color:rgba(255,255,255,.25)}
+    .fcin{font-size:11px;font-weight:300;color:rgba(255,255,255,.15);font-family:monospace}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .fu{animation:fadeUp .7s ease both}
+    .fu2{animation:fadeUp .7s .1s ease both}
+    .fu3{animation:fadeUp .7s .2s ease both}
+
+    @media(max-width:900px){
+      .page-hero-inner{grid-template-columns:1fr}
+      .donate-inner{grid-template-columns:1fr;gap:3rem}
+      .vol-grid{grid-template-columns:1fr;gap:3rem}
+      .positions-grid{grid-template-columns:1fr 1fr}
+      .partner-grid{grid-template-columns:1fr}
+      .ambassador-box{grid-template-columns:1fr}
+      .ft{grid-template-columns:1fr 1fr;gap:2rem}
+    }
+    @media(max-width:600px){
+      .nav-links{display:none}
+      .positions-grid{grid-template-columns:1fr}
+      .ft{grid-template-columns:1fr}
+      .fb{flex-direction:column;align-items:flex-start}
+    }
+  </style>
+</head>
 <body>
 
-    <nav aria-label="Main navigation">
-        <div class="nav-inner">
-            <a href="index.html" class="nav-logo" aria-label="DR Foundation home">
-                <img src="logo.jpeg" alt="DR Foundation logo" class="logo-img" />
-                <div>
-                    <div class="logo-text">DR Foundation</div>
-                    <div class="logo-sub">Devanshi Rathi Foundation</div>
-                </div>
-            </a>
-            <ul class="nav-links" role="list">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="programs.html">Programs</a></li>
-                <li><a href="impact.html">Impact</a></li>
-                <li><a href="press.html">Press</a></li>
-                <li><a href="get-involved.html" class="active">Get Involved</a></li>
-                <li><a href="get-involved.html#donate" class="nav-cta">Donate</a></li>
-            </ul>
-        </div>
-    </nav>
+<nav aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="DR Foundation home">
+      <img src="logo.jpeg" alt="DR Foundation logo" class="logo-img" />
+      <div>
+        <div class="logo-text">DR Foundation</div>
+        <div class="logo-sub">Devanshi Rathi Foundation</div>
+      </div>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="programs.html">Programs</a></li>
+      <li><a href="impact.html">Impact</a></li>
+      <li><a href="press.html">Press</a></li>
+      <li><a href="get-involved.html" class="active">Get Involved</a></li>
+      <li><a href="get-involved.html#donate" class="nav-cta">Donate</a></li>
+    </ul>
+  </div>
+</nav>
 
-    <main>
+<main>
 
-        <!-- PAGE HERO -->
-        <div class="page-hero">
-            <div class="page-hero-inner">
-                <div>
-                    <div class="eyebrow fu">Get Involved</div>
-                    <h1 class="fu2">Three ways to be<br/>part of the <em>mission.</em></h1>
-                    <p class="page-hero-lead fu3">Whether you donate, volunteer, or partner &mdash; every contribution goes directly toward empowering young people across India through education, sport, and health.</p>
-                </div>
-                <div class="hero-ways">
-                    <a href="#donate" class="hero-way">
-                        <div class="hw-num">01</div>
-                        <div>
-                            <div class="hw-text">Donate</div>
-                            <div class="hw-sub">80G tax-exempt &middot; via Instamojo</div>
-                        </div>
-                    </a>
-                    <a href="#volunteer" class="hero-way">
-                        <div class="hw-num">02</div>
-                        <div>
-                            <div class="hw-text">Volunteer &amp; Intern</div>
-                            <div class="hw-sub">Remote &middot; 11 open positions</div>
-                        </div>
-                    </a>
-                    <a href="#partner" class="hero-way">
-                        <div class="hw-num">03</div>
-                        <div>
-                            <div class="hw-text">Partner with Us</div>
-                            <div class="hw-sub">Corporates, NGOs &amp; speakers</div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div>
+        <div class="eyebrow fu">Get Involved</div>
+        <h1 class="fu2">Three ways to be<br/>part of the <em>mission.</em></h1>
+        <p class="page-hero-lead fu3">Whether you donate, volunteer, or partner &mdash; every contribution goes directly toward empowering young people across India through education, sport, and health.</p>
+      </div>
+      <div class="hero-ways">
+        <a href="#donate" class="hero-way">
+          <div class="hw-num">01</div>
+          <div><div class="hw-text">Donate</div><div class="hw-sub">80G tax-exempt &middot; via Instamojo</div></div>
+        </a>
+        <a href="#volunteer" class="hero-way">
+          <div class="hw-num">02</div>
+          <div><div class="hw-text">Volunteer &amp; Intern</div><div class="hw-sub">Remote &middot; 11 open positions</div></div>
+        </a>
+        <a href="#partner" class="hero-way">
+          <div class="hw-num">03</div>
+          <div><div class="hw-text">Partner with Us</div><div class="hw-sub">Corporates, NGOs &amp; speakers</div></div>
+        </a>
+      </div>
+    </div>
+  </div>
 
-        <!-- DONATE -->
-        <div class="donate" id="donate" role="region" aria-labelledby="don-h">
-            <div class="donate-inner">
-                <div>
-                    <div class="donate-label">01 &mdash; Donate</div>
-                    <h2 id="don-h">Your contribution<br/>changes a life.</h2>
-                    <p class="donate-lead">Every donation to the DR Foundation goes directly toward scholarships, chess training, and health initiatives for underprivileged and disabled youth across India.</p>
-                    <div class="donate-cert">All donations are 80G tax-exempt under the Income Tax Act, 1961</div>
-                    <div style="display:flex;gap:1rem;flex-wrap:wrap">
-                        <a href="https://www.instamojo.com/@drfoundation" target="_blank" rel="noopener noreferrer" class="btn-white">
+  <!-- DONATE -->
+  <div class="donate" id="donate" role="region" aria-labelledby="don-h">
+    <div class="donate-inner">
+      <div>
+        <div class="donate-label">01 &mdash; Donate</div>
+        <h2 id="don-h">Your contribution<br/>changes a life.</h2>
+        <p class="donate-lead">Every donation to the DR Foundation goes directly toward scholarships, chess training, and health initiatives for underprivileged and disabled youth across India.</p>
+        <div class="donate-cert">All donations are 80G tax-exempt under the Income Tax Act, 1961</div>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap">
+          <a href="https://www.instamojo.com/@drfoundation" target="_blank" rel="noopener noreferrer" class="btn-white">
             Donate via Instamojo
             <svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-                    </div>
-                    <p class="donate-note">CIN: U92490DL2018NPL335483 &middot; Section 8 Non-Profit, New Delhi</p>
-                </div>
-                <div class="impact-boxes" aria-label="What your donation funds">
-                    <div class="impact-box">
-                        <div class="ib-amount">&#8377; Any amount</div>
-                        <p class="ib-text">Contributes toward chess training materials, tournament entry fees, and educational resources for visually impaired students.</p>
-                    </div>
-                    <div class="impact-box">
-                        <div class="ib-amount">Scholarship fund</div>
-                        <p class="ib-text">Contributes toward cash prizes and year-long mentorship for scholars with disabilities aged 15&ndash;30 across India.</p>
-                    </div>
-                    <div class="impact-box">
-                        <div class="ib-amount">Health programmes</div>
-                        <p class="ib-text">Supports dental camps, menstrual hygiene education, mental health sessions, and nutritional support at partner NGOs.</p>
-                    </div>
-                </div>
-            </div>
         </div>
+        <p class="donate-note">CIN: U92490DL2018NPL335483 &middot; Section 8 Non-Profit, New Delhi</p>
+      </div>
+      <div class="impact-boxes" aria-label="What your donation funds">
+        <div class="impact-box">
+          <div class="ib-amount">&#8377; Any amount</div>
+          <p class="ib-text">Contributes toward chess training materials, tournament entry fees, and educational resources for visually impaired students.</p>
+        </div>
+        <div class="impact-box">
+          <div class="ib-amount">Scholarship fund</div>
+          <p class="ib-text">Contributes toward cash prizes and year-long mentorship for scholars with disabilities aged 15&ndash;30 across India.</p>
+        </div>
+        <div class="impact-box">
+          <div class="ib-amount">Health programmes</div>
+          <p class="ib-text">Supports dental camps, menstrual hygiene education, mental health sessions, and nutritional support at partner NGOs.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-        <!-- VOLUNTEER -->
-        <section class="section volunteer" id="volunteer" aria-labelledby="vol-h">
-            <div class="si">
-                <div class="vol-grid">
-                    <div>
-                        <p class="sec-ey">02 &mdash; Volunteer &amp; Intern</p>
-                        <h2 id="vol-h" class="sec-h">Join the team</h2>
-                        <p class="body-text">DRF welcomes volunteers and interns from any background &mdash; whether you&rsquo;re a student, recent graduate, or working professional. All positions are remote and flexible, with on-ground opportunities available for those based
-                            in Delhi.</p>
-                        <p class="body-text">You won&rsquo;t receive a salary or stipend, but you will receive an e-letter of recommendation on completion, and the chance to contribute meaningfully to a cause that matters.</p>
+  <!-- VOLUNTEER -->
+  <section class="section volunteer" id="volunteer" aria-labelledby="vol-h">
+    <div class="si">
+      <div class="vol-grid">
+        <div>
+          <p class="sec-ey">02 &mdash; Volunteer &amp; Intern</p>
+          <h2 id="vol-h" class="sec-h">Join the team</h2>
+          <p class="body-text">DRF welcomes volunteers and interns from any background &mdash; whether you&rsquo;re a student, recent graduate, or working professional. All positions are remote and flexible, with on-ground opportunities available for those based in Delhi.</p>
+          <p class="body-text">You won&rsquo;t receive a salary or stipend, but you will receive an e-letter of recommendation on completion, and the chance to contribute meaningfully to a cause that matters.</p>
 
-                        <h3 style="font-family:var(--serif);font-size:1.2rem;font-weight:600;color:var(--ink);margin:2rem 0 1.25rem">Open positions</h3>
-                        <div class="positions-grid">
-                            <div class="pos-card">
-                                <div class="pos-num">01</div>
-                                <div class="pos-title">Marketing &amp; Social Media Development</div>
-                            </div>
-                            <div class="pos-card">
-                                <div class="pos-num">02</div>
-                                <div class="pos-title">Consulting for Projects</div>
-                            </div>
-                            <div class="pos-card">
-                                <div class="pos-num">03</div>
-                                <div class="pos-title">Finance</div>
-                            </div>
-                            <div class="pos-card">
-                                <div class="pos-num">04</div>
-                                <div class="pos-title">Fundraising &amp; Sponsorships</div>
-                            </div>
-                            <div class="pos-card">
-                                <div class="pos-num">05</div>
-                                <div class="pos-title">Curriculum Development</div>
-                            </div>
-                            <div class="pos-card">
-                                <div class="pos-num">06</div>
-                                <div class="pos-title">Individual Skills for On-Ground Training</div>
-                            </div>
-                            <div class="pos-card">
-                                <div class="pos-num">07</div>
-                                <div class="pos-title">Donation Drives &amp; Campaigns</div>
-                            </div>
-                            <div class="pos-card">
-                                <div class="pos-num">08</div>
-                                <div class="pos-title">Graphic Design</div>
-                            </div>
-                            <div class="pos-card">
-                                <div class="pos-num">09</div>
-                                <div class="pos-title">Web Design &amp; Development</div>
-                            </div>
-                            <div class="pos-card">
-                                <div class="pos-num">10</div>
-                                <div class="pos-title">Business Development</div>
-                            </div>
-                            <div class="pos-card">
-                                <div class="pos-num">11</div>
-                                <div class="pos-title">Community Partnerships Development</div>
-                            </div>
-                            <div class="pos-card">
-                                <div class="pos-num">12</div>
-                                <div class="pos-title">Data Analysis &amp; Research</div>
-                            </div>
-                        </div>
+          <h3 style="font-family:var(--serif);font-size:1.2rem;font-weight:600;color:var(--ink);margin:2rem 0 1.25rem">Open positions</h3>
+          <div class="positions-grid">
+            <div class="pos-card"><div class="pos-num">01</div><div class="pos-title">Marketing &amp; Social Media Development</div></div>
+            <div class="pos-card"><div class="pos-num">02</div><div class="pos-title">Consulting for Projects</div></div>
+            <div class="pos-card"><div class="pos-num">03</div><div class="pos-title">Finance</div></div>
+            <div class="pos-card"><div class="pos-num">04</div><div class="pos-title">Fundraising &amp; Sponsorships</div></div>
+            <div class="pos-card"><div class="pos-num">05</div><div class="pos-title">Curriculum Development</div></div>
+            <div class="pos-card"><div class="pos-num">06</div><div class="pos-title">Individual Skills for On-Ground Training</div></div>
+            <div class="pos-card"><div class="pos-num">07</div><div class="pos-title">Donation Drives &amp; Campaigns</div></div>
+            <div class="pos-card"><div class="pos-num">08</div><div class="pos-title">Graphic Design</div></div>
+            <div class="pos-card"><div class="pos-num">09</div><div class="pos-title">Web Design &amp; Development</div></div>
+            <div class="pos-card"><div class="pos-num">10</div><div class="pos-title">Business Development</div></div>
+            <div class="pos-card"><div class="pos-num">11</div><div class="pos-title">Community Partnerships Development</div></div>
+            <div class="pos-card"><div class="pos-num">12</div><div class="pos-title">Data Analysis &amp; Research</div></div>
+          </div>
 
-                        <a href="mailto:projectcheckmate64@gmail.com" class="btn-p">
+          <a href="mailto:projectcheckmate64@gmail.com" class="btn-p">
             Apply &mdash; projectcheckmate64@gmail.com
             <svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-                    </div>
+        </div>
 
-                    <div>
-                        <div class="how-box">
-                            <div class="how-title">How to apply</div>
-                            <div class="how-steps">
-                                <div class="how-step">
-                                    <div class="how-step-num">1</div>
-                                    <p class="how-step-text">Email <strong>projectcheckmate64@gmail.com</strong> with your cover letter and resume.</p>
-                                </div>
-                                <div class="how-step">
-                                    <div class="how-step-num">2</div>
-                                    <p class="how-step-text">Rank up to <strong>3 positions</strong> you are interested in, in order of preference.</p>
-                                </div>
-                                <div class="how-step">
-                                    <div class="how-step-num">3</div>
-                                    <p class="how-step-text">If selected, you will be onboarded remotely and given a flexible schedule.</p>
-                                </div>
-                                <div class="how-step">
-                                    <div class="how-step-num">4</div>
-                                    <p class="how-step-text">On completion, receive an <strong>e-letter of recommendation</strong> from the foundation.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="eligibility">
-                            <div class="elig-title">Who can apply</div>
-                            <div class="elig-item">
-                                <div class="elig-dot"></div><span>Middle school, high school, and college students</span></div>
-                            <div class="elig-item">
-                                <div class="elig-dot"></div><span>Recent graduates from any field</span></div>
-                            <div class="elig-item">
-                                <div class="elig-dot"></div><span>Working professionals with relevant skills</span></div>
-                            <div class="elig-item">
-                                <div class="elig-dot"></div><span>Minimum commitment: 1 month (volunteers), 2 months (interns)</span></div>
-                            <div class="elig-item">
-                                <div class="elig-dot"></div><span>Remote-first; on-ground roles available in Delhi</span></div>
-                        </div>
-                    </div>
-                </div>
+        <div>
+          <div class="how-box">
+            <div class="how-title">How to apply</div>
+            <div class="how-steps">
+              <div class="how-step">
+                <div class="how-step-num">1</div>
+                <p class="how-step-text">Email <strong>projectcheckmate64@gmail.com</strong> with your cover letter and resume.</p>
+              </div>
+              <div class="how-step">
+                <div class="how-step-num">2</div>
+                <p class="how-step-text">Rank up to <strong>3 positions</strong> you are interested in, in order of preference.</p>
+              </div>
+              <div class="how-step">
+                <div class="how-step-num">3</div>
+                <p class="how-step-text">If selected, you will be onboarded remotely and given a flexible schedule.</p>
+              </div>
+              <div class="how-step">
+                <div class="how-step-num">4</div>
+                <p class="how-step-text">On completion, receive an <strong>e-letter of recommendation</strong> from the foundation.</p>
+              </div>
             </div>
-        </section>
+          </div>
 
-        <div class="divider"></div>
+          <div class="eligibility">
+            <div class="elig-title">Who can apply</div>
+            <div class="elig-item"><div class="elig-dot"></div><span>Middle school, high school, and college students</span></div>
+            <div class="elig-item"><div class="elig-dot"></div><span>Recent graduates from any field</span></div>
+            <div class="elig-item"><div class="elig-dot"></div><span>Working professionals with relevant skills</span></div>
+            <div class="elig-item"><div class="elig-dot"></div><span>Minimum commitment: 1 month (volunteers), 2 months (interns)</span></div>
+            <div class="elig-item"><div class="elig-dot"></div><span>Remote-first; on-ground roles available in Delhi</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- PARTNER -->
-        <section class="section partner" id="partner" aria-labelledby="part-h">
-            <div class="si">
-                <p class="sec-ey">03 &mdash; Partner with Us</p>
-                <h2 id="part-h" class="sec-h">Build something together</h2>
-                <p class="sec-lead">We welcome partnerships with corporates, NGOs, and organisations who share our commitment to education, disability inclusion, and youth empowerment.</p>
+  <div class="divider"></div>
 
-                <div class="partner-grid">
-                    <div class="partner-type">
-                        <div class="pt-icon corp" aria-hidden="true">&#127970;</div>
-                        <div class="pt-title">Corporates &mdash; CSR Partnerships</div>
-                        <p class="pt-text">Support DRF&rsquo;s programmes through your company&rsquo;s CSR mandate. All donations are 80G certified, and we provide full documentation for your compliance requirements.</p>
-                        <div class="pt-benefit">Visibility across DRF website and social media channels</div>
-                        <div class="pt-benefit">Exposure across diverse communities across India</div>
-                        <div class="pt-benefit">Impact reporting and documentation for CSR filings</div>
-                        <div class="pt-benefit">Option to co-brand specific programmes or events</div>
-                        <a href="mailto:projectcheckmate64@gmail.com" class="btn-p" style="margin-top:1.5rem;font-size:13px;padding:10px 20px">Get in touch</a>
-                    </div>
-                    <div class="partner-type">
-                        <div class="pt-icon ngo" aria-hidden="true">&#129309;</div>
-                        <div class="pt-title">NGOs &amp; Organisations</div>
-                        <p class="pt-text">We collaborate with NGOs and organisations who have an aligned vision around education, disability, health, or women&rsquo;s empowerment &mdash; as programme partners, event co-organisers, or referral networks.</p>
-                        <div class="pt-benefit">Joint programme design and delivery</div>
-                        <div class="pt-benefit">Co-organised events and scholarship editions</div>
-                        <div class="pt-benefit">Cross-promotion across both organisations&rsquo; networks</div>
-                        <div class="pt-benefit">Shared access to scholar and volunteer communities</div>
-                        <a href="mailto:projectcheckmate64@gmail.com" class="btn-gd" style="margin-top:1.5rem;font-size:13px;padding:10px 20px">Get in touch</a>
-                    </div>
-                    <div class="partner-type">
-                        <div class="pt-icon speak" aria-hidden="true">&#127908;</div>
-                        <div class="pt-title">Speaker Invitations</div>
-                        <p class="pt-text">Invite Devanshi Rathi to speak at your corporate event, conference, school, or college about chess, disability inclusion, youth empowerment, and the founding story of the DR Foundation.</p>
-                        <div class="pt-benefit">Keynotes and panel discussions</div>
-                        <div class="pt-benefit">Workshops for students and young professionals</div>
-                        <div class="pt-benefit">Virtual and in-person formats available</div>
-                        <div class="pt-benefit">Topics: chess, disability, social entrepreneurship, impact</div>
-                        <a href="mailto:projectcheckmate64@gmail.com" class="btn-s" style="margin-top:1.5rem;font-size:13px;padding:10px 20px">Send an invitation</a>
-                    </div>
-                </div>
+  <!-- PARTNER -->
+  <section class="section partner" id="partner" aria-labelledby="part-h">
+    <div class="si">
+      <p class="sec-ey">03 &mdash; Partner with Us</p>
+      <h2 id="part-h" class="sec-h">Build something together</h2>
+      <p class="sec-lead">We welcome partnerships with corporates, NGOs, and organisations who share our commitment to education, disability inclusion, and youth empowerment.</p>
 
-                <div class="ambassador-box" aria-label="Campus Ambassador Program">
-                    <div>
-                        <div class="amb-title">Campus Ambassador Program</div>
-                        <p class="amb-text">Are you a school or college student who wants to fundraise or run volunteering initiatives for DRF on your campus? Email us to customise a programme that works for your institution.</p>
-                    </div>
-                    <a href="mailto:projectcheckmate64@gmail.com" class="btn-white" style="white-space:nowrap;flex-shrink:0">
+      <div class="partner-grid">
+        <div class="partner-type">
+          <div class="pt-icon corp" aria-hidden="true">&#127970;</div>
+          <div class="pt-title">Corporates &mdash; CSR Partnerships</div>
+          <p class="pt-text">Support DRF&rsquo;s programmes through your company&rsquo;s CSR mandate. All donations are 80G certified, and we provide full documentation for your compliance requirements.</p>
+          <div class="pt-benefit">Visibility across DRF website and social media channels</div>
+          <div class="pt-benefit">Exposure across diverse communities across India</div>
+          <div class="pt-benefit">Impact reporting and documentation for CSR filings</div>
+          <div class="pt-benefit">Option to co-brand specific programmes or events</div>
+          <a href="mailto:projectcheckmate64@gmail.com" class="btn-p" style="margin-top:1.5rem;font-size:13px;padding:10px 20px">Get in touch</a>
+        </div>
+        <div class="partner-type">
+          <div class="pt-icon ngo" aria-hidden="true">&#129309;</div>
+          <div class="pt-title">NGOs &amp; Organisations</div>
+          <p class="pt-text">We collaborate with NGOs and organisations who have an aligned vision around education, disability, health, or women&rsquo;s empowerment &mdash; as programme partners, event co-organisers, or referral networks.</p>
+          <div class="pt-benefit">Joint programme design and delivery</div>
+          <div class="pt-benefit">Co-organised events and scholarship editions</div>
+          <div class="pt-benefit">Cross-promotion across both organisations&rsquo; networks</div>
+          <div class="pt-benefit">Shared access to scholar and volunteer communities</div>
+          <a href="mailto:projectcheckmate64@gmail.com" class="btn-gd" style="margin-top:1.5rem;font-size:13px;padding:10px 20px">Get in touch</a>
+        </div>
+        <div class="partner-type">
+          <div class="pt-icon speak" aria-hidden="true">&#127908;</div>
+          <div class="pt-title">Speaker Invitations</div>
+          <p class="pt-text">Invite Devanshi Rathi to speak at your corporate event, conference, school, or college about chess, disability inclusion, youth empowerment, and the founding story of the DR Foundation.</p>
+          <div class="pt-benefit">Keynotes and panel discussions</div>
+          <div class="pt-benefit">Workshops for students and young professionals</div>
+          <div class="pt-benefit">Virtual and in-person formats available</div>
+          <div class="pt-benefit">Topics: chess, disability, social entrepreneurship, impact</div>
+          <a href="mailto:projectcheckmate64@gmail.com" class="btn-s" style="margin-top:1.5rem;font-size:13px;padding:10px 20px">Send an invitation</a>
+        </div>
+      </div>
+
+      <div class="ambassador-box" aria-label="Campus Ambassador Program">
+        <div>
+          <div class="amb-title">Campus Ambassador Program</div>
+          <p class="amb-text">Are you a school or college student who wants to fundraise or run volunteering initiatives for DRF on your campus? Email us to customise a programme that works for your institution.</p>
+        </div>
+        <a href="mailto:projectcheckmate64@gmail.com" class="btn-white" style="white-space:nowrap;flex-shrink:0">
           Become an Ambassador
           <svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-                </div>
-            </div>
-        </section>
+      </div>
+    </div>
+  </section>
 
-    </main>
+</main>
 
-    <footer>
-        <div class="fi">
-            <div class="ft">
-                <div>
-                    <div class="fl">
-                        <img src="logo.jpeg" alt="" class="fli" />
-                        <div>
-                            <div class="logo-text">DR Foundation</div>
-                            <div class="logo-sub">Devanshi Rathi Foundation</div>
-                        </div>
-                    </div>
-                    <p class="ftag">Empowering through Education, Sport, and Health. Section 8 Non-Profit &middot; New Delhi.</p>
-                    <div class="fsoc" aria-label="Social media">
-                        <a href="https://www.facebook.com/devanshirathifoundation/" target="_blank" rel="noopener noreferrer" class="sl" aria-label="Facebook">Fb</a>
-                        <a href="https://www.instagram.com/d_r_foundation/" target="_blank" rel="noopener noreferrer" class="sl" aria-label="Instagram">In</a>
-                        <a href="https://in.linkedin.com/company/d-r-foundation" target="_blank" rel="noopener noreferrer" class="sl" aria-label="LinkedIn">Li</a>
-                        <a href="https://twitter.com/d_r_foundation" target="_blank" rel="noopener noreferrer" class="sl" aria-label="Twitter">X</a>
-                    </div>
-                </div>
-                <div class="fc">
-                    <h4>About</h4>
-                    <ul class="flinks">
-                        <li><a href="about.html#foundation">The Foundation</a></li>
-                        <li><a href="about.html#founder">About Devanshi</a></li>
-                        <li><a href="about.html#partners">Our Partners</a></li>
-                    </ul>
-                </div>
-                <div class="fc">
-                    <h4>Programmes</h4>
-                    <ul class="flinks">
-                        <li><a href="programs.html#checkmate">Project Checkmate</a></li>
-                        <li><a href="programs.html#scholarships">DRF Scholarships</a></li>
-                        <li><a href="programs.html#health">Health Initiatives</a></li>
-                    </ul>
-                </div>
-                <div class="fc">
-                    <h4>Get Involved</h4>
-                    <ul class="flinks">
-                        <li><a href="#donate">Donate</a></li>
-                        <li><a href="#volunteer">Volunteer &amp; Intern</a></li>
-                        <li><a href="#partner">Partner with Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="fb">
-                <p class="flegal">&copy; 2024 Devanshi Rathi Foundation. All rights reserved.</p>
-                <p class="fcin">CIN: U92490DL2018NPL335483</p>
-            </div>
+<footer>
+  <div class="fi">
+    <div class="ft">
+      <div>
+        <div class="fl">
+          <img src="logo.jpeg" alt="" class="fli" />
+          <div><div class="logo-text">DR Foundation</div><div class="logo-sub">Devanshi Rathi Foundation</div></div>
         </div>
-    </footer>
+        <p class="ftag">Empowering through Education, Sport, and Health. Section 8 Non-Profit &middot; New Delhi.</p>
+        <div class="fsoc" aria-label="Social media">
+          <a href="https://www.facebook.com/devanshirathifoundation/" target="_blank" rel="noopener noreferrer" class="sl" aria-label="Facebook">Fb</a>
+          <a href="https://www.instagram.com/d_r_foundation/" target="_blank" rel="noopener noreferrer" class="sl" aria-label="Instagram">In</a>
+          <a href="https://in.linkedin.com/company/d-r-foundation" target="_blank" rel="noopener noreferrer" class="sl" aria-label="LinkedIn">Li</a>
+          <a href="https://twitter.com/d_r_foundation" target="_blank" rel="noopener noreferrer" class="sl" aria-label="Twitter">X</a>
+        </div>
+      </div>
+      <div class="fc"><h4>About</h4><ul class="flinks"><li><a href="about.html#foundation">The Foundation</a></li><li><a href="about.html#founder">About Devanshi</a></li><li><a href="about.html#partners">Our Partners</a></li></ul></div>
+      <div class="fc"><h4>Programmes</h4><ul class="flinks"><li><a href="programs.html#checkmate">Project Checkmate</a></li><li><a href="programs.html#scholarships">DRF Scholarships</a></li><li><a href="programs.html#health">Health Initiatives</a></li></ul></div>
+      <div class="fc"><h4>Get Involved</h4><ul class="flinks"><li><a href="#donate">Donate</a></li><li><a href="#volunteer">Volunteer &amp; Intern</a></li><li><a href="#partner">Partner with Us</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    </div>
+    <div class="fb">
+      <p class="flegal">&copy; 2024 Devanshi Rathi Foundation. All rights reserved.</p>
+      <p class="fcin">CIN: U92490DL2018NPL335483</p>
+    </div>
+  </div>
+</footer>
 
 </body>
-
 </html>
