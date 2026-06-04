@@ -445,6 +445,115 @@
             opacity: .8;
         }
         
+        .success-stories {
+            background: var(--wh);
+            margin-top: 2rem;
+        }
+        
+        .story-grid {
+            display: grid;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .story-item {
+            background: var(--bg);
+            border: 1px solid var(--b-gd);
+            border-radius: var(--rl);
+            overflow: hidden;
+            transition: box-shadow .25s ease;
+        }
+        
+        .story-item[open] {
+            box-shadow: 0 22px 50px rgba(15, 76, 129, .1);
+        }
+        
+        .story-summary {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.25rem 1.5rem;
+            cursor: pointer;
+            list-style: none;
+            background: var(--wh);
+            border: none;
+        }
+        
+        .story-summary::-webkit-details-marker {
+            display: none;
+        }
+        
+        .story-summary::after {
+            content: '+';
+            font-size: 1.3rem;
+            color: var(--cr);
+            line-height: 1;
+        }
+        
+        .story-item[open] .story-summary::after {
+            content: '–';
+        }
+        
+        .story-thumb,
+        .story-placeholder {
+            width: 64px;
+            height: 64px;
+            border-radius: 18px;
+            border: 1px solid var(--b-cr);
+            overflow: hidden;
+            display: grid;
+            place-items: center;
+            background: var(--cr-pl);
+            color: var(--cr);
+            font-family: var(--serif);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        .story-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .story-summary-text {
+            display: flex;
+            flex-direction: column;
+            gap: .2rem;
+        }
+        
+        .story-summary-label {
+            font-family: var(--serif);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--ink);
+        }
+        
+        .story-summary-role {
+            font-size: .92rem;
+            color: var(--ink-m);
+        }
+        
+        .story-body {
+            padding: 0 1.5rem 1.5rem;
+            animation: fadeUp .3s ease both;
+        }
+        
+        .story-body p {
+            font-size: 1rem;
+            color: var(--ink-m);
+            line-height: 1.85;
+            margin-bottom: 1rem;
+        }
+        
+        .story-source {
+            font-size: .95rem;
+            font-weight: 500;
+            color: var(--ink);
+        }
+        
         .fc-outlet {
             font-size: 11px;
             font-weight: 500;
@@ -1062,6 +1171,55 @@
                     </a>
                 </div>
                 <p class="insta-note">A curated selection of recent DR Foundation Instagram moments.</p>
+            </div>
+        </section>
+
+        <section class="section success-stories" id="success-stories" aria-labelledby="stories-h">
+            <div class="si">
+                <p class="sec-ey">Success Stories</p>
+                <h2 id="stories-h" class="sec-h">Tap a name to read their story</h2>
+                <p class="sec-lead">Real voices from DR Foundation scholars and volunteers, including Ayush, Neeraj, and Mrunali.</p>
+                <div class="story-grid">
+                    <details class="story-item" open>
+                        <summary class="story-summary">
+                            <span class="story-thumb"><img src="ayush.png" alt="Ayush Jaiswal" /></span>
+                            <span class="story-summary-text">
+                                <span class="story-summary-label">Ayush Jaiswal</span>
+                                <span class="story-summary-role">DRF Scholar 2018 & 2019</span>
+                            </span>
+                        </summary>
+                        <div class="story-body">
+                            <p>“Hi, I am Ayush, the winner of the D.R.F. scholarship of 2018 and 2019. This award gave me the motivation to work harder for my best future interests. While applying, we had to write an application about our accomplishments and the best ones were chosen. I received a cash prize along with a gift hamper. The award helped me pay the fees for various academic events and entrance exams. However, the most important was the guidance and mentorship, which was given to me throughout the whole year in fields of academics, sports, and extracurriculars. This helped me a lot. The scholarship is an excellent platform for the students to enhance their skills.”</p>
+                            <p class="story-source">– Ayush Jaiswal ’18 & ’19 winner and full merit scholarship recipient at Ashoka University under DRF mentorship</p>
+                        </div>
+                    </details>
+                    <details class="story-item">
+                        <summary class="story-summary">
+                            <span class="story-thumb"><img src="neeraj.png" alt="Neeraj Sharma" /></span>
+                            <span class="story-summary-text">
+                                <span class="story-summary-label">Neeraj Sharma</span>
+                                <span class="story-summary-role">DRF Scholar 2019</span>
+                            </span>
+                        </summary>
+                        <div class="story-body">
+                            <p>“I am Neeraj Sharma, a student in grade 9, originally from Bholpur, Rajasthan. I play chess and cricket in my time apart from school. I participated in the second DRF Scholarships and was a winner this time around. This prize boosted my confidence and also gave me a lot of motivation to succeed further in my goals. Thanks to the scholarship, I am able to play in a lot more tournaments outside. Currently, I am working hard to get to the next level in chess by getting my FIDE rating. Project Checkmate has allowed students to also play with strong players and even Grandmasters besides helping some children to get their FIDE ratings. For all of this, I am extremely happy and proud to be associated with it. Chess is a game that not only develops my mind but also helps me build my own strategies. The focus required in the game will also encourage me to be at my best in my university career and beyond.”</p>
+                            <p class="story-source">– Neeraj Sharma ’19 winner</p>
+                        </div>
+                    </details>
+                    <details class="story-item">
+                        <summary class="story-summary">
+                            <span class="story-thumb"><img src="mrunali.png" alt="Mrunali Pande" /></span>
+                            <span class="story-summary-text">
+                                <span class="story-summary-label">Mrunali Pande</span>
+                                <span class="story-summary-role">Project Checkmate learner</span>
+                            </span>
+                        </summary>
+                        <div class="story-body">
+                            <p>“I learnt about DRF from my friends. I then followed the activities on social media to explore more about the foundation. I am amazed at the drive shown by the organisation towards hosting impactful events and sessions. I look forward to working with the foundation and growing as a chess player.”</p>
+                            <p class="story-source">– Mrunali Pande, Project Checkmate learner and chess player</p>
+                        </div>
+                    </details>
+                </div>
             </div>
         </section>
 
