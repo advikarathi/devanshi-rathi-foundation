@@ -328,77 +328,107 @@
         
         .stories-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-bottom: 3rem
+            gap: 1rem;
+            margin-bottom: 3rem;
         }
         
-        .story-card {
+        .story-item {
             background: var(--bg);
             border-radius: var(--rl);
-            padding: 2rem;
             border: 1px solid var(--b-gd);
+            overflow: hidden;
+            transition: box-shadow .25s ease;
+        }
+        
+        .story-item[open] {
+            box-shadow: 0 18px 40px rgba(15, 76, 129, .08);
+        }
+        
+        .story-summary {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.4rem 1.5rem;
+            cursor: pointer;
+            list-style: none;
+            background: var(--wh);
+            border: none;
+        }
+        
+        .story-summary::-webkit-details-marker {
+            display: none;
+        }
+        
+        .story-summary::after {
+            content: '+';
+            font-size: 1.4rem;
+            color: var(--cr);
+            line-height: 1;
+        }
+        
+        .story-item[open] .story-summary::after {
+            content: '–';
+        }
+        
+        .story-thumb,
+        .story-placeholder {
+            width: 64px;
+            height: 64px;
+            border-radius: 18px;
+            border: 1px solid var(--b-cr);
+            overflow: hidden;
+            display: grid;
+            place-items: center;
+            background: var(--cr-pl);
+            color: var(--cr);
+            font-family: var(--serif);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        .story-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .story-summary-text {
             display: flex;
             flex-direction: column;
-            transition: transform .25s, box-shadow .25s
+            gap: .2rem;
         }
         
-        .story-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(178, 34, 34, .08)
-        }
-        
-        .story-initial {
-            width: 52px;
-            height: 52px;
-            border-radius: 50%;
-            background: var(--cr-pl);
-            border: 2px solid var(--b-cr);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: var(--serif);
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: var(--cr);
-            margin-bottom: 1.25rem;
-            flex-shrink: 0
-        }
-        
-        .story-name {
-            font-family: var(--serif);
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: var(--ink);
-            margin-bottom: .2rem
-        }
-        
-        .story-role {
-            font-size: 12px;
-            font-weight: 400;
-            color: var(--gd-dk);
-            margin-bottom: 1rem;
-            letter-spacing: .04em
-        }
-        
-        .story-quote {
+        .story-summary-label {
             font-family: var(--serif);
             font-size: 1rem;
-            font-style: italic;
-            color: var(--ink-m);
-            line-height: 1.65;
-            flex: 1;
-            margin-bottom: 1.25rem
+            font-weight: 600;
+            color: var(--ink);
         }
         
-        .story-outcome {
-            font-size: 12.5px;
+        .story-summary-role {
+            font-size: 0.92rem;
+            font-weight: 400;
+            color: var(--ink-m);
+        }
+        
+        .story-body {
+            padding: 0 1.5rem 1.5rem;
+            animation: fadeUp .3s ease both;
+        }
+        
+        .story-body p {
+            font-size: 0.98rem;
+            color: var(--ink-m);
+            line-height: 1.85;
+            margin-bottom: 1rem;
+        }
+        
+        .story-source {
+            font-size: 0.95rem;
             font-weight: 500;
-            color: var(--cr);
-            background: var(--cr-pl);
-            padding: 6px 12px;
-            border-radius: var(--r);
-            display: inline-block
+            color: var(--ink);
         }
         /* FIDE PLAYERS */
         
@@ -986,48 +1016,97 @@
                 <h2 id="stories-h" class="sec-h">The people behind the numbers</h2>
                 <p class="sec-lead">These are some of the scholars and students whose journeys the DR Foundation has been a part of &mdash; from chess training to university scholarships.</p>
                 <div class="stories-grid">
-                    <div class="story-card">
-                        <div class="story-initial" aria-hidden="true">AJ</div>
-                        <div class="story-name">Ayush Prakash Jaiswal</div>
-                        <div class="story-role">Project Checkmate Scholar &middot; 2016&ndash;2018</div>
-                        <p class="story-quote">&ldquo;The first FIDE-rated player to emerge from Project Checkmate &mdash; earning his Rapid Rating after the Chessmine Rapid Tournament in 2017.&rdquo;</p>
-                        <span class="story-outcome">&#127891; Full Scholarship to Ashoka University</span>
-                    </div>
-                    <div class="story-card">
-                        <div class="story-initial" aria-hidden="true">NS</div>
-                        <div class="story-name">Neeraj Sharma</div>
-                        <div class="story-role">DRF Scholar 2019 &middot; Grade 9, Bholpur, Rajasthan</div>
-                        <p class="story-quote">&ldquo;A chess and cricket player who used his scholarship prize money to fund tournament participation &mdash; and is actively working toward a FIDE rating.&rdquo;</p>
-                        <span class="story-outcome">&#9823; Working toward FIDE rating</span>
-                    </div>
-                    <div class="story-card">
-                        <div class="story-initial" aria-hidden="true">MP</div>
-                        <div class="story-name">Muskan Patwari</div>
-                        <div class="story-role">DRF Scholar 2020 &middot; Virtual Edition</div>
-                        <p class="story-quote">&ldquo;The mentoring programme and interactive webinars were weekly delights.&rdquo;</p>
-                        <span class="story-outcome">&#10003; 2020 Virtual Scholarship Winner</span>
-                    </div>
-                    <div class="story-card">
-                        <div class="story-initial" aria-hidden="true">SN</div>
-                        <div class="story-name">Sapna Nidhi</div>
-                        <div class="story-role">Shaktinaari Scholar 2021</div>
-                        <p class="story-quote">&ldquo;An aspiring professor and disability educator, recognised for her commitment to building pathways for others like her.&rdquo;</p>
-                        <span class="story-outcome">&#127891; Shaktinaari Winner 2021</span>
-                    </div>
-                    <div class="story-card">
-                        <div class="story-initial" aria-hidden="true">SS</div>
-                        <div class="story-name">Shalini Shaw</div>
-                        <div class="story-role">Shaktinaari Scholar 2021</div>
-                        <p class="story-quote">&ldquo;An English Literature graduate with visual disabilities, planning a PhD in Women and Disability Studies &mdash; a testament to what mentorship and recognition can unlock.&rdquo;</p>
-                        <span class="story-outcome">&#127891; Shaktinaari Winner 2021</span>
-                    </div>
-                    <div class="story-card">
-                        <div class="story-initial" aria-hidden="true">SY</div>
-                        <div class="story-name">Suryakant Yadav</div>
-                        <div class="story-role">Devajyoti Scholar 2021 &middot; Sports Category</div>
-                        <p class="story-quote">&ldquo;A para-badminton player recognised under the Devajyoti Scholarships for excellence in sport despite disability.&rdquo;</p>
-                        <span class="story-outcome">&#127941; Devajyoti Winner &mdash; Sports</span>
-                    </div>
+                    <details class="story-item" open>
+                        <summary class="story-summary">
+                            <span class="story-thumb"><img src="ayush.png" alt="Ayush Prakash Jaiswal" /></span>
+                            <span class="story-summary-text">
+                                <span class="story-summary-label">Ayush Prakash Jaiswal</span>
+                                <span class="story-summary-role">DRF Scholar 2018 & 2019 — Ashoka University scholarship recipient</span>
+                            </span>
+                        </summary>
+                        <div class="story-body">
+                            <p>“Hi, I am Ayush, the winner of the D.R.F. scholarship of 2018 and 2019. This award gave me the motivation to work harder for my best future interests. While applying, we had to write an application about our accomplishments and the best ones were chosen. I received a cash prize along with a gift hamper. The award helped me pay the fees for various academic events and entrance exams. However, the most important was the guidance and mentorship, which was given to me throughout the whole year in fields of academics, sports, and extracurriculars. This helped me a lot. The scholarship is an excellent platform for the students to enhance their skills.”</p>
+                            <p class="story-source">– Ayush Jaiswal ’18 & ’19 winner and a recipient of a full college scholarship at Ashoka University under DRF’s mentorship</p>
+                        </div>
+                    </details>
+                    <details class="story-item">
+                        <summary class="story-summary">
+                            <span class="story-placeholder">KB</span>
+                            <span class="story-summary-text">
+                                <span class="story-summary-label">Khushi Bisht</span>
+                                <span class="story-summary-role">DRF Scholar 2018 winner</span>
+                            </span>
+                        </summary>
+                        <div class="story-body">
+                            <p>“I am very glad to be the winner of DRF scholarship 2018 and would like to express my gratitude to Devanshi mam because she gave me a chance to participate in this program. It was a wonderful learning experience as a winner for a period of one year as I received special guidance from Devanshi mam, both online and offline support that helped me perform better in my academics. I used my prize money to participate in various other competitions including chess tournaments, which helped me to gain experience and improve my skills in the game. The best advice that I used from Devanshi didi’s guidance was how to balance extra-curriculars, sports, and academics, leading me to perform better in all three areas. Ultimately, it was a joy to be a recipient of this year-long scholarship.”</p>
+                            <p class="story-source">– Khushi Bisht ’18 winner</p>
+                        </div>
+                    </details>
+                    <details class="story-item">
+                        <summary class="story-summary">
+                            <span class="story-thumb"><img src="neeraj.png" alt="Neeraj Sharma" /></span>
+                            <span class="story-summary-text">
+                                <span class="story-summary-label">Neeraj Sharma</span>
+                                <span class="story-summary-role">DRF Scholar 2019 — Grade 9, Bholpur, Rajasthan</span>
+                            </span>
+                        </summary>
+                        <div class="story-body">
+                            <p>“I am Neeraj Sharma, a student in grade 9, originally from Bholpur, Rajasthan. I play chess and cricket in my time apart from school. I participated in the second DRF Scholarships and was a winner this time around. This prize boosted my confidence and also gave me a lot of motivation to succeed further in my goals. Thanks to the scholarship, I am able to play in a lot more tournaments outside. Currently, I am working hard to get to the next level in chess by getting my FIDE rating. Project Checkmate has allowed students to also play with strong players and even Grandmasters besides helping some children to get their FIDE ratings. For all of this, I am extremely happy and proud to be associated with it. Chess is a game that not only develops my mind but also helps me build my own strategies. The focus required in the game will also encourage me to be at my best in my university career and beyond.”</p>
+                            <p class="story-source">– Neeraj Sharma ’19 winner</p>
+                        </div>
+                    </details>
+                    <details class="story-item">
+                        <summary class="story-summary">
+                            <span class="story-thumb"><img src="mrunali.png" alt="Mrunali Pande" /></span>
+                            <span class="story-summary-text">
+                                <span class="story-summary-label">Mrunali Pande</span>
+                                <span class="story-summary-role">Project Checkmate learner and chess player</span>
+                            </span>
+                        </summary>
+                        <div class="story-body">
+                            <p>“I learnt about DRF from my friends. I then followed the activities on social media to explore more about the foundation. I am amazed at the drive shown by the organisation towards hosting impactful events and sessions. I look forward to working with the foundation and growing as a chess player.”</p>
+                            <p class="story-source">– Mrunali Pande</p>
+                        </div>
+                    </details>
+                    <details class="story-item">
+                        <summary class="story-summary">
+                            <span class="story-placeholder">MP</span>
+                            <span class="story-summary-text">
+                                <span class="story-summary-label">Muskan Patwari</span>
+                                <span class="story-summary-role">DRF Scholar 2020 winner</span>
+                            </span>
+                        </summary>
+                        <div class="story-body">
+                            <p>“I learnt and understood so many diverse aspects of life through the scholarship. The mentoring program helped me to connect with people whose success stories were highly inspirational. The interactive webinars gave me a broader perspective towards failure, struggle, and life goals. The webinars were my weekly delights, and I used to look forward to attending the sessions. Overall, I’m grateful to DRF for selecting me as one of their scholars.”</p>
+                            <p class="story-source">– Muskan Patwari ’20 winner</p>
+                        </div>
+                    </details>
+                    <details class="story-item">
+                        <summary class="story-summary">
+                            <span class="story-placeholder">DA</span>
+                            <span class="story-summary-text">
+                                <span class="story-summary-label">Divya Agrawal</span>
+                                <span class="story-summary-role">Follower of Project Checkmate and entrepreneur</span>
+                            </span>
+                        </summary>
+                        <div class="story-body">
+                            <p>“I am Divya Agrawal, a software engineer and an entrepreneur. The Checkmate project that Devanshi started at an early age is a great vision. The project that she expanded among blind children is truly very inspiring. Devanshi is my inspiration to start teaching chess and distributing boards among the underprivileged children as the game makes the child learn how to strategize aspects of life as well. In addition, a child can also understand the importance of foresight, planning, and the virtue of patience.”</p>
+                            <p class="story-source">– Divya Agrawal</p>
+                        </div>
+                    </details>
+                    <details class="story-item">
+                        <summary class="story-summary">
+                            <span class="story-placeholder">SJ</span>
+                            <span class="story-summary-text">
+                                <span class="story-summary-label">Shivangi Jethwani</span>
+                                <span class="story-summary-role">Virtual DRF volunteer</span>
+                            </span>
+                        </summary>
+                        <div class="story-body">
+                            <p>“I served as a virtual volunteer for the foundation. I had excellent exposure to the working of a foundation to enrich the society. During my time at DRF, I experienced how the foundation aims to stand by its mission to empower the community through education, sports, healthcare, and sustainability. I had an opportunity to work on a variety of logistical and operational projects for the non-profit, and I was guided well throughout about the requirements from my end. It was a great opportunity to work with the DR Foundation.”</p>
+                            <p class="story-source">– Shivangi Jethwani</p>
+                        </div>
+                    </details>
                 </div>
             </div>
         </section>
