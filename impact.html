@@ -10,945 +10,86 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="shared.css" />
     <style>
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0
-        }
-        
-         :root {
-            --cr: #0f4c81;
-            --cr-dk: #0c3a66;
-            --cr-pl: #e0f2fe;
-            --gd: #22c55e;
-            --gd-dk: #15803d;
-            --gd-pl: #ecfdf5;
-            --gd-md: #10b981;
-            --ink: #0f172a;
-            --ink-m: #475569;
-            --ink-f: #64748b;
-            --bg: #f8fafc;
-            --wh: #ffffff;
-            --b-cr: rgba(15, 76, 129, 0.12);
-            --b-gd: rgba(34, 197, 94, 0.16);
-            --serif: 'Cormorant Garamond', Georgia, serif;
-            --sans: 'DM Sans', system-ui, sans-serif;
-            --max: 1160px;
-            --r: 12px;
-            --rl: 20px;
-        }
-        
-        html {
-            scroll-behavior: smooth
-        }
-        
-        body {
-            font-family: var(--sans);
-            font-size: 16px;
-            line-height: 1.7;
-            color: var(--ink);
-            background: var(--bg);
-            -webkit-font-smoothing: antialiased
-        }
-        
-        img {
-            display: block;
-            max-width: 100%
-        }
-        
-        a {
-            color: inherit;
-            text-decoration: none
-        }
-        
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            background: rgba(253, 252, 250, .94);
-            backdrop-filter: blur(14px);
-            border-bottom: 1px solid var(--b-gd);
-            padding: 0 clamp(1.5rem, 5vw, 3rem)
-        }
-        
-        .nav-inner {
-            max-width: var(--max);
-            margin: 0 auto;
-            height: 70px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between
-        }
-        
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px
-        }
-        
-        .logo-img {
-            width: 44px;
-            height: 44px;
-            object-fit: contain;
-            border-radius: 6px;
-            border: 1px solid var(--b-gd)
-        }
-        
-        .logo-text {
-            font-family: var(--serif);
-            font-size: 19px;
-            font-weight: 600;
-            color: var(--ink);
-            line-height: 1.1
-        }
-        
-        .logo-sub {
-            font-size: 10px;
-            font-weight: 300;
-            letter-spacing: .12em;
-            text-transform: uppercase;
-            color: var(--ink-f)
-        }
-        
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: .2rem;
-            list-style: none
-        }
-        
-        .nav-links a {
-            font-size: 13.5px;
-            color: var(--ink-m);
-            padding: 6px 12px;
-            border-radius: 6px;
-            transition: color .2s, background .2s
-        }
-        
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--cr);
-            background: var(--cr-pl)
-        }
-        
-        .nav-cta {
-            background: var(--cr)!important;
-            color: #fff!important;
-            padding: 8px 20px!important;
-            border-radius: 8px!important;
-            font-weight: 500!important
-        }
-        
-        .nav-cta:hover {
-            background: var(--cr-dk)!important;
-            color: #fff!important
-        }
-        /* PAGE HERO */
-        
-        .page-hero {
-            padding: 120px clamp(1.5rem, 5vw, 3rem) 80px;
-            background: var(--cr);
-            position: relative;
-            overflow: hidden
-        }
-        
-        .page-hero::before {
-            content: '\265F';
-            position: absolute;
-            top: -60px;
-            right: 5%;
-            font-size: 400px;
-            color: rgba(255, 255, 255, .04);
-            line-height: 1;
-            pointer-events: none
-        }
-        
-        .page-hero::after {
-            content: '\2655';
-            position: absolute;
-            bottom: -80px;
-            left: 5%;
-            font-size: 300px;
-            color: rgba(255, 255, 255, .04);
-            line-height: 1;
-            pointer-events: none
-        }
-        
-        .page-hero-inner {
-            max-width: var(--max);
-            margin: 0 auto;
-            position: relative;
-            z-index: 1
-        }
-        
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 11px;
-            font-weight: 500;
-            letter-spacing: .14em;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, .7);
-            background: rgba(255, 255, 255, .12);
-            padding: 6px 14px;
-            border-radius: 100px;
-            margin-bottom: 1.25rem
-        }
-        
-        .eyebrow::before {
-            content: '';
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--gd)
-        }
-        
-        .page-hero h1 {
-            font-family: var(--serif);
-            font-size: clamp(2.6rem, 5vw, 4rem);
-            font-weight: 600;
-            line-height: 1.1;
-            color: #fff;
-            letter-spacing: -.02em;
-            margin-bottom: 1.25rem
-        }
-        
-        .page-hero h1 em {
-            font-style: italic;
-            color: var(--gd-md)
-        }
-        
-        .page-hero-lead {
-            font-size: 17px;
-            font-weight: 300;
-            color: rgba(255, 255, 255, .8);
-            line-height: 1.8;
-            max-width: 560px;
-            margin-bottom: 3rem
-        }
-        
-        .hero-stats {
-            display: flex;
-            gap: 3rem;
-            flex-wrap: wrap
-        }
-        
-        .hs {
-            text-align: left
-        }
-        
-        .hs-n {
-            font-family: var(--serif);
-            font-size: 3rem;
-            font-weight: 600;
-            color: #fff;
-            line-height: 1
-        }
-        
-        .hs-l {
-            font-size: 12px;
-            font-weight: 300;
-            color: rgba(255, 255, 255, .65);
-            margin-top: .3rem
-        }
-        /* SHARED */
-        
-        .section {
-            padding: 5.5rem clamp(1.5rem, 5vw, 3rem)
-        }
-        
-        .si {
-            max-width: var(--max);
-            margin: 0 auto
-        }
-        
-        .sec-ey {
-            font-size: 11px;
-            font-weight: 500;
-            letter-spacing: .14em;
-            text-transform: uppercase;
-            color: var(--gd-dk);
-            margin-bottom: .85rem
-        }
-        
-        .sec-h {
-            font-family: var(--serif);
-            font-size: clamp(1.9rem, 3vw, 2.6rem);
-            font-weight: 600;
-            color: var(--ink);
-            line-height: 1.15;
-            margin-bottom: 1rem;
-            letter-spacing: -.01em
-        }
-        
-        .sec-lead {
-            font-size: 16px;
-            font-weight: 300;
-            color: var(--ink-m);
-            max-width: 620px;
-            margin-bottom: 3rem;
-            line-height: 1.8
-        }
-        
-        .body-text {
-            font-size: 15px;
-            font-weight: 300;
-            color: var(--ink-m);
-            line-height: 1.9;
-            margin-bottom: 1.25rem
-        }
-        
-        .divider {
-            height: 1px;
-            background: var(--b-gd);
-            margin: 0 clamp(1.5rem, 5vw, 3rem)
-        }
-        
-        .arr {
-            width: 14px;
-            height: 14px;
-            fill: none;
-            stroke: currentColor;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round
-        }
-        /* SCHOLAR STORIES */
-        
-        .stories {
-            background: var(--wh)
-        }
-        
-        .stories-grid {
-            display: grid;
-            gap: 1rem;
-            margin-bottom: 3rem;
-        }
-        
-        .story-item {
-            background: var(--bg);
-            border-radius: var(--rl);
-            border: 1px solid var(--b-gd);
-            overflow: hidden;
-            transition: box-shadow .25s ease;
-        }
-        
-        .story-item[open] {
-            box-shadow: 0 18px 40px rgba(15, 76, 129, .08);
-        }
-        
-        .story-summary {
-            display: grid;
-            grid-template-columns: auto 1fr auto;
-            align-items: center;
-            gap: 1rem;
-            padding: 1.4rem 1.5rem;
-            cursor: pointer;
-            list-style: none;
-            background: var(--wh);
-            border: none;
-        }
-        
-        .story-summary::-webkit-details-marker {
-            display: none;
-        }
-        
-        .story-summary::after {
-            content: '+';
-            font-size: 1.4rem;
-            color: var(--cr);
-            line-height: 1;
-        }
-        
-        .story-item[open] .story-summary::after {
-            content: '–';
-        }
-        
-        .story-thumb,
-        .story-placeholder {
-            width: 64px;
-            height: 64px;
-            border-radius: 18px;
-            border: 1px solid var(--b-cr);
-            overflow: hidden;
-            display: grid;
-            place-items: center;
-            background: var(--cr-pl);
-            color: var(--cr);
-            font-family: var(--serif);
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-        
-        .story-thumb img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-        
-        .story-summary-text {
-            display: flex;
-            flex-direction: column;
-            gap: .2rem;
-        }
-        
-        .story-summary-label {
-            font-family: var(--serif);
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--ink);
-        }
-        
-        .story-summary-role {
-            font-size: 0.92rem;
-            font-weight: 400;
-            color: var(--ink-m);
-        }
-        
-        .story-body {
-            padding: 0 1.5rem 1.5rem;
-            animation: fadeUp .3s ease both;
-        }
-        
-        .story-body p {
-            font-size: 0.98rem;
-            color: var(--ink-m);
-            line-height: 1.85;
-            margin-bottom: 1rem;
-        }
-        
-        .story-source {
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: var(--ink);
-        }
-        /* FIDE PLAYERS */
-        
-        .fide {
-            background: var(--bg)
-        }
-        
-        .fide-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem
-        }
-        
-        .fide-card {
-            background: var(--wh);
-            border-radius: var(--rl);
-            padding: 2.5rem;
-            border: 1px solid var(--b-gd);
-            position: relative;
-            overflow: hidden
-        }
-        
-        .fide-card::after {
-            content: '\265F';
-            position: absolute;
-            bottom: -30px;
-            right: 10px;
-            font-size: 160px;
-            color: rgba(196, 147, 58, .06);
-            line-height: 1;
-            pointer-events: none
-        }
-        
-        .fide-num {
-            font-family: var(--serif);
-            font-size: 3.5rem;
-            font-weight: 600;
-            color: var(--cr);
-            line-height: 1;
-            margin-bottom: .5rem
-        }
-        
-        .fide-title {
-            font-family: var(--serif);
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--ink);
-            margin-bottom: .5rem
-        }
-        
-        .fide-sub {
-            font-size: 13px;
-            font-weight: 400;
-            color: var(--gd-dk);
-            margin-bottom: 1rem;
-            letter-spacing: .04em
-        }
-        
-        .fide-text {
-            font-size: 14px;
-            font-weight: 300;
-            color: var(--ink-m);
-            line-height: 1.75
-        }
-        
-        .fide-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 11px;
-            font-weight: 500;
-            color: var(--gd-dk);
-            background: var(--gd-pl);
-            padding: 5px 12px;
-            border-radius: 100px;
-            margin-top: 1rem;
-            border: 1px solid var(--b-gd)
-        }
-        /* AWARDS */
-        
-        .awards {
-            background: var(--wh)
-        }
-        
-        .awards-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.25rem
-        }
-        
-        .award-card {
-            background: var(--bg);
-            border-radius: var(--r);
-            padding: 1.5rem;
-            border: 1px solid var(--b-gd);
-            transition: border-color .2s, transform .2s
-        }
-        
-        .award-card:hover {
-            border-color: var(--gd);
-            transform: translateY(-2px)
-        }
-        
-        .award-year {
-            font-size: 11px;
-            font-weight: 500;
-            letter-spacing: .1em;
-            text-transform: uppercase;
-            color: var(--gd-dk);
-            margin-bottom: .6rem
-        }
-        
-        .award-title {
-            font-family: var(--serif);
-            font-size: 1.05rem;
-            font-weight: 600;
-            color: var(--ink);
-            margin-bottom: .4rem;
-            line-height: 1.3
-        }
-        
-        .award-body {
-            font-size: 13.5px;
-            font-weight: 300;
-            color: var(--ink-m);
-            line-height: 1.65
-        }
-        
-        .award-tag {
-            display: inline-block;
-            font-size: 11px;
-            color: var(--cr);
-            background: var(--cr-pl);
-            padding: 3px 10px;
-            border-radius: 100px;
-            margin-top: .75rem
-        }
-        /* TESTIMONIALS */
-        
-        .testimonials {
-            background: var(--gd-pl)
-        }
-        
-        .test-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem
-        }
-        
-        .test-card {
-            background: var(--wh);
-            border-radius: var(--rl);
-            padding: 2rem;
-            border: 1px solid var(--b-gd)
-        }
-        
-        .test-quote {
-            font-family: var(--serif);
-            font-size: 1.05rem;
-            font-style: italic;
-            color: var(--ink);
-            line-height: 1.65;
-            margin-bottom: 1.5rem;
-            padding-left: 1.25rem;
-            border-left: 2px solid var(--gd)
-        }
-        
-        .test-name {
-            font-size: 13.5px;
-            font-weight: 500;
-            color: var(--ink)
-        }
-        
-        .test-role {
-            font-size: 12px;
-            font-weight: 300;
-            color: var(--ink-f)
-        }
-        /* DEVAJYOTI WINNERS */
-        
-        .devajyoti {
-            background: var(--bg)
-        }
-        
-        .dv-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.25rem
-        }
-        
-        .dv-card {
-            background: var(--wh);
-            border-radius: var(--r);
-            padding: 1.5rem;
-            border: 1px solid var(--b-gd);
-            transition: border-color .2s
-        }
-        
-        .dv-card:hover {
-            border-color: var(--gd)
-        }
-        
-        .dv-category {
-            font-size: 10.5px;
-            font-weight: 500;
-            letter-spacing: .1em;
-            text-transform: uppercase;
-            color: var(--gd-dk);
-            margin-bottom: .5rem
-        }
-        
-        .dv-name {
-            font-family: var(--serif);
-            font-size: 1.05rem;
-            font-weight: 600;
-            color: var(--ink);
-            margin-bottom: .3rem
-        }
-        
-        .dv-desc {
-            font-size: 13px;
-            font-weight: 300;
-            color: var(--ink-m);
-            line-height: 1.6
-        }
-        
-        .dv-tag {
-            display: inline-block;
-            font-size: 11px;
-            margin-top: .65rem;
-            padding: 3px 10px;
-            border-radius: 100px
-        }
-        
-        .dv-winner {
-            color: var(--cr);
-            background: var(--cr-pl)
-        }
-        
-        .dv-runner {
-            color: var(--gd-dk);
-            background: var(--gd-pl)
-        }
-        /* CTA */
-        
-        .cta-band {
-            background: var(--ink);
-            padding: 5rem clamp(1.5rem, 5vw, 3rem);
-            text-align: center;
-            position: relative;
-            overflow: hidden
-        }
-        
-        .cta-band::before {
-            content: '\265F';
-            position: absolute;
-            top: -50px;
-            left: 4%;
-            font-size: 300px;
-            color: rgba(255, 255, 255, .025);
-            line-height: 1;
-            pointer-events: none
-        }
-        
-        .cta-band::after {
-            content: '\2655';
-            position: absolute;
-            bottom: -60px;
-            right: 4%;
-            font-size: 280px;
-            color: rgba(196, 147, 58, .06);
-            line-height: 1;
-            pointer-events: none
-        }
-        
-        .cta-band .si {
-            position: relative;
-            z-index: 1
-        }
-        
-        .cta-tag {
-            display: inline-block;
-            background: rgba(196, 147, 58, .15);
-            color: var(--gd-md);
-            font-size: 11px;
-            font-weight: 500;
-            letter-spacing: .14em;
-            text-transform: uppercase;
-            padding: 6px 16px;
-            border-radius: 100px;
-            margin-bottom: 1.5rem
-        }
-        
-        .cta-band h2 {
-            font-family: var(--serif);
-            font-size: clamp(1.8rem, 3vw, 2.5rem);
-            font-weight: 600;
-            color: #fff;
-            line-height: 1.2;
-            margin-bottom: 1rem
-        }
-        
-        .cta-band p {
-            font-size: 15px;
-            font-weight: 300;
-            color: rgba(255, 255, 255, .65);
-            max-width: 460px;
-            margin: 0 auto 2rem;
-            line-height: 1.8
-        }
-        
-        .btn-gd {
-            background: var(--gd);
-            color: #fff;
-            padding: 13px 28px;
-            border-radius: var(--r);
-            font-size: 14px;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: background .2s, transform .2s
-        }
-        
-        .btn-gd:hover {
-            background: var(--gd-dk);
-            transform: translateY(-2px)
-        }
-        
-        footer {
-            background: #111110;
-            padding: 4.5rem clamp(1.5rem, 5vw, 3rem) 2rem
-        }
-        
-        .fi {
-            max-width: var(--max);
-            margin: 0 auto
-        }
-        
-        .ft {
-            display: grid;
-            grid-template-columns: 1.6fr 1fr 1fr 1fr;
-            gap: 3rem;
-            padding-bottom: 3rem;
-            border-bottom: 1px solid rgba(255, 255, 255, .07);
-            margin-bottom: 2rem
-        }
-        
-        .fl {
-            display: flex;
-            align-items: center;
-            gap: 12px
-        }
-        
-        .fli {
-            width: 40px;
-            height: 40px;
-            object-fit: contain;
-            border-radius: 6px;
-            opacity: .85
-        }
-        
-        .fl .logo-text {
-            color: #fff
-        }
-        
-        .fl .logo-sub {
-            color: rgba(255, 255, 255, .3)
-        }
-        
-        .ftag {
-            font-size: 13px;
-            font-weight: 300;
-            color: rgba(255, 255, 255, .4);
-            line-height: 1.75;
-            margin-top: 1rem;
-            max-width: 260px
-        }
-        
-        .fsoc {
-            display: flex;
-            gap: 9px;
-            margin-top: 1.5rem
-        }
-        
-        .sl {
-            width: 34px;
-            height: 34px;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, .07);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: rgba(255, 255, 255, .5);
-            font-size: 11px;
-            font-weight: 600;
-            transition: background .2s, color .2s
-        }
-        
-        .sl:hover {
-            background: var(--cr);
-            color: #fff
-        }
-        
-        .fc h4 {
-            font-size: 10.5px;
-            font-weight: 500;
-            letter-spacing: .13em;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, .3);
-            margin-bottom: 1.25rem
-        }
-        
-        .flinks {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: .6rem
-        }
-        
-        .flinks a {
-            font-size: 13.5px;
-            font-weight: 300;
-            color: rgba(255, 255, 255, .6);
-            transition: color .2s
-        }
-        
-        .flinks a:hover {
-            color: var(--gd-md)
-        }
-        
-        .fb {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 1rem
-        }
-        
-        .flegal {
-            font-size: 12px;
-            font-weight: 300;
-            color: rgba(255, 255, 255, .25)
-        }
-        
-        .fcin {
-            font-size: 11px;
-            font-weight: 300;
-            color: rgba(255, 255, 255, .15);
-            font-family: monospace
-        }
-        
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px)
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0)
-            }
-        }
-        
-        .fu {
-            animation: fadeUp .7s ease both
-        }
-        
-        .fu2 {
-            animation: fadeUp .7s .1s ease both
-        }
-        
-        .fu3 {
-            animation: fadeUp .7s .2s ease both
-        }
-        
+        /* ── PAGE HERO (blue) ── */
+        .page-hero { background: var(--cr); position: relative; overflow: hidden; padding-bottom: 80px }
+        .page-hero::before { content: '\265F'; position: absolute; top: -60px; right: 5%; font-size: 400px; color: rgba(255,255,255,.04); line-height: 1; pointer-events: none }
+        .page-hero::after { content: '\2655'; position: absolute; bottom: -80px; left: 5%; font-size: 300px; color: rgba(255,255,255,.04); line-height: 1; pointer-events: none }
+        .page-hero-inner { max-width: var(--max); margin: 0 auto; position: relative; z-index: 1; grid-template-columns: 1fr }
+        .page-hero .eyebrow { color: rgba(255,255,255,.7); background: rgba(255,255,255,.12); border-color: transparent }
+        .page-hero h1 { color: #fff }
+        .page-hero h1 em { color: var(--gd-md) }
+        .page-hero-lead { color: rgba(255,255,255,.8); margin-bottom: 3rem }
+        .hero-stats { display: flex; gap: 3rem; flex-wrap: wrap }
+        .hs { text-align: left }
+        .hs-n { font-family: var(--serif); font-size: 3rem; font-weight: 600; color: #fff; line-height: 1 }
+        .hs-l { font-size: 12px; font-weight: 300; color: rgba(255,255,255,.65); margin-top: .3rem }
+        /* ── SCHOLAR STORIES ── */
+        .stories { background: var(--wh) }
+        .stories-grid { display: grid; gap: 1rem; margin-bottom: 3rem }
+        .story-item { background: var(--bg); border-radius: var(--rl); border: 1px solid var(--b-gd); overflow: hidden; transition: box-shadow .25s ease }
+        .story-item[open] { box-shadow: 0 18px 40px rgba(15,76,129,.08) }
+        .story-summary { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 1rem; padding: 1.4rem 1.5rem; cursor: pointer; list-style: none; background: var(--wh) }
+        .story-summary::-webkit-details-marker { display: none }
+        .story-summary::after { content: '+'; font-size: 1.4rem; color: var(--cr); line-height: 1 }
+        .story-item[open] .story-summary::after { content: '–' }
+        .story-thumb,.story-placeholder { width: 64px; height: 64px; border-radius: 18px; border: 1px solid var(--b-cr); overflow: hidden; display: grid; place-items: center; background: var(--cr-pl); color: var(--cr); font-family: var(--serif); font-weight: 700; font-size: 1.1rem }
+        .story-thumb img { width: 100%; height: 100%; object-fit: cover; display: block }
+        .story-summary-text { display: flex; flex-direction: column; gap: .2rem }
+        .story-summary-label { font-family: var(--serif); font-size: 1rem; font-weight: 600; color: var(--ink) }
+        .story-summary-role { font-size: .92rem; font-weight: 400; color: var(--ink-m) }
+        .story-body { padding: 0 1.5rem 1.5rem; animation: fadeUp .3s ease both }
+        .story-body p { font-size: .98rem; color: var(--ink-m); line-height: 1.85; margin-bottom: 1rem }
+        .story-source { font-size: .95rem; font-weight: 500; color: var(--ink) }
+        /* ── FIDE PLAYERS ── */
+        .fide { background: var(--bg) }
+        .fide-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem }
+        .fide-card { background: var(--wh); border-radius: var(--rl); padding: 2.5rem; border: 1px solid var(--b-gd); position: relative; overflow: hidden }
+        .fide-card::after { content: '\265F'; position: absolute; bottom: -30px; right: 10px; font-size: 160px; color: rgba(196,147,58,.06); line-height: 1; pointer-events: none }
+        .fide-num { font-family: var(--serif); font-size: 3.5rem; font-weight: 600; color: var(--cr); line-height: 1; margin-bottom: .5rem }
+        .fide-title { font-family: var(--serif); font-size: 1.3rem; font-weight: 600; color: var(--ink); margin-bottom: .5rem }
+        .fide-sub { font-size: 13px; font-weight: 400; color: var(--gd-dk); margin-bottom: 1rem; letter-spacing: .04em }
+        .fide-text { font-size: 14px; font-weight: 300; color: var(--ink-m); line-height: 1.75 }
+        .fide-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 500; color: var(--gd-dk); background: var(--gd-pl); padding: 5px 12px; border-radius: 100px; margin-top: 1rem; border: 1px solid var(--b-gd) }
+        /* ── AWARDS ── */
+        .awards { background: var(--wh) }
+        .awards-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem }
+        .award-card { background: var(--bg); border-radius: var(--r); padding: 1.5rem; border: 1px solid var(--b-gd); transition: border-color .2s, transform .2s }
+        .award-card:hover { border-color: var(--gd); transform: translateY(-2px) }
+        .award-year { font-size: 11px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--gd-dk); margin-bottom: .6rem }
+        .award-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 600; color: var(--ink); margin-bottom: .4rem; line-height: 1.3 }
+        .award-body { font-size: 13.5px; font-weight: 300; color: var(--ink-m); line-height: 1.65 }
+        .award-tag { display: inline-block; font-size: 11px; color: var(--cr); background: var(--cr-pl); padding: 3px 10px; border-radius: 100px; margin-top: .75rem }
+        /* ── TESTIMONIALS ── */
+        .testimonials { background: var(--gd-pl) }
+        .test-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem }
+        .test-card { background: var(--wh); border-radius: var(--rl); padding: 2rem; border: 1px solid var(--b-gd) }
+        .test-quote { font-family: var(--serif); font-size: 1.05rem; font-style: italic; color: var(--ink); line-height: 1.65; margin-bottom: 1.5rem; padding-left: 1.25rem; border-left: 2px solid var(--gd) }
+        .test-name { font-size: 13.5px; font-weight: 500; color: var(--ink) }
+        .test-role { font-size: 12px; font-weight: 300; color: var(--ink-f) }
+        /* ── DEVAJYOTI ── */
+        .devajyoti { background: var(--bg) }
+        .dv-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem }
+        .dv-card { background: var(--wh); border-radius: var(--r); padding: 1.5rem; border: 1px solid var(--b-gd); transition: border-color .2s }
+        .dv-card:hover { border-color: var(--gd) }
+        .dv-category { font-size: 10.5px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--gd-dk); margin-bottom: .5rem }
+        .dv-name { font-family: var(--serif); font-size: 1.05rem; font-weight: 600; color: var(--ink); margin-bottom: .3rem }
+        .dv-desc { font-size: 13px; font-weight: 300; color: var(--ink-m); line-height: 1.6 }
+        .dv-tag { display: inline-block; font-size: 11px; margin-top: .65rem; padding: 3px 10px; border-radius: 100px }
+        .dv-winner { color: var(--cr); background: var(--cr-pl) }
+        .dv-runner { color: var(--gd-dk); background: var(--gd-pl) }
+        /* ── RESPONSIVE ── */
         @media(max-width:900px) {
-            .stories-grid {
-                grid-template-columns: 1fr 1fr
-            }
-            .fide-grid {
-                grid-template-columns: 1fr
-            }
-            .awards-grid {
-                grid-template-columns: 1fr 1fr
-            }
-            .test-grid {
-                grid-template-columns: 1fr
-            }
-            .dv-grid {
-                grid-template-columns: 1fr 1fr
-            }
-            .ft {
-                grid-template-columns: 1fr 1fr;
-                gap: 2rem
-            }
+            .fide-grid { grid-template-columns: 1fr }
+            .awards-grid { grid-template-columns: 1fr 1fr }
+            .test-grid { grid-template-columns: 1fr }
+            .dv-grid { grid-template-columns: 1fr 1fr }
         }
-        
         @media(max-width:600px) {
-            .nav-links {
-                display: none
-            }
-            .hero-stats {
-                gap: 2rem
-            }
-            .stories-grid {
-                grid-template-columns: 1fr
-            }
-            .awards-grid {
-                grid-template-columns: 1fr
-            }
-            .dv-grid {
-                grid-template-columns: 1fr
-            }
-            .ft {
-                grid-template-columns: 1fr
-            }
-            .fb {
-                flex-direction: column;
-                align-items: flex-start
-            }
+            .hero-stats { gap: 2rem }
+            .awards-grid { grid-template-columns: 1fr }
+            .dv-grid { grid-template-columns: 1fr }
         }
     </style>
 </head>
@@ -970,11 +111,25 @@
                 <li><a href="programs.html">Programs</a></li>
                 <li><a href="impact.html" class="active">Impact</a></li>
                 <li><a href="press.html">Press</a></li>
-                <li><a href="get-involved.html">Get Involved</a></li>
+                <li><a href="get-involved.html" class="nav-cta">Get Involved</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
+            <button class="nav-toggle" id="navToggle" aria-controls="navMobile" aria-expanded="false" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
+    <div class="nav-mobile" id="navMobile" role="navigation" aria-label="Mobile navigation">
+        <ul role="list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="impact.html" class="active">Impact</a></li>
+            <li><a href="press.html">Press</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="get-involved.html" class="mob-cta">Get Involved</a>
+    </div>
 
     <main>
 
@@ -985,26 +140,11 @@
                 <h1 class="fu2">Every number is a<br/><em>person whose life changed.</em></h1>
                 <p class="page-hero-lead fu3">Since 2016, the DR Foundation has worked with youth across India &mdash; producing FIDE-rated chess players, sending scholars to Ashoka University, and delivering health programmes to underserved communities.</p>
                 <div class="hero-stats fu3">
-                    <div class="hs">
-                        <div class="hs-n">40+</div>
-                        <div class="hs-l">Students mentored</div>
-                    </div>
-                    <div class="hs">
-                        <div class="hs-n">2</div>
-                        <div class="hs-l">FIDE-rated players</div>
-                    </div>
-                    <div class="hs">
-                        <div class="hs-n">5</div>
-                        <div class="hs-l">Scholarship editions</div>
-                    </div>
-                    <div class="hs">
-                        <div class="hs-n">20+</div>
-                        <div class="hs-l">Scholars supported</div>
-                    </div>
-                    <div class="hs">
-                        <div class="hs-n">5+</div>
-                        <div class="hs-l">Health partners</div>
-                    </div>
+                    <div class="hs"><div class="hs-n">40+</div><div class="hs-l">Students mentored</div></div>
+                    <div class="hs"><div class="hs-n">2</div><div class="hs-l">FIDE-rated players</div></div>
+                    <div class="hs"><div class="hs-n">5</div><div class="hs-l">Scholarship editions</div></div>
+                    <div class="hs"><div class="hs-n">20+</div><div class="hs-l">Scholars supported</div></div>
+                    <div class="hs"><div class="hs-n">5+</div><div class="hs-l">Health partners</div></div>
                 </div>
             </div>
         </div>
@@ -1021,12 +161,12 @@
                             <span class="story-thumb"><img src="ayush.png" alt="Ayush Prakash Jaiswal" /></span>
                             <span class="story-summary-text">
                                 <span class="story-summary-label">Ayush Prakash Jaiswal</span>
-                                <span class="story-summary-role">DRF Scholar 2018 & 2019 — Ashoka University scholarship recipient</span>
+                                <span class="story-summary-role">DRF Scholar 2018 &amp; 2019 — Ashoka University scholarship recipient</span>
                             </span>
                         </summary>
                         <div class="story-body">
-                            <p>“Hi, I am Ayush, the winner of the D.R.F. scholarship of 2018 and 2019. This award gave me the motivation to work harder for my best future interests. While applying, we had to write an application about our accomplishments and the best ones were chosen. I received a cash prize along with a gift hamper. The award helped me pay the fees for various academic events and entrance exams. However, the most important was the guidance and mentorship, which was given to me throughout the whole year in fields of academics, sports, and extracurriculars. This helped me a lot. The scholarship is an excellent platform for the students to enhance their skills.”</p>
-                            <p class="story-source">– Ayush Jaiswal ’18 & ’19 winner and a recipient of a full college scholarship at Ashoka University under DRF’s mentorship</p>
+                            <p>"Hi, I am Ayush, the winner of the D.R.F. scholarship of 2018 and 2019. This award gave me the motivation to work harder for my best future interests. While applying, we had to write an application about our accomplishments and the best ones were chosen. I received a cash prize along with a gift hamper. The award helped me pay the fees for various academic events and entrance exams. However, the most important was the guidance and mentorship, which was given to me throughout the whole year in fields of academics, sports, and extracurriculars. This helped me a lot. The scholarship is an excellent platform for the students to enhance their skills."</p>
+                            <p class="story-source">– Ayush Jaiswal '18 &amp; '19 winner and a recipient of a full college scholarship at Ashoka University under DRF's mentorship</p>
                         </div>
                     </details>
                     <details class="story-item">
@@ -1038,8 +178,8 @@
                             </span>
                         </summary>
                         <div class="story-body">
-                            <p>“I am very glad to be the winner of DRF scholarship 2018 and would like to express my gratitude to Devanshi mam because she gave me a chance to participate in this program. It was a wonderful learning experience as a winner for a period of one year as I received special guidance from Devanshi mam, both online and offline support that helped me perform better in my academics. I used my prize money to participate in various other competitions including chess tournaments, which helped me to gain experience and improve my skills in the game. The best advice that I used from Devanshi didi’s guidance was how to balance extra-curriculars, sports, and academics, leading me to perform better in all three areas. Ultimately, it was a joy to be a recipient of this year-long scholarship.”</p>
-                            <p class="story-source">– Khushi Bisht ’18 winner</p>
+                            <p>"I am very glad to be the winner of DRF scholarship 2018 and would like to express my gratitude to Devanshi mam because she gave me a chance to participate in this program. It was a wonderful learning experience as a winner for a period of one year as I received special guidance from Devanshi mam, both online and offline support that helped me perform better in my academics. I used my prize money to participate in various other competitions including chess tournaments, which helped me to gain experience and improve my skills in the game."</p>
+                            <p class="story-source">– Khushi Bisht '18 winner</p>
                         </div>
                     </details>
                     <details class="story-item">
@@ -1051,8 +191,8 @@
                             </span>
                         </summary>
                         <div class="story-body">
-                            <p>“I am Neeraj Sharma, a student in grade 9, originally from Bholpur, Rajasthan. I play chess and cricket in my time apart from school. I participated in the second DRF Scholarships and was a winner this time around. This prize boosted my confidence and also gave me a lot of motivation to succeed further in my goals. Thanks to the scholarship, I am able to play in a lot more tournaments outside. Currently, I am working hard to get to the next level in chess by getting my FIDE rating. Project Checkmate has allowed students to also play with strong players and even Grandmasters besides helping some children to get their FIDE ratings. For all of this, I am extremely happy and proud to be associated with it. Chess is a game that not only develops my mind but also helps me build my own strategies. The focus required in the game will also encourage me to be at my best in my university career and beyond.”</p>
-                            <p class="story-source">– Neeraj Sharma ’19 winner</p>
+                            <p>"I am Neeraj Sharma, a student in grade 9, originally from Bholpur, Rajasthan. I play chess and cricket in my time apart from school. I participated in the second DRF Scholarships and was a winner this time around. This prize boosted my confidence and also gave me a lot of motivation to succeed further in my goals. Thanks to the scholarship, I am able to play in a lot more tournaments outside. Currently, I am working hard to get to the next level in chess by getting my FIDE rating."</p>
+                            <p class="story-source">– Neeraj Sharma '19 winner</p>
                         </div>
                     </details>
                     <details class="story-item">
@@ -1064,7 +204,7 @@
                             </span>
                         </summary>
                         <div class="story-body">
-                            <p>“I learnt about DRF from my friends. I then followed the activities on social media to explore more about the foundation. I am amazed at the drive shown by the organisation towards hosting impactful events and sessions. I look forward to working with the foundation and growing as a chess player.”</p>
+                            <p>"I learnt about DRF from my friends. I then followed the activities on social media to explore more about the foundation. I am amazed at the drive shown by the organisation towards hosting impactful events and sessions. I look forward to working with the foundation and growing as a chess player."</p>
                             <p class="story-source">– Mrunali Pande</p>
                         </div>
                     </details>
@@ -1077,21 +217,8 @@
                             </span>
                         </summary>
                         <div class="story-body">
-                            <p>“I learnt and understood so many diverse aspects of life through the scholarship. The mentoring program helped me to connect with people whose success stories were highly inspirational. The interactive webinars gave me a broader perspective towards failure, struggle, and life goals. The webinars were my weekly delights, and I used to look forward to attending the sessions. Overall, I’m grateful to DRF for selecting me as one of their scholars.”</p>
-                            <p class="story-source">– Muskan Patwari ’20 winner</p>
-                        </div>
-                    </details>
-                    <details class="story-item">
-                        <summary class="story-summary">
-                            <span class="story-placeholder">DA</span>
-                            <span class="story-summary-text">
-                                <span class="story-summary-label">Divya Agrawal</span>
-                                <span class="story-summary-role">Follower of Project Checkmate and entrepreneur</span>
-                            </span>
-                        </summary>
-                        <div class="story-body">
-                            <p>“I am Divya Agrawal, a software engineer and an entrepreneur. The Checkmate project that Devanshi started at an early age is a great vision. The project that she expanded among blind children is truly very inspiring. Devanshi is my inspiration to start teaching chess and distributing boards among the underprivileged children as the game makes the child learn how to strategize aspects of life as well. In addition, a child can also understand the importance of foresight, planning, and the virtue of patience.”</p>
-                            <p class="story-source">– Divya Agrawal</p>
+                            <p>"I learnt and understood so many diverse aspects of life through the scholarship. The mentoring program helped me to connect with people whose success stories were highly inspirational. The interactive webinars gave me a broader perspective towards failure, struggle, and life goals. The webinars were my weekly delights, and I used to look forward to attending the sessions. Overall, I'm grateful to DRF for selecting me as one of their scholars."</p>
+                            <p class="story-source">– Muskan Patwari '20 winner</p>
                         </div>
                     </details>
                     <details class="story-item">
@@ -1103,7 +230,7 @@
                             </span>
                         </summary>
                         <div class="story-body">
-                            <p>“I served as a virtual volunteer for the foundation. I had excellent exposure to the working of a foundation to enrich the society. During my time at DRF, I experienced how the foundation aims to stand by its mission to empower the community through education, sports, healthcare, and sustainability. I had an opportunity to work on a variety of logistical and operational projects for the non-profit, and I was guided well throughout about the requirements from my end. It was a great opportunity to work with the DR Foundation.”</p>
+                            <p>"I served as a virtual volunteer for the foundation. I had excellent exposure to the working of a foundation to enrich the society. During my time at DRF, I experienced how the foundation aims to stand by its mission to empower the community through education, sports, healthcare, and sustainability. It was a great opportunity to work with the DR Foundation."</p>
                             <p class="story-source">– Shivangi Jethwani</p>
                         </div>
                     </details>
@@ -1124,9 +251,7 @@
                         <div class="fide-num">2</div>
                         <div class="fide-title">International FIDE-Rated Players</div>
                         <div class="fide-sub">Produced through Project Checkmate</div>
-                        <p class="fide-text">Two students from Project Checkmate have achieved international FIDE ratings &mdash; a landmark outcome for a programme working primarily with visually impaired and underprivileged youth who had no prior access to competitive chess
-                            infrastructure.
-                        </p>
+                        <p class="fide-text">Two students from Project Checkmate have achieved international FIDE ratings &mdash; a landmark outcome for a programme working primarily with visually impaired and underprivileged youth.</p>
                         <p class="fide-text" style="margin-top:.75rem">The first, Ayush Prakash Jaiswal, earned his FIDE Rapid Rating after the Chessmine Rapid Tournament (September 2017 FIDE list). He later won a full merit scholarship to Ashoka University under DRF mentorship.</p>
                         <span class="fide-badge">&#9823; FIDE Rapid Rating achieved 2017</span>
                     </div>
@@ -1134,9 +259,8 @@
                         <div class="fide-num">2</div>
                         <div class="fide-title">National Championship Qualifiers</div>
                         <div class="fide-sub">National &ldquo;B&rdquo; Chess Championship for the Blind, 2017</div>
-                        <p class="fide-text">Two Project Checkmate students qualified for the National &ldquo;B&rdquo; Chess Championship for the Blind in 2017 &mdash; competing at the national level after just months of structured training through the programme.</p>
-                        <p class="fide-text" style="margin-top:.75rem">DRF students also won at the 1st National Schools Chess Championship for the Blind in Shirdi, Maharashtra &mdash; and participated in the North Zone Chess Championship for the Blind, organised by DRF itself at NAB, R.K. Puram in
-                            October 2017.</p>
+                        <p class="fide-text">Two Project Checkmate students qualified for the National &ldquo;B&rdquo; Chess Championship for the Blind in 2017 &mdash; competing at the national level after just months of structured training.</p>
+                        <p class="fide-text" style="margin-top:.75rem">DRF students also won at the 1st National Schools Chess Championship for the Blind in Shirdi, and participated in the North Zone Championship organised by DRF at NAB in October 2017.</p>
                         <span class="fide-badge">&#127942; National Championship Qualifiers 2017</span>
                     </div>
                 </div>
@@ -1155,64 +279,17 @@
             <div class="si">
                 <p class="sec-ey">Devajyoti Scholarships 2021</p>
                 <h2 id="dv-h" class="sec-h">Recognising excellence across six categories</h2>
-                <p class="sec-lead">Co-organised with Wheeling Happiness Foundation (Dr. Deepa Malik), the Devajyoti Scholarships targeted persons with disabilities aged 15&ndash;30 across sport, art, academics, science &amp; technology, entrepreneurship, and competitive
-                    exams.
-                </p>
+                <p class="sec-lead">Co-organised with Wheeling Happiness Foundation (Dr. Deepa Malik), targeting persons with disabilities aged 15&ndash;30 across sport, art, academics, science &amp; technology, entrepreneurship, and competitive exams.</p>
                 <div class="dv-grid">
-                    <div class="dv-card">
-                        <div class="dv-category">Sports</div>
-                        <div class="dv-name">Suryakant Yadav</div>
-                        <p class="dv-desc">Para-badminton player</p>
-                        <span class="dv-tag dv-winner">Winner</span>
-                    </div>
-                    <div class="dv-card">
-                        <div class="dv-category">Academics</div>
-                        <div class="dv-name">Dolly Pal</div>
-                        <p class="dv-desc">B.Ed student, University of Delhi</p>
-                        <span class="dv-tag dv-winner">Winner</span>
-                    </div>
-                    <div class="dv-card">
-                        <div class="dv-category">Competitive Exams</div>
-                        <div class="dv-name">Akash Dilip</div>
-                        <p class="dv-desc">UPSC aspirant, Masters in Economics</p>
-                        <span class="dv-tag dv-winner">Winner</span>
-                    </div>
-                    <div class="dv-card">
-                        <div class="dv-category">Sports &amp; Academics</div>
-                        <div class="dv-name">Sandesh Kumar Yadav</div>
-                        <p class="dv-desc">BHU student &amp; badminton player</p>
-                        <span class="dv-tag dv-winner">Winner</span>
-                    </div>
-                    <div class="dv-card">
-                        <div class="dv-category">Competitive Exams</div>
-                        <div class="dv-name">Kajal Kumari</div>
-                        <p class="dv-desc">UPSC aspirant, aspiring IPS officer</p>
-                        <span class="dv-tag dv-winner">Winner</span>
-                    </div>
-                    <div class="dv-card">
-                        <div class="dv-category">Entrepreneurship</div>
-                        <div class="dv-name">Navnath Belappa Barbande</div>
-                        <p class="dv-desc">Pharmacy student, aspiring author</p>
-                        <span class="dv-tag dv-winner">Winner</span>
-                    </div>
-                    <div class="dv-card">
-                        <div class="dv-category">Sports</div>
-                        <div class="dv-name">Deepak Sharma</div>
-                        <p class="dv-desc">Para shooter</p>
-                        <span class="dv-tag dv-runner">Runner-up</span>
-                    </div>
-                    <div class="dv-card">
-                        <div class="dv-category">Arts</div>
-                        <div class="dv-name">Shweta</div>
-                        <p class="dv-desc">Miss Deaf World 2021 contestant</p>
-                        <span class="dv-tag dv-runner">Runner-up</span>
-                    </div>
-                    <div class="dv-card">
-                        <div class="dv-category">Sports</div>
-                        <div class="dv-name">Saurabh</div>
-                        <p class="dv-desc">First wheelchair cricketer to score 1,000 international runs</p>
-                        <span class="dv-tag dv-runner">Runner-up</span>
-                    </div>
+                    <div class="dv-card"><div class="dv-category">Sports</div><div class="dv-name">Suryakant Yadav</div><p class="dv-desc">Para-badminton player</p><span class="dv-tag dv-winner">Winner</span></div>
+                    <div class="dv-card"><div class="dv-category">Academics</div><div class="dv-name">Dolly Pal</div><p class="dv-desc">B.Ed student, University of Delhi</p><span class="dv-tag dv-winner">Winner</span></div>
+                    <div class="dv-card"><div class="dv-category">Competitive Exams</div><div class="dv-name">Akash Dilip</div><p class="dv-desc">UPSC aspirant, Masters in Economics</p><span class="dv-tag dv-winner">Winner</span></div>
+                    <div class="dv-card"><div class="dv-category">Sports &amp; Academics</div><div class="dv-name">Sandesh Kumar Yadav</div><p class="dv-desc">BHU student &amp; badminton player</p><span class="dv-tag dv-winner">Winner</span></div>
+                    <div class="dv-card"><div class="dv-category">Competitive Exams</div><div class="dv-name">Kajal Kumari</div><p class="dv-desc">UPSC aspirant, aspiring IPS officer</p><span class="dv-tag dv-winner">Winner</span></div>
+                    <div class="dv-card"><div class="dv-category">Entrepreneurship</div><div class="dv-name">Navnath Belappa Barbande</div><p class="dv-desc">Pharmacy student, aspiring author</p><span class="dv-tag dv-winner">Winner</span></div>
+                    <div class="dv-card"><div class="dv-category">Sports</div><div class="dv-name">Deepak Sharma</div><p class="dv-desc">Para shooter</p><span class="dv-tag dv-runner">Runner-up</span></div>
+                    <div class="dv-card"><div class="dv-category">Arts</div><div class="dv-name">Shweta</div><p class="dv-desc">Miss Deaf World 2021 contestant</p><span class="dv-tag dv-runner">Runner-up</span></div>
+                    <div class="dv-card"><div class="dv-category">Sports</div><div class="dv-name">Saurabh</div><p class="dv-desc">First wheelchair cricketer to score 1,000 international runs</p><span class="dv-tag dv-runner">Runner-up</span></div>
                 </div>
             </div>
         </section>
@@ -1224,44 +301,14 @@
             <div class="si">
                 <p class="sec-ey">Recognition</p>
                 <h2 id="awards-h" class="sec-h">Awards &amp; recognition</h2>
-                <p class="sec-lead">DRF and its founder Devanshi Rathi have been recognised by youth development organisations, the Government of India, and international bodies for the impact of Project Checkmate and the foundation&rsquo;s work.</p>
+                <p class="sec-lead">DRF and its founder Devanshi Rathi have been recognised by youth development organisations, the Government of India, and international bodies for the impact of Project Checkmate.</p>
                 <div class="awards-grid">
-                    <div class="award-card">
-                        <div class="award-year">2017</div>
-                        <div class="award-title">Indian Youth Forum Award for Excellence in Youth Development</div>
-                        <p class="award-body">Awarded to Project Checkmate for its innovative use of chess to promote education and empowerment among underprivileged and visually impaired youth.</p>
-                        <span class="award-tag">Project Checkmate</span>
-                    </div>
-                    <div class="award-card">
-                        <div class="award-year">2017</div>
-                        <div class="award-title">PHD House Award for Social Service to Children</div>
-                        <p class="award-body">Recognised by the PHD Chamber of Commerce &amp; Industry for outstanding social service to children through chess-based education.</p>
-                        <span class="award-tag">Social Impact</span>
-                    </div>
-                    <div class="award-card">
-                        <div class="award-year">2017</div>
-                        <div class="award-title">Hindustan Times Paathshaala &mdash; &ldquo;Aaj Kya Sikhaya&rdquo; Award</div>
-                        <p class="award-body">National recognition from Hindustan Times for educational innovation through Project Checkmate.</p>
-                        <span class="award-tag">Education</span>
-                    </div>
-                    <div class="award-card">
-                        <div class="award-year">2017</div>
-                        <div class="award-title">Sir Sardar Bhagwant Singh Award for Excellence in Research</div>
-                        <p class="award-body">Awarded for research excellence connected to the foundation&rsquo;s work in chess, education, and disability inclusion.</p>
-                        <span class="award-tag">Research</span>
-                    </div>
-                    <div class="award-card">
-                        <div class="award-year">2018</div>
-                        <div class="award-title">Queen&rsquo;s Young Leader &mdash; Highly Commended Runner-Up</div>
-                        <p class="award-body">Founder Devanshi Rathi was selected as a Highly Commended Runner-Up in the Queen&rsquo;s Young Leaders Programme, attending the University of Cambridge as part of the award.</p>
-                        <span class="award-tag">Founder</span>
-                    </div>
-                    <div class="award-card">
-                        <div class="award-year">2016&ndash;2018</div>
-                        <div class="award-title">Hpage &amp; Indiblogger Awards &mdash; Devachess Blog</div>
-                        <p class="award-body">Devanshi&rsquo;s chess blog &ldquo;Devachess&rdquo; received multiple Hpage Best Website awards and an Indiblogger nomination, ranking in Feedspot&rsquo;s top 30 chess blogs.</p>
-                        <span class="award-tag">Founder</span>
-                    </div>
+                    <div class="award-card"><div class="award-year">2017</div><div class="award-title">Indian Youth Forum Award for Excellence in Youth Development</div><p class="award-body">Awarded to Project Checkmate for its innovative use of chess to promote education and empowerment among underprivileged and visually impaired youth.</p><span class="award-tag">Project Checkmate</span></div>
+                    <div class="award-card"><div class="award-year">2017</div><div class="award-title">PHD House Award for Social Service to Children</div><p class="award-body">Recognised by the PHD Chamber of Commerce &amp; Industry for outstanding social service to children through chess-based education.</p><span class="award-tag">Social Impact</span></div>
+                    <div class="award-card"><div class="award-year">2017</div><div class="award-title">Hindustan Times Paathshaala &mdash; &ldquo;Aaj Kya Sikhaya&rdquo; Award</div><p class="award-body">National recognition from Hindustan Times for educational innovation through Project Checkmate.</p><span class="award-tag">Education</span></div>
+                    <div class="award-card"><div class="award-year">2017</div><div class="award-title">Sir Sardar Bhagwant Singh Award for Excellence in Research</div><p class="award-body">Awarded for research excellence connected to the foundation&rsquo;s work in chess, education, and disability inclusion.</p><span class="award-tag">Research</span></div>
+                    <div class="award-card"><div class="award-year">2018</div><div class="award-title">Queen&rsquo;s Young Leader &mdash; Highly Commended Runner-Up</div><p class="award-body">Founder Devanshi Rathi was selected as a Highly Commended Runner-Up in the Queen&rsquo;s Young Leaders Programme, attending the University of Cambridge as part of the award.</p><span class="award-tag">Founder</span></div>
+                    <div class="award-card"><div class="award-year">2016&ndash;2018</div><div class="award-title">Hpage &amp; Indiblogger Awards &mdash; Devachess Blog</div><p class="award-body">Devanshi&rsquo;s chess blog &ldquo;Devachess&rdquo; received multiple Hpage Best Website awards and an Indiblogger nomination, ranking in Feedspot&rsquo;s top 30 chess blogs.</p><span class="award-tag">Founder</span></div>
                 </div>
             </div>
         </section>
@@ -1299,11 +346,11 @@
             <div class="si">
                 <span class="cta-tag">Be Part of the Story</span>
                 <h2>Help us write the next chapter.</h2>
-                <p>Every volunteer hour and collaboration helps us bring opportunity and training to more young people across India.</p>
-                <a href="contact.html" class="btn-gd">
-        Connect &mdash; Start a collaboration
-        <svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
+                <p>Every volunteer hour and contribution helps us bring opportunity and training to more young people across India.</p>
+                <a href="get-involved.html" class="btn-gd">
+                    Get Involved
+                    <svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
             </div>
         </div>
 
@@ -1344,6 +391,7 @@
                 <div class="fc">
                     <h4>Get Involved</h4>
                     <ul class="flinks">
+                        <li><a href="get-involved.html#support">Support &amp; Donate</a></li>
                         <li><a href="get-involved.html#volunteer">Volunteer &amp; Intern</a></li>
                         <li><a href="get-involved.html#partner">Partner with Us</a></li>
                         <li><a href="contact.html">Contact</a></li>
@@ -1351,12 +399,31 @@
                 </div>
             </div>
             <div class="fb">
-                <p class="flegal">&copy; 2024 Devanshi Rathi Foundation. All rights reserved.</p>
+                <p class="flegal">&copy; 2026 Devanshi Rathi Foundation. All rights reserved.</p>
                 <p class="fcin">CIN: U92490DL2018NPL335483</p>
             </div>
         </div>
     </footer>
 
-</body>
+    <script>
+    (function(){
+        var btn=document.getElementById('navToggle');
+        var menu=document.getElementById('navMobile');
+        if(!btn||!menu)return;
+        btn.addEventListener('click',function(){
+            var open=menu.classList.toggle('open');
+            btn.classList.toggle('open',open);
+            btn.setAttribute('aria-expanded',String(open));
+        });
+        document.addEventListener('click',function(e){
+            if(!btn.contains(e.target)&&!menu.contains(e.target)){
+                menu.classList.remove('open');
+                btn.classList.remove('open');
+                btn.setAttribute('aria-expanded','false');
+            }
+        });
+    })();
+    </script>
 
+</body>
 </html>

@@ -5,956 +5,92 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Get Involved — DR Foundation</title>
-    <meta name="description" content="Support, volunteer, intern, or partner with the DR Foundation. Use our contact page to discuss collaboration and support options." />
+    <meta name="description" content="Support, volunteer, intern, or partner with the DR Foundation. Donate to an 80G-certified non-profit empowering disabled and underprivileged youth across India." />
     <link rel="icon" href="logo.jpeg" type="image/jpeg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="shared.css" />
     <style>
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0
-        }
-        
-         :root {
-            --cr: #0f4c81;
-            --cr-dk: #0c3a66;
-            --cr-pl: #e0f2fe;
-            --gd: #22c55e;
-            --gd-dk: #15803d;
-            --gd-pl: #ecfdf5;
-            --gd-md: #10b981;
-            --ink: #0f172a;
-            --ink-m: #475569;
-            --ink-f: #64748b;
-            --bg: #f8fafc;
-            --wh: #ffffff;
-            --b-cr: rgba(15, 76, 129, 0.12);
-            --b-gd: rgba(34, 197, 94, 0.16);
-            --serif: 'Cormorant Garamond', Georgia, serif;
-            --sans: 'DM Sans', system-ui, sans-serif;
-            --max: 1160px;
-            --r: 12px;
-            --rl: 20px;
-        }
-        
-        html {
-            scroll-behavior: smooth
-        }
-        
-        body {
-            font-family: var(--sans);
-            font-size: 16px;
-            line-height: 1.7;
-            color: var(--ink);
-            background: var(--bg);
-            -webkit-font-smoothing: antialiased
-        }
-        
-        img {
-            display: block;
-            max-width: 100%
-        }
-        
-        a {
-            color: inherit;
-            text-decoration: none
-        }
-        
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            background: rgba(253, 252, 250, .94);
-            backdrop-filter: blur(14px);
-            border-bottom: 1px solid var(--b-gd);
-            padding: 0 clamp(1.5rem, 5vw, 3rem)
-        }
-        
-        .nav-inner {
-            max-width: var(--max);
-            margin: 0 auto;
-            height: 70px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between
-        }
-        
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px
-        }
-        
-        .logo-img {
-            width: 44px;
-            height: 44px;
-            object-fit: contain;
-            border-radius: 6px;
-            border: 1px solid var(--b-gd)
-        }
-        
-        .logo-text {
-            font-family: var(--serif);
-            font-size: 19px;
-            font-weight: 600;
-            color: var(--ink);
-            line-height: 1.1
-        }
-        
-        .logo-sub {
-            font-size: 10px;
-            font-weight: 300;
-            letter-spacing: .12em;
-            text-transform: uppercase;
-            color: var(--ink-f)
-        }
-        
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: .2rem;
-            list-style: none
-        }
-        
-        .nav-links a {
-            font-size: 13.5px;
-            color: var(--ink-m);
-            padding: 6px 12px;
-            border-radius: 6px;
-            transition: color .2s, background .2s
-        }
-        
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--cr);
-            background: var(--cr-pl)
-        }
-        
-        .nav-cta {
-            background: var(--cr)!important;
-            color: #fff!important;
-            padding: 8px 20px!important;
-            border-radius: 8px!important;
-            font-weight: 500!important
-        }
-        
-        .nav-cta:hover {
-            background: var(--cr-dk)!important;
-            color: #fff!important
-        }
-        /* PAGE HERO */
-        
-        .page-hero {
-            padding: 120px clamp(1.5rem, 5vw, 3rem) 72px;
-            background: var(--ink);
-            position: relative;
-            overflow: hidden
-        }
-        
-        .page-hero::before {
-            content: '\265F';
-            position: absolute;
-            top: -60px;
-            right: 5%;
-            font-size: 380px;
-            color: rgba(255, 255, 255, .03);
-            line-height: 1;
-            pointer-events: none
-        }
-        
-        .page-hero::after {
-            content: '\2655';
-            position: absolute;
-            bottom: -80px;
-            left: 5%;
-            font-size: 300px;
-            color: rgba(196, 147, 58, .05);
-            line-height: 1;
-            pointer-events: none
-        }
-        
-        .page-hero-inner {
-            max-width: var(--max);
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            gap: 4rem;
-            position: relative;
-            z-index: 1
-        }
-        
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 11px;
-            font-weight: 500;
-            letter-spacing: .14em;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, .6);
-            background: rgba(255, 255, 255, .08);
-            padding: 6px 14px;
-            border-radius: 100px;
-            margin-bottom: 1.25rem
-        }
-        
-        .eyebrow::before {
-            content: '';
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--gd)
-        }
-        
-        .page-hero h1 {
-            font-family: var(--serif);
-            font-size: clamp(2.6rem, 4.5vw, 3.8rem);
-            font-weight: 600;
-            line-height: 1.1;
-            color: #fff;
-            letter-spacing: -.02em;
-            margin-bottom: 1.25rem
-        }
-        
-        .page-hero h1 em {
-            font-style: italic;
-            color: var(--gd-md)
-        }
-        
-        .page-hero-lead {
-            font-size: 17px;
-            font-weight: 300;
-            color: rgba(255, 255, 255, .7);
-            line-height: 1.8
-        }
-        
-        .hero-ways {
-            display: flex;
-            flex-direction: column;
-            gap: .75rem
-        }
-        
-        .hero-way {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            background: rgba(255, 255, 255, .06);
-            border: 1px solid rgba(255, 255, 255, .1);
-            border-radius: var(--r);
-            padding: 1rem 1.25rem;
-            transition: background .2s, border-color .2s
-        }
-        
-        .hero-way:hover {
-            background: rgba(196, 147, 58, .1);
-            border-color: rgba(196, 147, 58, .3)
-        }
-        
-        .hw-num {
-            font-family: var(--serif);
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: var(--gd-md);
-            width: 36px;
-            flex-shrink: 0
-        }
-        
-        .hw-text {
-            font-size: 14px;
-            font-weight: 500;
-            color: #fff
-        }
-        
-        .hw-sub {
-            font-size: 12px;
-            font-weight: 300;
-            color: rgba(255, 255, 255, .5)
-        }
-        /* SHARED */
-        
-        .section {
-            padding: 5.5rem clamp(1.5rem, 5vw, 3rem)
-        }
-        
-        .si {
-            max-width: var(--max);
-            margin: 0 auto
-        }
-        
-        .sec-ey {
-            font-size: 11px;
-            font-weight: 500;
-            letter-spacing: .14em;
-            text-transform: uppercase;
-            color: var(--gd-dk);
-            margin-bottom: .85rem
-        }
-        
-        .sec-h {
-            font-family: var(--serif);
-            font-size: clamp(1.9rem, 3vw, 2.6rem);
-            font-weight: 600;
-            color: var(--ink);
-            line-height: 1.15;
-            margin-bottom: 1rem;
-            letter-spacing: -.01em
-        }
-        
-        .sec-lead {
-            font-size: 16px;
-            font-weight: 300;
-            color: var(--ink-m);
-            max-width: 620px;
-            margin-bottom: 3rem;
-            line-height: 1.8
-        }
-        
-        .body-text {
-            font-size: 15px;
-            font-weight: 300;
-            color: var(--ink-m);
-            line-height: 1.9;
-            margin-bottom: 1.25rem
-        }
-        
-        .divider {
-            height: 1px;
-            background: var(--b-gd);
-            margin: 0 clamp(1.5rem, 5vw, 3rem)
-        }
-        
-        .arr {
-            width: 14px;
-            height: 14px;
-            fill: none;
-            stroke: currentColor;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round
-        }
-        
-        .btn-p {
-            background: var(--cr);
-            color: #fff;
-            padding: 13px 28px;
-            border-radius: var(--r);
-            font-size: 14px;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: background .2s, transform .2s
-        }
-        
-        .btn-p:hover {
-            background: var(--cr-dk);
-            transform: translateY(-1px)
-        }
-        
-        .btn-gd {
-            background: var(--gd);
-            color: #fff;
-            padding: 13px 28px;
-            border-radius: var(--r);
-            font-size: 14px;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: background .2s, transform .2s
-        }
-        
-        .btn-gd:hover {
-            background: var(--gd-dk);
-            transform: translateY(-1px)
-        }
-        
-        .btn-s {
-            background: transparent;
-            color: var(--cr);
-            padding: 12px 28px;
-            border-radius: var(--r);
-            font-size: 14px;
-            font-weight: 500;
-            border: 1.5px solid var(--cr);
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: background .2s
-        }
-        
-        .btn-s:hover {
-            background: var(--cr-pl)
-        }
-        /* DONATE */
-        
-        .support {
-            background: var(--cr);
-            padding: 5.5rem clamp(1.5rem, 5vw, 3rem);
-            position: relative;
-            overflow: hidden
-        }
-        
-        .support::before {
-            content: '\265F';
-            position: absolute;
-            top: -50px;
-            right: 5%;
-            font-size: 320px;
-            color: rgba(255, 255, 255, .04);
-            line-height: 1;
-            pointer-events: none
-        }
-        
-        .support-inner {
-            max-width: var(--max);
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: center;
-            position: relative;
-            z-index: 1
-        }
-        
-        .support-label {
-            font-size: 10.5px;
-            font-weight: 500;
-            letter-spacing: .16em;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, .55);
-            margin-bottom: .85rem
-        }
-        
-        .support h2 {
-            font-family: var(--serif);
-            font-size: clamp(2rem, 3.5vw, 2.8rem);
-            font-weight: 600;
-            color: #fff;
-            line-height: 1.15;
-            margin-bottom: 1rem;
-            letter-spacing: -.01em
-        }
-        
-        .support-lead {
-            font-size: 16px;
-            font-weight: 300;
-            color: rgba(255, 255, 255, .8);
-            line-height: 1.8;
-            margin-bottom: 2rem
-        }
-        
-        .support-cert {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255, 255, 255, .12);
-            color: rgba(255, 255, 255, .9);
-            font-size: 12.5px;
-            font-weight: 400;
-            padding: 8px 16px;
-            border-radius: 100px;
-            margin-bottom: 1.5rem
-        }
-        
-        .support-cert::before {
-            content: '\2713';
-            font-weight: 700
-        }
-        
-        .btn-white {
-            background: #fff;
-            color: var(--cr);
-            padding: 15px 32px;
-            border-radius: var(--r);
-            font-size: 14px;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: transform .2s, box-shadow .2s
-        }
-        
-        .btn-white:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, .15)
-        }
-        
-        .support-note {
-            font-size: 12px;
-            color: rgba(255, 255, 255, .45);
-            margin-top: 1rem
-        }
-        
-        .impact-boxes {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem
-        }
-        
-        .impact-box {
-            background: rgba(255, 255, 255, .1);
-            border-radius: var(--r);
-            padding: 1.25rem 1.5rem;
-            border: 1px solid rgba(255, 255, 255, .15)
-        }
-        
-        .ib-amount {
-            font-family: var(--serif);
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #fff;
-            margin-bottom: .25rem
-        }
-        
-        .ib-text {
-            font-size: 13.5px;
-            font-weight: 300;
-            color: rgba(255, 255, 255, .75);
-            line-height: 1.5
-        }
-        /* VOLUNTEER */
-        
-        .volunteer {
-            background: var(--wh)
-        }
-        
-        .vol-grid {
-            display: grid;
-            grid-template-columns: 1.1fr 1fr;
-            gap: 5rem;
-            align-items: start
-        }
-        
-        .positions-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-bottom: 2rem
-        }
-        
-        .pos-card {
-            background: var(--bg);
-            border-radius: var(--r);
-            padding: 1.25rem;
-            border: 1px solid var(--b-gd);
-            transition: border-color .2s, transform .2s
-        }
-        
-        .pos-card:hover {
-            border-color: var(--gd);
-            transform: translateY(-2px)
-        }
-        
-        .pos-num {
-            font-size: 11px;
-            font-weight: 500;
-            color: var(--gd-dk);
-            margin-bottom: .4rem;
-            letter-spacing: .06em
-        }
-        
-        .pos-title {
-            font-size: 13.5px;
-            font-weight: 500;
-            color: var(--ink);
-            line-height: 1.4
-        }
-        
-        .how-box {
-            background: var(--gd-pl);
-            border-radius: var(--rl);
-            padding: 2rem;
-            border: 1px solid var(--b-gd)
-        }
-        
-        .how-title {
-            font-family: var(--serif);
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--ink);
-            margin-bottom: 1.25rem
-        }
-        
-        .how-steps {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem
-        }
-        
-        .how-step {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px
-        }
-        
-        .how-step-num {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background: var(--gd);
-            color: #fff;
-            font-size: 12px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0
-        }
-        
-        .how-step-text {
-            font-size: 13.5px;
-            color: var(--ink-m);
-            line-height: 1.55;
-            padding-top: 4px
-        }
-        
-        .how-step-text strong {
-            color: var(--ink);
-            font-weight: 500
-        }
-        
-        .eligibility {
-            margin-top: 1.5rem;
-            background: var(--wh);
-            border-radius: var(--r);
-            padding: 1.25rem;
-            border: 1px solid var(--b-gd)
-        }
-        
-        .elig-title {
-            font-size: 12px;
-            font-weight: 500;
-            letter-spacing: .1em;
-            text-transform: uppercase;
-            color: var(--ink-f);
-            margin-bottom: .75rem
-        }
-        
-        .elig-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
-            font-size: 13px;
-            color: var(--ink-m);
-            margin-bottom: .5rem;
-            line-height: 1.5
-        }
-        
-        .elig-dot {
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            background: var(--cr);
-            flex-shrink: 0;
-            margin-top: 8px
-        }
-        /* PARTNER */
-        
-        .partner {
-            background: var(--bg)
-        }
-        
-        .partner-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.25rem;
-            margin-bottom: 3rem
-        }
-        
-        .partner-type {
-            background: var(--wh);
-            border-radius: var(--rl);
-            padding: 2rem;
-            border: 1px solid var(--b-gd);
-            transition: border-color .2s, transform .2s
-        }
-        
-        .partner-type:hover {
-            border-color: var(--gd);
-            transform: translateY(-3px)
-        }
-        
-        .pt-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: var(--r);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
-            margin-bottom: 1.25rem
-        }
-        
-        .pt-icon.corp {
-            background: var(--cr-pl)
-        }
-        
-        .pt-icon.ngo {
-            background: var(--gd-pl)
-        }
-        
-        .pt-icon.speak {
-            background: #F0F5FF
-        }
-        
-        .pt-title {
-            font-family: var(--serif);
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: var(--ink);
-            margin-bottom: .5rem
-        }
-        
-        .pt-text {
-            font-size: 14px;
-            font-weight: 300;
-            color: var(--ink-m);
-            line-height: 1.75;
-            margin-bottom: 1.25rem
-        }
-        
-        .pt-benefit {
-            font-size: 12.5px;
-            font-weight: 400;
-            color: var(--gd-dk);
-            display: flex;
-            align-items: flex-start;
-            gap: 7px;
-            margin-bottom: .4rem;
-            line-height: 1.4
-        }
-        
-        .pt-benefit::before {
-            content: '\2713';
-            color: var(--gd);
-            font-weight: 700;
-            flex-shrink: 0
-        }
-        /* AMBASSADOR */
-        
-        .ambassador-box {
-            background: var(--cr);
-            border-radius: var(--rl);
-            padding: 2.5rem;
-            color: #fff;
-            display: grid;
-            grid-template-columns: 1fr auto;
-            align-items: center;
-            gap: 2rem
-        }
-        
-        .amb-title {
-            font-family: var(--serif);
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: #fff;
-            margin-bottom: .5rem
-        }
-        
-        .amb-text {
-            font-size: 14px;
-            font-weight: 300;
-            color: rgba(255, 255, 255, .8);
-            line-height: 1.7
-        }
-        /* FOOTER */
-        
-        footer {
-            background: #111110;
-            padding: 4.5rem clamp(1.5rem, 5vw, 3rem) 2rem
-        }
-        
-        .fi {
-            max-width: var(--max);
-            margin: 0 auto
-        }
-        
-        .ft {
-            display: grid;
-            grid-template-columns: 1.6fr 1fr 1fr 1fr;
-            gap: 3rem;
-            padding-bottom: 3rem;
-            border-bottom: 1px solid rgba(255, 255, 255, .07);
-            margin-bottom: 2rem
-        }
-        
-        .fl {
-            display: flex;
-            align-items: center;
-            gap: 12px
-        }
-        
-        .fli {
-            width: 40px;
-            height: 40px;
-            object-fit: contain;
-            border-radius: 6px;
-            opacity: .85
-        }
-        
-        .fl .logo-text {
-            color: #fff
-        }
-        
-        .fl .logo-sub {
-            color: rgba(255, 255, 255, .3)
-        }
-        
-        .ftag {
-            font-size: 13px;
-            font-weight: 300;
-            color: rgba(255, 255, 255, .4);
-            line-height: 1.75;
-            margin-top: 1rem;
-            max-width: 260px
-        }
-        
-        .fsoc {
-            display: flex;
-            gap: 9px;
-            margin-top: 1.5rem
-        }
-        
-        .sl {
-            width: 34px;
-            height: 34px;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, .07);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: rgba(255, 255, 255, .5);
-            font-size: 11px;
-            font-weight: 600;
-            transition: background .2s, color .2s
-        }
-        
-        .sl:hover {
-            background: var(--cr);
-            color: #fff
-        }
-        
-        .fc h4 {
-            font-size: 10.5px;
-            font-weight: 500;
-            letter-spacing: .13em;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, .3);
-            margin-bottom: 1.25rem
-        }
-        
-        .flinks {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: .6rem
-        }
-        
-        .flinks a {
-            font-size: 13.5px;
-            font-weight: 300;
-            color: rgba(255, 255, 255, .6);
-            transition: color .2s
-        }
-        
-        .flinks a:hover {
-            color: var(--gd-md)
-        }
-        
-        .fb {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 1rem
-        }
-        
-        .flegal {
-            font-size: 12px;
-            font-weight: 300;
-            color: rgba(255, 255, 255, .25)
-        }
-        
-        .fcin {
-            font-size: 11px;
-            font-weight: 300;
-            color: rgba(255, 255, 255, .15);
-            font-family: monospace
-        }
-        
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px)
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0)
-            }
-        }
-        
-        .fu {
-            animation: fadeUp .7s ease both
-        }
-        
-        .fu2 {
-            animation: fadeUp .7s .1s ease both
-        }
-        
-        .fu3 {
-            animation: fadeUp .7s .2s ease both
-        }
-        
+        /* ── PAGE HERO (dark) ── */
+        .page-hero { background: var(--ink); position: relative; overflow: hidden }
+        .page-hero::before { content: '\265F'; position: absolute; top: -60px; right: 5%; font-size: 380px; color: rgba(255,255,255,.03); line-height: 1; pointer-events: none }
+        .page-hero::after { content: '\2655'; position: absolute; bottom: -80px; left: 5%; font-size: 300px; color: rgba(196,147,58,.05); line-height: 1; pointer-events: none }
+        .page-hero-inner { position: relative; z-index: 1 }
+        .page-hero .eyebrow { color: rgba(255,255,255,.6); background: rgba(255,255,255,.08); border-color: transparent }
+        .page-hero h1 { color: #fff }
+        .page-hero h1 em { color: var(--gd-md) }
+        .page-hero-lead { color: rgba(255,255,255,.7) }
+        .hero-ways { display: flex; flex-direction: column; gap: .75rem }
+        .hero-way { display: flex; align-items: center; gap: 14px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: var(--r); padding: 1rem 1.25rem; transition: background .2s, border-color .2s }
+        .hero-way:hover { background: rgba(196,147,58,.1); border-color: rgba(196,147,58,.3) }
+        .hw-num { font-family: var(--serif); font-size: 1.4rem; font-weight: 600; color: var(--gd-md); width: 36px; flex-shrink: 0 }
+        .hw-text { font-size: 14px; font-weight: 500; color: #fff }
+        .hw-sub { font-size: 12px; font-weight: 300; color: rgba(255,255,255,.5) }
+        /* ── DONATE / SUPPORT ── */
+        .support { background: var(--cr); padding: 5.5rem clamp(1.5rem,5vw,3rem); position: relative; overflow: hidden }
+        .support::before { content: '\265F'; position: absolute; top: -50px; right: 5%; font-size: 320px; color: rgba(255,255,255,.04); line-height: 1; pointer-events: none }
+        .support-inner { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; position: relative; z-index: 1 }
+        .support-label { font-size: 10.5px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.55); margin-bottom: .85rem }
+        .support h2 { font-family: var(--serif); font-size: clamp(2rem,3.5vw,2.8rem); font-weight: 600; color: #fff; line-height: 1.15; margin-bottom: 1rem; letter-spacing: -.01em }
+        .support-lead { font-size: 16px; font-weight: 300; color: rgba(255,255,255,.8); line-height: 1.8; margin-bottom: 1.5rem }
+        .support-cert { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,.12); color: rgba(255,255,255,.9); font-size: 12.5px; font-weight: 400; padding: 8px 16px; border-radius: 100px; margin-bottom: 1.5rem }
+        .support-cert::before { content: '\2713'; font-weight: 700 }
+        .donate-steps { display: flex; flex-direction: column; gap: .85rem; margin-bottom: 1.5rem }
+        .donate-step { display: flex; align-items: flex-start; gap: 12px; background: rgba(255,255,255,.1); border-radius: var(--r); padding: 1rem 1.25rem; border: 1px solid rgba(255,255,255,.14) }
+        .ds-num { font-family: var(--serif); font-size: 1.3rem; font-weight: 600; color: rgba(255,255,255,.5); width: 28px; flex-shrink: 0 }
+        .ds-text { font-size: 13.5px; font-weight: 300; color: rgba(255,255,255,.85); line-height: 1.55 }
+        .ds-text strong { font-weight: 500; color: #fff }
+        .support-note { font-size: 12px; color: rgba(255,255,255,.45); margin-top: 1rem }
+        .impact-boxes { display: flex; flex-direction: column; gap: 1rem }
+        .impact-box { background: rgba(255,255,255,.1); border-radius: var(--r); padding: 1.25rem 1.5rem; border: 1px solid rgba(255,255,255,.15) }
+        .ib-amount { font-family: var(--serif); font-size: 1.5rem; font-weight: 600; color: #fff; margin-bottom: .25rem }
+        .ib-text { font-size: 13.5px; font-weight: 300; color: rgba(255,255,255,.75); line-height: 1.5 }
+        /* ── VOLUNTEER ── */
+        .volunteer { background: var(--wh) }
+        .vol-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 5rem; align-items: start }
+        .positions-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem }
+        .pos-card { background: var(--bg); border-radius: var(--r); padding: 1.25rem; border: 1px solid var(--b-gd); transition: border-color .2s, transform .2s }
+        .pos-card:hover { border-color: var(--gd); transform: translateY(-2px) }
+        .pos-num { font-size: 11px; font-weight: 500; color: var(--gd-dk); margin-bottom: .4rem; letter-spacing: .06em }
+        .pos-title { font-size: 13.5px; font-weight: 500; color: var(--ink); line-height: 1.4 }
+        .how-box { background: var(--gd-pl); border-radius: var(--rl); padding: 2rem; border: 1px solid var(--b-gd) }
+        .how-title { font-family: var(--serif); font-size: 1.1rem; font-weight: 600; color: var(--ink); margin-bottom: 1.25rem }
+        .how-steps { display: flex; flex-direction: column; gap: 1rem }
+        .how-step { display: flex; align-items: flex-start; gap: 12px }
+        .how-step-num { width: 28px; height: 28px; border-radius: 50%; background: var(--gd); color: #fff; font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0 }
+        .how-step-text { font-size: 13.5px; color: var(--ink-m); line-height: 1.55; padding-top: 4px }
+        .how-step-text strong { color: var(--ink); font-weight: 500 }
+        .eligibility { margin-top: 1.5rem; background: var(--wh); border-radius: var(--r); padding: 1.25rem; border: 1px solid var(--b-gd) }
+        .elig-title { font-size: 12px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-f); margin-bottom: .75rem }
+        .elig-item { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--ink-m); margin-bottom: .5rem; line-height: 1.5 }
+        .elig-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--cr); flex-shrink: 0; margin-top: 8px }
+        /* ── PARTNER ── */
+        .partner { background: var(--bg) }
+        .partner-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; margin-bottom: 3rem }
+        .partner-type { background: var(--wh); border-radius: var(--rl); padding: 2rem; border: 1px solid var(--b-gd); transition: border-color .2s, transform .2s }
+        .partner-type:hover { border-color: var(--gd); transform: translateY(-3px) }
+        .pt-icon { width: 48px; height: 48px; border-radius: var(--r); display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 1.25rem }
+        .pt-icon.corp { background: var(--cr-pl) }
+        .pt-icon.ngo { background: var(--gd-pl) }
+        .pt-icon.speak { background: #F0F5FF }
+        .pt-title { font-family: var(--serif); font-size: 1.15rem; font-weight: 600; color: var(--ink); margin-bottom: .5rem }
+        .pt-text { font-size: 14px; font-weight: 300; color: var(--ink-m); line-height: 1.75; margin-bottom: 1.25rem }
+        .pt-benefit { font-size: 12.5px; font-weight: 400; color: var(--gd-dk); display: flex; align-items: flex-start; gap: 7px; margin-bottom: .4rem; line-height: 1.4 }
+        .pt-benefit::before { content: '\2713'; color: var(--gd); font-weight: 700; flex-shrink: 0 }
+        .ambassador-box { background: var(--cr); border-radius: var(--rl); padding: 2.5rem; color: #fff; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 2rem }
+        .amb-title { font-family: var(--serif); font-size: 1.4rem; font-weight: 600; color: #fff; margin-bottom: .5rem }
+        .amb-text { font-size: 14px; font-weight: 300; color: rgba(255,255,255,.8); line-height: 1.7 }
+        /* ── RESPONSIVE ── */
         @media(max-width:900px) {
-            .page-hero-inner {
-                grid-template-columns: 1fr
-            }
-            .support-inner {
-                grid-template-columns: 1fr;
-                gap: 3rem
-            }
-            .vol-grid {
-                grid-template-columns: 1fr;
-                gap: 3rem
-            }
-            .positions-grid {
-                grid-template-columns: 1fr 1fr
-            }
-            .partner-grid {
-                grid-template-columns: 1fr
-            }
-            .ambassador-box {
-                grid-template-columns: 1fr
-            }
-            .ft {
-                grid-template-columns: 1fr 1fr;
-                gap: 2rem
-            }
+            .support-inner { grid-template-columns: 1fr; gap: 3rem }
+            .vol-grid { grid-template-columns: 1fr; gap: 3rem }
+            .positions-grid { grid-template-columns: 1fr 1fr }
+            .partner-grid { grid-template-columns: 1fr }
+            .ambassador-box { grid-template-columns: 1fr }
         }
-        
         @media(max-width:600px) {
-            .nav-links {
-                display: none
-            }
-            .positions-grid {
-                grid-template-columns: 1fr
-            }
-            .ft {
-                grid-template-columns: 1fr
-            }
-            .fb {
-                flex-direction: column;
-                align-items: flex-start
-            }
+            .positions-grid { grid-template-columns: 1fr }
         }
     </style>
 </head>
@@ -976,11 +112,25 @@
                 <li><a href="programs.html">Programs</a></li>
                 <li><a href="impact.html">Impact</a></li>
                 <li><a href="press.html">Press</a></li>
-                <li><a href="get-involved.html" class="active">Get Involved</a></li>
+                <li><a href="get-involved.html" class="nav-cta active">Get Involved</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
+            <button class="nav-toggle" id="navToggle" aria-controls="navMobile" aria-expanded="false" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
+    <div class="nav-mobile" id="navMobile" role="navigation" aria-label="Mobile navigation">
+        <ul role="list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="impact.html">Impact</a></li>
+            <li><a href="press.html">Press</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="get-involved.html" class="mob-cta active">Get Involved</a>
+    </div>
 
     <main>
 
@@ -989,22 +139,22 @@
             <div class="page-hero-inner">
                 <div>
                     <div class="eyebrow fu">Get Involved</div>
-                    <h1 class="fu2">Three ways to be<br/>part of the <em>mission.</em></h1>
-                    <p class="page-hero-lead fu3">Whether you support, volunteer, or partner &mdash; every contribution goes directly toward empowering young people across India through education, sport, and health.</p>
+                    <h1 class="fu2">Four ways to be<br/>part of the <em>mission.</em></h1>
+                    <p class="page-hero-lead fu3">Whether you donate, volunteer, or partner &mdash; every contribution goes directly toward empowering young people across India through education, sport, and health.</p>
                 </div>
                 <div class="hero-ways">
                     <a href="#support" class="hero-way">
                         <div class="hw-num">01</div>
                         <div>
-                            <div class="hw-text">Support</div>
-                            <div class="hw-sub">Through collaboration and partner support</div>
+                            <div class="hw-text">Donate &amp; Support</div>
+                            <div class="hw-sub">80G certified &middot; tax-exempt contributions</div>
                         </div>
                     </a>
                     <a href="#volunteer" class="hero-way">
                         <div class="hw-num">02</div>
                         <div>
                             <div class="hw-text">Volunteer &amp; Intern</div>
-                            <div class="hw-sub">Remote &middot; 11 open positions</div>
+                            <div class="hw-sub">Remote &middot; 12 open positions</div>
                         </div>
                     </a>
                     <a href="#partner" class="hero-way">
@@ -1018,34 +168,48 @@
             </div>
         </div>
 
-        <!-- SUPPORT -->
+        <!-- DONATE / SUPPORT -->
         <div class="support" id="support" role="region" aria-labelledby="don-h">
             <div class="support-inner">
                 <div>
-                    <div class="support-label">01 &mdash; Support</div>
-                    <h2 id="don-h">Support our work through collaboration.</h2>
-                    <p class="support-lead">We are currently coordinating support opportunities through partners and institutional collaborations. Please contact us to discuss how you can help.</p>
-                    <div class="support-cert">Support requests are welcome via the contact page.</div>
+                    <div class="support-label">01 &mdash; Donate &amp; Support</div>
+                    <h2 id="don-h">Support our work &mdash; and claim your 80G deduction.</h2>
+                    <p class="support-lead">The DR Foundation is 80G certified under the Income Tax Act, 1961 &mdash; meaning your donation is tax-deductible in India. Every rupee goes directly toward chess training, scholarships, and health programmes for underserved youth.</p>
+                    <div class="support-cert">80G Certified &middot; Tax-deductible donations</div>
+                    <div class="donate-steps">
+                        <div class="donate-step">
+                            <div class="ds-num">1</div>
+                            <p class="ds-text">Use the contact form to reach us, selecting <strong>&ldquo;Support enquiry&rdquo;</strong> as the reason.</p>
+                        </div>
+                        <div class="donate-step">
+                            <div class="ds-num">2</div>
+                            <p class="ds-text">We&rsquo;ll share bank transfer details and issue an <strong>80G receipt</strong> for your records.</p>
+                        </div>
+                        <div class="donate-step">
+                            <div class="ds-num">3</div>
+                            <p class="ds-text">Corporate donors receive a <strong>CSR impact report</strong> and co-branding opportunities.</p>
+                        </div>
+                    </div>
                     <div style="display:flex;gap:1rem;flex-wrap:wrap">
                         <a href="contact.html" class="btn-white">
-            Contact us
-            <svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+                            Donate &mdash; Contact us
+                            <svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
                     </div>
                     <p class="support-note">CIN: U92490DL2018NPL335483 &middot; Section 8 Non-Profit, New Delhi</p>
                 </div>
                 <div class="impact-boxes" aria-label="What your support funds">
                     <div class="impact-box">
-                        <div class="ib-amount">&#8377; Any amount</div>
-                        <p class="ib-text">Contributes toward chess training materials, tournament entry fees, and educational resources for visually impaired students.</p>
+                        <div class="ib-amount">Chess &amp; Education</div>
+                        <p class="ib-text">Contributes toward chess training materials, tournament entry fees, and educational resources for visually impaired students at NAB, New Delhi.</p>
                     </div>
                     <div class="impact-box">
-                        <div class="ib-amount">Scholarship fund</div>
+                        <div class="ib-amount">Scholarship Fund</div>
                         <p class="ib-text">Contributes toward cash prizes and year-long mentorship for scholars with disabilities aged 15&ndash;30 across India.</p>
                     </div>
                     <div class="impact-box">
-                        <div class="ib-amount">Health programmes</div>
-                        <p class="ib-text">Supports dental camps, menstrual hygiene education, mental health sessions, and nutritional support at partner NGOs.</p>
+                        <div class="ib-amount">Health Programmes</div>
+                        <p class="ib-text">Supports dental camps, menstrual hygiene education, mental health sessions, and nutritional support at partner NGOs across India.</p>
                     </div>
                 </div>
             </div>
@@ -1058,66 +222,29 @@
                     <div>
                         <p class="sec-ey">02 &mdash; Volunteer &amp; Intern</p>
                         <h2 id="vol-h" class="sec-h">Join the team</h2>
-                        <p class="body-text">DRF welcomes volunteers and interns from any background &mdash; whether you&rsquo;re a student, recent graduate, or working professional. All positions are remote and flexible, with on-ground opportunities available for those based
-                            in Delhi.</p>
+                        <p class="body-text">DRF welcomes volunteers and interns from any background &mdash; whether you&rsquo;re a student, recent graduate, or working professional. All positions are remote and flexible, with on-ground opportunities available for those based in Delhi.</p>
                         <p class="body-text">You won&rsquo;t receive a salary or stipend, but you will receive an e-letter of recommendation on completion, and the chance to contribute meaningfully to a cause that matters.</p>
 
                         <h3 style="font-family:var(--serif);font-size:1.2rem;font-weight:600;color:var(--ink);margin:2rem 0 1.25rem">Open positions</h3>
                         <div class="positions-grid">
-                            <div class="pos-card">
-                                <div class="pos-num">01</div>
-                                <div class="pos-title">Marketing &amp; Social Media Development</div>
-                            </div>
-                            <div class="pos-card">
-                                <div class="pos-num">02</div>
-                                <div class="pos-title">Consulting for Projects</div>
-                            </div>
-                            <div class="pos-card">
-                                <div class="pos-num">03</div>
-                                <div class="pos-title">Finance</div>
-                            </div>
-                            <div class="pos-card">
-                                <div class="pos-num">04</div>
-                                <div class="pos-title">Fundraising &amp; Sponsorships</div>
-                            </div>
-                            <div class="pos-card">
-                                <div class="pos-num">05</div>
-                                <div class="pos-title">Curriculum Development</div>
-                            </div>
-                            <div class="pos-card">
-                                <div class="pos-num">06</div>
-                                <div class="pos-title">Individual Skills for On-Ground Training</div>
-                            </div>
-                            <div class="pos-card">
-                                <div class="pos-num">07</div>
-                                <div class="pos-title">Support Campaigns &amp; Fundraising</div>
-                            </div>
-                            <div class="pos-card">
-                                <div class="pos-num">08</div>
-                                <div class="pos-title">Graphic Design</div>
-                            </div>
-                            <div class="pos-card">
-                                <div class="pos-num">09</div>
-                                <div class="pos-title">Web Design &amp; Development</div>
-                            </div>
-                            <div class="pos-card">
-                                <div class="pos-num">10</div>
-                                <div class="pos-title">Business Development</div>
-                            </div>
-                            <div class="pos-card">
-                                <div class="pos-num">11</div>
-                                <div class="pos-title">Community Partnerships Development</div>
-                            </div>
-                            <div class="pos-card">
-                                <div class="pos-num">12</div>
-                                <div class="pos-title">Data Analysis &amp; Research</div>
-                            </div>
+                            <div class="pos-card"><div class="pos-num">01</div><div class="pos-title">Marketing &amp; Social Media Development</div></div>
+                            <div class="pos-card"><div class="pos-num">02</div><div class="pos-title">Consulting for Projects</div></div>
+                            <div class="pos-card"><div class="pos-num">03</div><div class="pos-title">Finance</div></div>
+                            <div class="pos-card"><div class="pos-num">04</div><div class="pos-title">Fundraising &amp; Sponsorships</div></div>
+                            <div class="pos-card"><div class="pos-num">05</div><div class="pos-title">Curriculum Development</div></div>
+                            <div class="pos-card"><div class="pos-num">06</div><div class="pos-title">Individual Skills for On-Ground Training</div></div>
+                            <div class="pos-card"><div class="pos-num">07</div><div class="pos-title">Support Campaigns &amp; Fundraising</div></div>
+                            <div class="pos-card"><div class="pos-num">08</div><div class="pos-title">Graphic Design</div></div>
+                            <div class="pos-card"><div class="pos-num">09</div><div class="pos-title">Web Design &amp; Development</div></div>
+                            <div class="pos-card"><div class="pos-num">10</div><div class="pos-title">Business Development</div></div>
+                            <div class="pos-card"><div class="pos-num">11</div><div class="pos-title">Community Partnerships Development</div></div>
+                            <div class="pos-card"><div class="pos-num">12</div><div class="pos-title">Data Analysis &amp; Research</div></div>
                         </div>
 
                         <a href="contact.html" class="btn-p">
-            Apply via contact page
-            <svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+                            Apply via contact page
+                            <svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
                     </div>
 
                     <div>
@@ -1145,16 +272,11 @@
 
                         <div class="eligibility">
                             <div class="elig-title">Who can apply</div>
-                            <div class="elig-item">
-                                <div class="elig-dot"></div><span>Middle school, high school, and college students</span></div>
-                            <div class="elig-item">
-                                <div class="elig-dot"></div><span>Recent graduates from any field</span></div>
-                            <div class="elig-item">
-                                <div class="elig-dot"></div><span>Working professionals with relevant skills</span></div>
-                            <div class="elig-item">
-                                <div class="elig-dot"></div><span>Minimum commitment: 1 month (volunteers), 2 months (interns)</span></div>
-                            <div class="elig-item">
-                                <div class="elig-dot"></div><span>Remote-first; on-ground roles available in Delhi</span></div>
+                            <div class="elig-item"><div class="elig-dot"></div><span>Middle school, high school, and college students</span></div>
+                            <div class="elig-item"><div class="elig-dot"></div><span>Recent graduates from any field</span></div>
+                            <div class="elig-item"><div class="elig-dot"></div><span>Working professionals with relevant skills</span></div>
+                            <div class="elig-item"><div class="elig-dot"></div><span>Minimum commitment: 1 month (volunteers), 2 months (interns)</span></div>
+                            <div class="elig-item"><div class="elig-dot"></div><span>Remote-first; on-ground roles available in Delhi</span></div>
                         </div>
                     </div>
                 </div>
@@ -1209,9 +331,9 @@
                         <p class="amb-text">Are you a school or college student who wants to fundraise or run volunteering initiatives for DRF on your campus? Email us to customise a programme that works for your institution.</p>
                     </div>
                     <a href="contact.html" class="btn-white" style="white-space:nowrap;flex-shrink:0">
-          Become an Ambassador
-          <svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+                        Become an Ambassador
+                        <svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
                 </div>
             </div>
         </section>
@@ -1253,6 +375,7 @@
                 <div class="fc">
                     <h4>Get Involved</h4>
                     <ul class="flinks">
+                        <li><a href="#support">Support &amp; Donate</a></li>
                         <li><a href="#volunteer">Volunteer &amp; Intern</a></li>
                         <li><a href="#partner">Partner with Us</a></li>
                         <li><a href="contact.html">Contact</a></li>
@@ -1266,6 +389,25 @@
         </div>
     </footer>
 
-</body>
+    <script>
+    (function(){
+        var btn=document.getElementById('navToggle');
+        var menu=document.getElementById('navMobile');
+        if(!btn||!menu)return;
+        btn.addEventListener('click',function(){
+            var open=menu.classList.toggle('open');
+            btn.classList.toggle('open',open);
+            btn.setAttribute('aria-expanded',String(open));
+        });
+        document.addEventListener('click',function(e){
+            if(!btn.contains(e.target)&&!menu.contains(e.target)){
+                menu.classList.remove('open');
+                btn.classList.remove('open');
+                btn.setAttribute('aria-expanded','false');
+            }
+        });
+    })();
+    </script>
 
+</body>
 </html>

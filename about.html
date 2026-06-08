@@ -10,819 +10,45 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="shared.css" />
     <style>
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0
-        }
-        
-         :root {
-            --cr: #0f4c81;
-            --cr-dk: #0c3a66;
-            --cr-pl: #e0f2fe;
-            --gd: #22c55e;
-            --gd-dk: #15803d;
-            --gd-pl: #ecfdf5;
-            --gd-md: #10b981;
-            --ink: #0f172a;
-            --ink-m: #475569;
-            --ink-f: #64748b;
-            --bg: #f8fafc;
-            --wh: #ffffff;
-            --b-cr: rgba(15, 76, 129, 0.12);
-            --b-gd: rgba(34, 197, 94, 0.16);
-            --serif: 'Cormorant Garamond', Georgia, serif;
-            --sans: 'DM Sans', system-ui, sans-serif;
-            --max: 1160px;
-            --r: 12px;
-            --rl: 20px;
-        }
-        
-        html {
-            scroll-behavior: smooth
-        }
-        
-        body {
-            font-family: var(--sans);
-            font-size: 16px;
-            line-height: 1.7;
-            color: var(--ink);
-            background: var(--bg);
-            -webkit-font-smoothing: antialiased
-        }
-        
-        img {
-            display: block;
-            max-width: 100%
-        }
-        
-        a {
-            color: inherit;
-            text-decoration: none
-        }
-        /* NAV */
-        
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            background: rgba(253, 252, 250, .94);
-            backdrop-filter: blur(14px);
-            border-bottom: 1px solid var(--b-gd);
-            padding: 0 clamp(1.5rem, 5vw, 3rem)
-        }
-        
-        .nav-inner {
-            max-width: var(--max);
-            margin: 0 auto;
-            height: 70px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between
-        }
-        
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px
-        }
-        
-        .logo-img {
-            width: 44px;
-            height: 44px;
-            object-fit: contain;
-            border-radius: 6px;
-            border: 1px solid var(--b-gd)
-        }
-        
-        .logo-text {
-            font-family: var(--serif);
-            font-size: 19px;
-            font-weight: 600;
-            color: var(--ink);
-            line-height: 1.1
-        }
-        
-        .logo-sub {
-            font-size: 10px;
-            font-weight: 300;
-            letter-spacing: .12em;
-            text-transform: uppercase;
-            color: var(--ink-f)
-        }
-        
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: .2rem;
-            list-style: none
-        }
-        
-        .nav-links a {
-            font-size: 13.5px;
-            color: var(--ink-m);
-            padding: 6px 12px;
-            border-radius: 6px;
-            transition: color .2s, background .2s
-        }
-        
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--cr);
-            background: var(--cr-pl)
-        }
-        
-        .nav-cta {
-            background: var(--cr)!important;
-            color: #fff!important;
-            padding: 8px 20px!important;
-            border-radius: 8px!important;
-            font-weight: 500!important
-        }
-        
-        .nav-cta:hover {
-            background: var(--cr-dk)!important;
-            color: #fff!important
-        }
-        /* PAGE HERO */
-        
-        .page-hero {
-            padding: 120px clamp(1.5rem, 5vw, 3rem) 64px;
-            background: var(--wh);
-            border-bottom: 1px solid var(--b-gd)
-        }
-        
-        .page-hero-inner {
-            max-width: var(--max);
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            gap: 4rem
-        }
-        
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 11px;
-            font-weight: 500;
-            letter-spacing: .14em;
-            text-transform: uppercase;
-            color: var(--gd-dk);
-            background: var(--gd-pl);
-            padding: 6px 14px;
-            border-radius: 100px;
-            margin-bottom: 1.25rem;
-            border: 1px solid var(--b-gd)
-        }
-        
-        .eyebrow::before {
-            content: '';
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--gd)
-        }
-        
-        .page-hero h1 {
-            font-family: var(--serif);
-            font-size: clamp(2.6rem, 4.5vw, 3.8rem);
-            font-weight: 600;
-            line-height: 1.1;
-            color: var(--ink);
-            letter-spacing: -.02em;
-            margin-bottom: 1.25rem
-        }
-        
-        .page-hero h1 em {
-            font-style: italic;
-            color: var(--cr)
-        }
-        
-        .page-hero-lead {
-            font-size: 17px;
-            font-weight: 300;
-            color: var(--ink-m);
-            line-height: 1.8;
-            max-width: 480px
-        }
-        
-        .page-hero-nav {
-            display: flex;
-            flex-direction: column;
-            gap: .75rem
-        }
-        
-        .ph-link {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            background: var(--bg);
-            border: 1px solid var(--b-gd);
-            border-radius: var(--r);
-            padding: 1rem 1.25rem;
-            transition: border-color .2s, background .2s
-        }
-        
-        .ph-link:hover {
-            border-color: var(--gd);
-            background: var(--gd-pl)
-        }
-        
-        .ph-link-num {
-            font-family: var(--serif);
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: var(--cr);
-            width: 36px;
-            flex-shrink: 0
-        }
-        
-        .ph-link-text {
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--ink)
-        }
-        
-        .ph-link-sub {
-            font-size: 12px;
-            font-weight: 300;
-            color: var(--ink-f)
-        }
-        /* SHARED SECTION */
-        
-        .section {
-            padding: 5.5rem clamp(1.5rem, 5vw, 3rem)
-        }
-        
-        .si {
-            max-width: var(--max);
-            margin: 0 auto
-        }
-        
-        .sec-ey {
-            font-size: 11px;
-            font-weight: 500;
-            letter-spacing: .14em;
-            text-transform: uppercase;
-            color: var(--gd-dk);
-            margin-bottom: .85rem
-        }
-        
-        .sec-h {
-            font-family: var(--serif);
-            font-size: clamp(1.9rem, 3vw, 2.6rem);
-            font-weight: 600;
-            color: var(--ink);
-            line-height: 1.15;
-            margin-bottom: 1rem;
-            letter-spacing: -.01em
-        }
-        
-        .sec-lead {
-            font-size: 16px;
-            font-weight: 300;
-            color: var(--ink-m);
-            max-width: 600px;
-            margin-bottom: 3rem;
-            line-height: 1.8
-        }
-        
-        .divider {
-            height: 1px;
-            background: var(--b-gd);
-            margin: 0 clamp(1.5rem, 5vw, 3rem)
-        }
-        /* FOUNDATION SECTION */
-        
-        .foundation {
-            background: var(--wh)
-        }
-        
-        .found-grid {
-            display: grid;
-            grid-template-columns: 1.1fr 1fr;
-            gap: 5rem;
-            align-items: start
-        }
-        
-        .body-text {
-            font-size: 15px;
-            font-weight: 300;
-            color: var(--ink-m);
-            line-height: 1.9;
-            margin-bottom: 1.25rem
-        }
-        
-        .mission-box {
-            background: var(--cr);
-            border-radius: var(--rl);
-            padding: 2.5rem;
-            margin: 2rem 0
-        }
-        
-        .mission-label {
-            font-size: 10px;
-            font-weight: 500;
-            letter-spacing: .16em;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, .5);
-            margin-bottom: .75rem
-        }
-        
-        .mission-text {
-            font-family: var(--serif);
-            font-size: 1.25rem;
-            font-style: italic;
-            color: #fff;
-            line-height: 1.6
-        }
-        
-        .cred-stack {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem
-        }
-        
-        .cred-card {
-            background: var(--bg);
-            border-radius: var(--r);
-            padding: 1.25rem 1.5rem;
-            border: 1px solid var(--b-gd)
-        }
-        
-        .cred-icon {
-            font-size: 1.4rem;
-            margin-bottom: .5rem
-        }
-        
-        .cred-title {
-            font-family: var(--serif);
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--ink);
-            margin-bottom: .3rem
-        }
-        
-        .cred-text {
-            font-size: 13px;
-            font-weight: 300;
-            color: var(--ink-m);
-            line-height: 1.6
-        }
-        
-        .cred-highlight {
-            font-size: 11px;
-            font-weight: 500;
-            color: var(--gd-dk);
-            background: var(--gd-pl);
-            padding: 3px 10px;
-            border-radius: 100px;
-            display: inline-block;
-            margin-top: .5rem
-        }
-        
-        .sdg-row {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem
-        }
-        
-        .sdg-badge {
-            flex: 1;
-            background: var(--gd-pl);
-            border: 1px solid var(--b-gd);
-            border-radius: var(--r);
-            padding: 1.25rem;
-            text-align: center
-        }
-        
-        .sdg-num {
-            font-family: var(--serif);
-            font-size: 2rem;
-            font-weight: 600;
-            color: var(--cr);
-            line-height: 1;
-            margin-bottom: .35rem
-        }
-        
-        .sdg-label {
-            font-size: 12px;
-            font-weight: 400;
-            color: var(--ink-m);
-            line-height: 1.4
-        }
-        /* FOUNDER SECTION */
-        
-        .founder {
-            background: var(--bg)
-        }
-        
-        .founder-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.1fr;
-            gap: 5rem;
-            align-items: start
-        }
-        
-        .founder-card {
-            background: var(--wh);
-            border-radius: var(--rl);
-            padding: 2.5rem;
-            border: 1px solid var(--b-gd);
-            position: relative;
-            overflow: hidden
-        }
-        
-        .founder-card::after {
-            content: '"';
-            position: absolute;
-            top: -20px;
-            right: 20px;
-            font-family: var(--serif);
-            font-size: 200px;
-            color: rgba(196, 147, 58, .06);
-            line-height: 1;
-            pointer-events: none
-        }
-        
-        .founder-initial {
-            width: 72px;
-            height: 72px;
-            border-radius: var(--rl);
-            background: var(--cr-pl);
-            border: 2px solid var(--b-cr);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: var(--serif);
-            font-size: 2rem;
-            font-weight: 600;
-            color: var(--cr);
-            margin-bottom: 1.5rem
-        }
-        
-        .founder-name {
-            font-family: var(--serif);
-            font-size: 1.6rem;
-            font-weight: 600;
-            color: var(--ink);
-            margin-bottom: .25rem
-        }
-        
-        .founder-title {
-            font-size: 13px;
-            font-weight: 400;
-            color: var(--ink-f);
-            margin-bottom: 1.5rem;
-            letter-spacing: .04em
-        }
-        
-        .founder-divider {
-            height: 1px;
-            background: var(--b-gd);
-            margin: 1.5rem 0
-        }
-        
-        .fact-row {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 1rem
-        }
-        
-        .fact-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--gd);
-            flex-shrink: 0;
-            margin-top: 8px
-        }
-        
-        .fact-text {
-            font-size: 13.5px;
-            color: var(--ink-m);
-            line-height: 1.55
-        }
-        
-        .fact-bold {
-            font-weight: 500;
-            color: var(--ink)
-        }
-        
-        .timeline {
-            margin-top: 2rem
-        }
-        
-        .tl-item {
-            display: flex;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-            position: relative
-        }
-        
-        .tl-item::before {
-            content: '';
-            position: absolute;
-            left: 19px;
-            top: 40px;
-            bottom: -2rem;
-            width: 1px;
-            background: var(--b-gd)
-        }
-        
-        .tl-item:last-child::before {
-            display: none
-        }
-        
-        .tl-dot {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--gd-pl);
-            border: 2px solid var(--gd);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            font-size: 11px;
-            font-weight: 600;
-            color: var(--gd-dk);
-            z-index: 1
-        }
-        
-        .tl-content {}
-        
-        .tl-year {
-            font-size: 11px;
-            font-weight: 500;
-            color: var(--gd-dk);
-            letter-spacing: .06em;
-            margin-bottom: .25rem
-        }
-        
-        .tl-title {
-            font-family: var(--serif);
-            font-size: 1.05rem;
-            font-weight: 600;
-            color: var(--ink);
-            margin-bottom: .25rem
-        }
-        
-        .tl-text {
-            font-size: 13.5px;
-            font-weight: 300;
-            color: var(--ink-m);
-            line-height: 1.6
-        }
-        /* PARTNERS SECTION */
-        
-        .partners {
-            background: var(--wh)
-        }
-        
-        .partners-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.25rem
-        }
-        
-        .partner-card {
-            background: var(--bg);
-            border-radius: var(--r);
-            padding: 1.5rem;
-            border: 1px solid var(--b-gd);
-            transition: border-color .2s, transform .2s
-        }
-        
-        .partner-card:hover {
-            border-color: var(--gd);
-            transform: translateY(-2px)
-        }
-        
-        .partner-name {
-            font-family: var(--serif);
-            font-size: 1.05rem;
-            font-weight: 600;
-            color: var(--ink);
-            margin-bottom: .4rem
-        }
-        
-        .partner-loc {
-            font-size: 11px;
-            font-weight: 500;
-            letter-spacing: .08em;
-            text-transform: uppercase;
-            color: var(--gd-dk);
-            margin-bottom: .6rem
-        }
-        
-        .partner-desc {
-            font-size: 13.5px;
-            font-weight: 300;
-            color: var(--ink-m);
-            line-height: 1.65
-        }
-        
-        .partner-tag {
-            display: inline-block;
-            font-size: 11px;
-            color: var(--cr);
-            background: var(--cr-pl);
-            padding: 3px 10px;
-            border-radius: 100px;
-            margin-top: .75rem
-        }
-        /* FOOTER */
-        
-        footer {
-            background: #111110;
-            padding: 4.5rem clamp(1.5rem, 5vw, 3rem) 2rem
-        }
-        
-        .fi {
-            max-width: var(--max);
-            margin: 0 auto
-        }
-        
-        .ft {
-            display: grid;
-            grid-template-columns: 1.6fr 1fr 1fr 1fr;
-            gap: 3rem;
-            padding-bottom: 3rem;
-            border-bottom: 1px solid rgba(255, 255, 255, .07);
-            margin-bottom: 2rem
-        }
-        
-        .fl {
-            display: flex;
-            align-items: center;
-            gap: 12px
-        }
-        
-        .fli {
-            width: 40px;
-            height: 40px;
-            object-fit: contain;
-            border-radius: 6px;
-            opacity: .85
-        }
-        
-        .fl .logo-text {
-            color: #fff
-        }
-        
-        .fl .logo-sub {
-            color: rgba(255, 255, 255, .3)
-        }
-        
-        .ftag {
-            font-size: 13px;
-            font-weight: 300;
-            color: rgba(255, 255, 255, .4);
-            line-height: 1.75;
-            margin-top: 1rem;
-            max-width: 260px
-        }
-        
-        .fsoc {
-            display: flex;
-            gap: 9px;
-            margin-top: 1.5rem
-        }
-        
-        .sl {
-            width: 34px;
-            height: 34px;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, .07);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: rgba(255, 255, 255, .5);
-            font-size: 11px;
-            font-weight: 600;
-            transition: background .2s, color .2s
-        }
-        
-        .sl:hover {
-            background: var(--cr);
-            color: #fff
-        }
-        
-        .fc h4 {
-            font-size: 10.5px;
-            font-weight: 500;
-            letter-spacing: .13em;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, .3);
-            margin-bottom: 1.25rem
-        }
-        
-        .flinks {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: .6rem
-        }
-        
-        .flinks a {
-            font-size: 13.5px;
-            font-weight: 300;
-            color: rgba(255, 255, 255, .6);
-            transition: color .2s
-        }
-        
-        .flinks a:hover {
-            color: var(--gd-md)
-        }
-        
-        .fb {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 1rem
-        }
-        
-        .flegal {
-            font-size: 12px;
-            font-weight: 300;
-            color: rgba(255, 255, 255, .25)
-        }
-        
-        .fcin {
-            font-size: 11px;
-            font-weight: 300;
-            color: rgba(255, 255, 255, .15);
-            font-family: monospace
-        }
-        /* ANIM */
-        
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px)
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0)
-            }
-        }
-        
-        .fu {
-            animation: fadeUp .7s ease both
-        }
-        
-        .fu2 {
-            animation: fadeUp .7s .1s ease both
-        }
-        
-        .fu3 {
-            animation: fadeUp .7s .2s ease both
-        }
-        /* RESPONSIVE */
-        
+        /* ── PAGE HERO ── */
+        .page-hero { background: var(--wh); border-bottom: 1px solid var(--b-gd) }
+        .page-hero h1 { color: var(--ink) }
+        .page-hero h1 em { color: var(--cr) }
+        .page-hero-lead { color: var(--ink-m) }
+        /* ── FOUNDATION SECTION ── */
+        .foundation { background: var(--wh) }
+        .found-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 5rem; align-items: start }
+        .mission-box { background: var(--cr); border-radius: var(--rl); padding: 2.5rem; margin: 2rem 0 }
+        .mission-label { font-size: 10px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: .75rem }
+        .mission-text { font-family: var(--serif); font-size: 1.25rem; font-style: italic; color: #fff; line-height: 1.6 }
+        .cred-stack { display: flex; flex-direction: column; gap: 1rem }
+        .cred-card { background: var(--bg); border-radius: var(--r); padding: 1.25rem 1.5rem; border: 1px solid var(--b-gd) }
+        .cred-icon { font-size: 1.4rem; margin-bottom: .5rem }
+        .cred-title { font-family: var(--serif); font-size: 1rem; font-weight: 600; color: var(--ink); margin-bottom: .3rem }
+        .cred-text { font-size: 13px; font-weight: 300; color: var(--ink-m); line-height: 1.6 }
+        .cred-highlight { font-size: 11px; font-weight: 500; color: var(--gd-dk); background: var(--gd-pl); padding: 3px 10px; border-radius: 100px; display: inline-block; margin-top: .5rem }
+        .sdg-row { display: flex; gap: 1rem; margin-top: 2rem }
+        .sdg-badge { flex: 1; background: var(--gd-pl); border: 1px solid var(--b-gd); border-radius: var(--r); padding: 1.25rem; text-align: center }
+        .sdg-num { font-family: var(--serif); font-size: 2rem; font-weight: 600; color: var(--cr); line-height: 1; margin-bottom: .35rem }
+        .sdg-label { font-size: 12px; font-weight: 400; color: var(--ink-m); line-height: 1.4 }
+        /* ── PARTNERS SECTION ── */
+        .partners { background: var(--wh) }
+        .partners-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem }
+        .partner-card { background: var(--bg); border-radius: var(--r); padding: 1.5rem; border: 1px solid var(--b-gd); transition: border-color .2s, transform .2s }
+        .partner-card:hover { border-color: var(--gd); transform: translateY(-2px) }
+        .partner-name { font-family: var(--serif); font-size: 1.05rem; font-weight: 600; color: var(--ink); margin-bottom: .4rem }
+        .partner-loc { font-size: 11px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--gd-dk); margin-bottom: .6rem }
+        .partner-desc { font-size: 13.5px; font-weight: 300; color: var(--ink-m); line-height: 1.65 }
+        .partner-tag { display: inline-block; font-size: 11px; color: var(--cr); background: var(--cr-pl); padding: 3px 10px; border-radius: 100px; margin-top: .75rem }
+        /* ── RESPONSIVE ── */
         @media(max-width:900px) {
-            .page-hero-inner {
-                grid-template-columns: 1fr
-            }
-            .found-grid,
-            .founder-grid {
-                grid-template-columns: 1fr;
-                gap: 3rem
-            }
-            .partners-grid {
-                grid-template-columns: 1fr
-            }
-            .ft {
-                grid-template-columns: 1fr 1fr;
-                gap: 2rem
-            }
+            .found-grid { grid-template-columns: 1fr; gap: 3rem }
+            .partners-grid { grid-template-columns: 1fr }
         }
-        
         @media(max-width:600px) {
-            .nav-links {
-                display: none
-            }
-            .sdg-row {
-                flex-direction: column
-            }
-            .ft {
-                grid-template-columns: 1fr
-            }
-            .fb {
-                flex-direction: column;
-                align-items: flex-start
-            }
+            .sdg-row { flex-direction: column }
         }
     </style>
 </head>
@@ -844,11 +70,25 @@
                 <li><a href="programs.html">Programs</a></li>
                 <li><a href="impact.html">Impact</a></li>
                 <li><a href="press.html">Press</a></li>
-                <li><a href="get-involved.html">Get Involved</a></li>
+                <li><a href="get-involved.html" class="nav-cta">Get Involved</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
+            <button class="nav-toggle" id="navToggle" aria-controls="navMobile" aria-expanded="false" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
+    <div class="nav-mobile" id="navMobile" role="navigation" aria-label="Mobile navigation">
+        <ul role="list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="impact.html">Impact</a></li>
+            <li><a href="press.html">Press</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="get-involved.html" class="mob-cta">Get Involved</a>
+    </div>
 
     <main>
 
@@ -869,7 +109,7 @@
                         </div>
                     </a>
                     <a href="#partners" class="ph-link">
-                        <div class="ph-link-num">03</div>
+                        <div class="ph-link-num">02</div>
                         <div>
                             <div class="ph-link-text">Our Partners</div>
                             <div class="ph-link-sub">NGOs &amp; organisations we work with</div>
@@ -887,8 +127,7 @@
                         <p class="sec-ey">The Foundation</p>
                         <h2 id="found-h" class="sec-h">Who we are</h2>
                         <p class="body-text">DR Foundation, known as DRF, is a Section 8 non-profit based in New Delhi. We work at the intersection of education, sport, and health, with a focus on underprivileged youth and persons with disabilities across India.</p>
-                        <p class="body-text">The foundation grew out of Project Checkmate, which began in April 2016 as on-ground chess training at the National Association of the Blind in R.K. Puram, New Delhi. When the programme outgrew its informal structure, it formalised
-                            as a registered non-profit.</p>
+                        <p class="body-text">The foundation grew out of Project Checkmate, which began in April 2016 as on-ground chess training at the National Association of the Blind in R.K. Puram, New Delhi. When the programme outgrew its informal structure, it formalised as a registered non-profit.</p>
                         <p class="body-text">Today, DRF runs scholarship programmes, chess training initiatives, and health partnerships across India, aligned to the United Nations Sustainable Development Goals 3 (Good Health &amp; Well-being) and 4 (Quality Education).</p>
 
                         <div class="mission-box">
@@ -954,14 +193,13 @@
                     <div class="partner-card">
                         <div class="partner-name">National Association of the Blind (NAB)</div>
                         <div class="partner-loc">R.K. Puram, New Delhi</div>
-                        <p class="partner-desc">Our primary and longest-standing partner. Project Checkmate&rsquo;s on-ground chess training, scholarship ceremonies, dental camps, and infrastructure support (including a new refrigerator for home-science students) have all been
-                            delivered here.</p>
+                        <p class="partner-desc">Our primary and longest-standing partner. Project Checkmate&rsquo;s on-ground chess training, scholarship ceremonies, dental camps, and infrastructure support have all been delivered here.</p>
                         <span class="partner-tag">Partner for NAB</span>
                     </div>
                     <div class="partner-card">
                         <div class="partner-name">Wheeling Happiness Foundation</div>
                         <div class="partner-loc">New Delhi</div>
-                        <p class="partner-desc">Co-organised the Devajyoti Scholarships 2021 with DRF. Founded by Paralympic gold medalist Dr. Deepa Malik (Padma Shri, Rajiv Gandhi Khel Ratna) and her daughter Devika Malik, a fellow Queen&rsquo;s Young Leader awardee.</p>
+                        <p class="partner-desc">Co-organised the Devajyoti Scholarships 2021 with DRF. Founded by Paralympic gold medalist Dr. Deepa Malik (Padma Shri, Rajiv Gandhi Khel Ratna) and her daughter Devika Malik.</p>
                         <span class="partner-tag">Scholarship Collaboration</span>
                     </div>
                     <div class="partner-card">
@@ -985,13 +223,13 @@
                     <div class="partner-card">
                         <div class="partner-name">Kamal Dental Clinic</div>
                         <div class="partner-loc">New Delhi</div>
-                        <p class="partner-desc">Dr. Ashu Gupta and Mr. Sarthak Gupta delivered in-person dental hygiene sessions at NAB, R.K. Puram. Mr. Sarthak Gupta also accompanied 10 students to the Annual Inter-NGO Sports Meet at Modern School Vasant Vihar.</p>
+                        <p class="partner-desc">Dr. Ashu Gupta and Mr. Sarthak Gupta delivered in-person dental hygiene sessions at NAB, R.K. Puram. Mr. Sarthak Gupta also accompanied 10 students to the Annual Inter-NGO Sports Meet.</p>
                         <span class="partner-tag">Health Collaboration</span>
                     </div>
                     <div class="partner-card">
                         <div class="partner-name">Baala</div>
                         <div class="partner-loc">New Delhi</div>
-                        <p class="partner-desc">Partnered with DRF to distribute reusable sanitary kits and educational booklets to women at Kushalta Vikas Kender, New Delhi &mdash; addressing menstrual health and hygiene at a grassroots level.</p>
+                        <p class="partner-desc">Partnered with DRF to distribute reusable sanitary kits and educational booklets to women at Kushalta Vikas Kender, New Delhi &mdash; addressing menstrual health at a grassroots level.</p>
                         <span class="partner-tag">Health Collaboration</span>
                     </div>
                     <div class="partner-card">
@@ -1006,9 +244,9 @@
                     <p style="font-family:var(--serif);font-size:1.3rem;font-weight:600;color:#fff;margin-bottom:.75rem">Interested in partnering with us?</p>
                     <p style="font-size:14px;font-weight:300;color:rgba(255,255,255,.8);margin-bottom:1.5rem;max-width:480px;margin-left:auto;margin-right:auto">We welcome corporates for CSR initiatives, NGOs with aligned vision, and organisations who want to host Devanshi as a speaker.</p>
                     <a href="get-involved.html#partner" style="background:#fff;color:var(--cr);padding:12px 28px;border-radius:var(--r);font-size:14px;font-weight:500;display:inline-flex;align-items:center;gap:8px">
-          Collaborate with DRF
-          <svg style="width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+                        Collaborate with DRF
+                        <svg style="width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
                 </div>
             </div>
         </section>
@@ -1050,6 +288,7 @@
                 <div class="fc">
                     <h4>Get Involved</h4>
                     <ul class="flinks">
+                        <li><a href="get-involved.html#support">Support &amp; Donate</a></li>
                         <li><a href="get-involved.html#volunteer">Volunteer &amp; Intern</a></li>
                         <li><a href="get-involved.html#partner">Partner with Us</a></li>
                         <li><a href="contact.html">Contact</a></li>
@@ -1057,12 +296,31 @@
                 </div>
             </div>
             <div class="fb">
-                <p class="flegal">&copy; 2024 Devanshi Rathi Foundation. All rights reserved.</p>
+                <p class="flegal">&copy; 2026 Devanshi Rathi Foundation. All rights reserved.</p>
                 <p class="fcin">CIN: U92490DL2018NPL335483</p>
             </div>
         </div>
     </footer>
 
-</body>
+    <script>
+    (function(){
+        var btn=document.getElementById('navToggle');
+        var menu=document.getElementById('navMobile');
+        if(!btn||!menu)return;
+        btn.addEventListener('click',function(){
+            var open=menu.classList.toggle('open');
+            btn.classList.toggle('open',open);
+            btn.setAttribute('aria-expanded',String(open));
+        });
+        document.addEventListener('click',function(e){
+            if(!btn.contains(e.target)&&!menu.contains(e.target)){
+                menu.classList.remove('open');
+                btn.classList.remove('open');
+                btn.setAttribute('aria-expanded','false');
+            }
+        });
+    })();
+    </script>
 
+</body>
 </html>
