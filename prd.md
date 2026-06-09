@@ -5,7 +5,7 @@
 **Client:** Devanshi Rathi, Founder & Managing Director, DR Foundation (New Delhi)
 **Developer:** Advika Rathi
 **Due:** June 12, 2026
-**Live URL:** https://advikarathi.github.io/devanshirathifoundation/index.html
+**Live URL:** https://advikarathi.github.io/devanshi-rathi-foundation/
 
 ---
 
@@ -119,11 +119,11 @@
 
 ## Extension Goals
 
-- [ ] CSS animations or transitions
-- [ ] Contact form with HTML validation
+- [x] CSS animations or transitions
+- [x] Contact form with HTML validation
 - [ ] Dark mode toggle
 - [ ] Lighthouse 90+
-- [ ] Open Graph meta tags
+- [x] Open Graph meta tags
 
 ---
 

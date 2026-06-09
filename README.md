@@ -30,7 +30,7 @@ A clean, modern website for the DR Foundation — a Section 8 non-profit that em
 
 ## Live Site
 
-**[https://arathi1.github.io/devanshirathifoundation](https://arathi1.github.io/devanshirathifoundation)**
+**[https://advikarathi.github.io/devanshi-rathi-foundation/](https://advikarathi.github.io/devanshi-rathi-foundation/)**
 
 ## What I Learned
 
