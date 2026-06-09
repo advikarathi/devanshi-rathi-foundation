@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact — DR Foundation</title>
     <meta name="description" content="Get in touch with the DR Foundation. Contact us for support, volunteering, partnerships, media enquiries, or general questions." />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="DR Foundation" />
+    <meta property="og:url" content="https://arathi1.github.io/devanshirathifoundation/contact.html" />
+    <meta property="og:title" content="Contact — DR Foundation" />
+    <meta property="og:description" content="Get in touch with the DR Foundation. Contact us for support, volunteering, partnerships, media enquiries, or general questions." />
+    <meta property="og:image" content="https://arathi1.github.io/devanshirathifoundation/logo.jpeg" />
     <link rel="icon" href="logo.jpeg" type="image/jpeg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -77,6 +83,7 @@
 
 <body>
 
+    <header>
     <nav aria-label="Main navigation">
         <div class="nav-inner">
             <a href="index.html" class="nav-logo" aria-label="DR Foundation home">
@@ -111,6 +118,7 @@
         </ul>
         <a href="get-involved.html" class="mob-cta">Get Involved</a>
     </div>
+    </header>
 
     <main>
 
@@ -151,7 +159,7 @@
                     <h2 class="sec-h">Get in touch</h2>
                     <p class="sec-lead">Fill in the form below and we&rsquo;ll get back to you as soon as possible.</p>
 
-                    <form class="contact-form" id="contactForm" novalidate action="#" method="post">
+                    <form class="contact-form" id="contactForm" action="https://formspree.io/f/xlgknggq" method="POST">
                         <div class="form-row">
                             <div class="field">
                                 <label for="fname">First name <span aria-hidden="true">*</span></label>
@@ -302,6 +310,35 @@
     </footer>
 
     <script>
+    (function(){
+        var form=document.getElementById('contactForm');
+        var success=document.getElementById('formSuccess');
+        if(form&&success){
+            form.addEventListener('submit',function(e){
+                e.preventDefault();
+                if(!form.checkValidity()){form.reportValidity();return;}
+                var btn=form.querySelector('[type=submit]');
+                if(btn){btn.disabled=true;btn.textContent='Sending…';}
+                fetch('https://formspree.io/f/xlgknggq',{
+                    method:'POST',
+                    body:new FormData(form),
+                    headers:{Accept:'application/json'}
+                }).then(function(r){
+                    if(r.ok){
+                        form.style.display='none';
+                        success.classList.add('visible');
+                        success.focus();
+                    } else {
+                        if(btn){btn.disabled=false;btn.textContent='Send message';}
+                        alert('Something went wrong — please try again or email us directly.');
+                    }
+                }).catch(function(){
+                    if(btn){btn.disabled=false;btn.textContent='Send message';}
+                    alert('Network error — please check your connection and try again.');
+                });
+            });
+        }
+    })();
     (function(){
         var btn=document.getElementById('navToggle');
         var menu=document.getElementById('navMobile');
